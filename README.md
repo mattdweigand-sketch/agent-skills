@@ -13,6 +13,7 @@ Portable Codex skill library for agentic repo work, eval loops, research, writin
 | `parallel-refactor` | Coordinate multi-agent refactors through worktrees and review gates. |
 | `project-audit` | Audit repo structure against project rules. |
 | `source-command-context-audit` | Route the migrated context-audit command. |
+| `skill-creator-v3` | Create, improve, evaluate, and package Codex skills. |
 | `research-synthesis` | Turn source sets into decision-grade synthesis. |
 | `weekly-signal-diff-ai` | Produce weekly structural diffs on the AI ecosystem. |
 | `humanizer` | Remove AI writing patterns and improve clarity. |
