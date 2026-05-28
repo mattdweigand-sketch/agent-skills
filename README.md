@@ -1,24 +1,38 @@
-# RALF Loop Skill
+# Agent Skill Repo
 
-Reusable Codex skill for running local smoke/eval improvement loops.
+Portable Codex skill library for agentic repo work, eval loops, research, writing cleanup, and project hygiene.
 
-The loop is:
+## Included Skills
 
-```text
-Run -> Analyze -> Learn -> Fix -> Rerun
-```
-
-Use it when a repo has a local command or workflow that can be scored against frozen gates.
+| Skill | Use |
+|---|---|
+| `ralf-loop` | Run local smoke/eval loops until `pass`, `needs-human`, or `blocked`. |
+| `autoresearch` | Optimize an editable surface against a frozen labeled test set. |
+| `karpathy-guidelines` | Keep coding work simple, surgical, and verified. |
+| `n-agentic-harnesses` | Design and evaluate agentic harnesses. |
+| `parallel-refactor` | Coordinate multi-agent refactors through worktrees and review gates. |
+| `project-audit` | Audit repo structure against project rules. |
+| `source-command-context-audit` | Route the migrated context-audit command. |
+| `research-synthesis` | Turn source sets into decision-grade synthesis. |
+| `weekly-signal-diff-ai` | Produce weekly structural diffs on the AI ecosystem. |
+| `humanizer` | Remove AI writing patterns and improve clarity. |
+| `consolidate-memory` | Consolidate memory files and prune stale facts. |
 
 ## Install
 
-Copy the skill folder into your personal skills directory:
+Copy all skills into your personal skills directory:
 
 ```bash
-cp -R ralf-loop ~/.agents/skills/ralf-loop
+cp -R skills/* ~/.agents/skills/
 ```
 
-## Trigger
+Or install one skill:
+
+```bash
+cp -R skills/ralf-loop ~/.agents/skills/ralf-loop
+```
+
+## Example Triggers
 
 Ask Codex:
 
@@ -32,10 +46,22 @@ or:
 run the smoke test until it converges
 ```
 
-## Safety Defaults
+```text
+audit this project structure
+```
+
+```text
+run autoresearch on this retrieval config
+```
+
+```text
+humanize this README
+```
+
+## Library Defaults
 
 - Local-first. No cloud deploys unless explicitly authorized.
-- Frozen gates before edits.
-- Negative controls required for retrieval, AI, parser, and workflow tests.
-- One bounded fix per iteration.
-- Terminal state is `pass`, `needs-human`, or `blocked`.
+- Frozen gates before iterative edits.
+- Negative controls for retrieval, AI, parser, and workflow tests.
+- Small, surgical changes.
+- Evidence and source quality over confident prose.
