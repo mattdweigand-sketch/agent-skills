@@ -1,0 +1,3 @@
+display_name: RALF Loop
+short_description: Run local smoke/eval loops with review gates until a clear stop point.
+default_prompt: Run a RALF loop on this repo: baseline the target command, freeze gates, make one bounded fix per iteration, review, rerun, and stop at pass, needs-human, or blocked.
