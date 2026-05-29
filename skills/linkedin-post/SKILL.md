@@ -1,12 +1,12 @@
 ---
 name: linkedin-post
-description: "Write LinkedIn posts for Matt Weigand's personal feed. Produces a 150 to 300 word post formatted for LinkedIn with a hook opening, one idea per paragraph, no bullet points, and a concrete closing. Content types: thought leadership on fund admin and alternative investments, JSQ product news, industry trend commentary, personal takes on AI and PE. Trigger on '/linkedin-post [topic]', 'write a LinkedIn post about', 'LinkedIn post on', 'post about [topic]', 'draft a post on', 'create a LinkedIn post'. Do NOT trigger for LinkedIn DMs or connection request messages, email outreach, or multi-post campaigns."
-allowed-tools: Read Write Edit Glob Grep mcp__open-brain__search_thoughts
+description: "Write LinkedIn posts for your personal feed. Produces a 150 to 300 word post formatted for LinkedIn with a hook opening, one idea per paragraph, no bullet points, and a concrete closing. Content types: thought leadership, product or company news, industry trend commentary, and personal takes. Trigger on '/linkedin-post [topic]', 'write a LinkedIn post about', 'LinkedIn post on', 'post about [topic]', 'draft a post on', 'create a LinkedIn post'. Do NOT trigger for LinkedIn DMs or connection request messages, email outreach, or multi-post campaigns."
+allowed-tools: Read Write Edit Glob Grep WebSearch
 ---
 
 # LinkedIn Post
 
-Generate LinkedIn posts for Matt's personal feed. Voice and structure rules layer on top of writing-style.
+Generate LinkedIn posts for your personal feed. Voice and structure rules layer on top of your writing-style guide if you keep one.
 
 ## Contract
 
@@ -18,27 +18,27 @@ Generate LinkedIn posts for Matt's personal feed. Voice and structure rules laye
 
 | Source | Load level | Purpose |
 |---|---|---|
-| [_references/writing-style.md](../_references/writing-style.md) | full | Voice, tone, formatting (Tier 2: 20-word sentence limit) |
-| Open Brain `search_thoughts` | targeted | `REJECTION linkedin`, `[topic] ICP`, `[topic] competitive intel` when topic is fund-admin or JSQ-related |
-| `~/Code/jsq-wiki/wiki/<entity>` | targeted | Load only when the post needs a specific JSQ product/customer/competitor reference |
+| Your writing-style guide, if you have one | full | Voice, tone, formatting |
+| A knowledge base or notes store, if connected | targeted | Past feedback on your posts, plus topic-specific context |
+| Domain reference docs, if available | targeted | Load only when the post needs a specific product, customer, or competitor reference |
 
-## Step 0: Open Brain Pre-Flight
+## Step 0: Pre-Flight
 
-1. **Rejection enforcement.** `search_thoughts` for `REJECTION linkedin`, `REJECTION post`, `REJECTION social`. Silently apply.
-2. **Topic context.** If topic is fund-admin / alternatives / JSQ, search Open Brain for relevant ICP and competitive intel.
+1. **Past feedback.** If you keep a feedback or rejection log, search it for prior notes on LinkedIn posts and apply them silently.
+2. **Topic context.** Pull any available context on the topic before drafting.
 
-If Open Brain is unreachable: flag `[rejection enforcement skipped]` as the first line of chat output and proceed.
+This step is optional. If no knowledge base is connected, proceed straight to the process.
 
 ## Process
 
-1. **Clarify if needed.** If topic or angle is unclear, ask once: what topic, what angle, what type (thought leadership / product news / industry commentary / AI-PE take).
-2. **Research.** Open Brain search per Step 0 plus targeted wiki reads.
+1. **Clarify if needed.** If topic or angle is unclear, ask once: what topic, what angle, what type (thought leadership / product news / industry commentary / personal take).
+2. **Research.** Pull context per Step 0, plus targeted reads or web search as needed.
 3. **Draft.** Write per Structure Rules below. Aim for 150-300 words.
 4. **Present.** Output formatted exactly as it would appear on LinkedIn. Ask: "Any changes, or is this ready to post?"
 
 ## Structure Rules
 
-These layer on writing-style. Writing-style owns voice, tone, hard rules. This section owns LinkedIn-specific structure.
+These layer on your writing-style guide. The guide owns voice, tone, and hard rules. This section owns LinkedIn-specific structure.
 
 - **Hook first.** Opening 1-2 lines must hook the reader. This is what shows before "see more."
 - **One idea per paragraph.** If two points feel similar, consolidate.
@@ -48,25 +48,23 @@ These layer on writing-style. Writing-style owns voice, tone, hard rules. This s
 
 ## Content Guidance
 
-- **Thought leadership (fund admin / alternatives):** Practical insights, not generic advice. Authenticate with specific examples when possible.
-- **JSQ product news:** Lead with customer impact, not the feature. Accessible to non-technical readers.
+- **Thought leadership:** Practical insights, not generic advice. Authenticate with specific examples when possible.
+- **Product or company news:** Lead with customer impact, not the feature. Accessible to non-technical readers.
 - **Industry trend commentary:** React to market moves, regulation, or shifts. Offer a perspective, not just observation.
-- **AI / PE takes:** Reflective, can take a stance. Ground in concrete examples. Avoid hype.
+- **Personal takes:** Reflective, can take a stance. Ground in concrete examples. Avoid hype.
 
 ## Edge Cases
 
-- **Off-domain topic.** Anchor to Matt's professional perspective (enterprise sales, building teams). If no natural anchor exists, flag it: "This is outside your usual lane. Want to angle it toward [suggested connection]?"
-- **JSQ feature without inside knowledge.** Ask for specifics. Do not invent capabilities.
-- **No relevant Open Brain context.** Proceed with web research and Matt's general domain expertise. Do not pad with generic industry observations.
+- **Off-domain topic.** Anchor to your professional perspective. If no natural anchor exists, flag it: "This is outside your usual lane. Want to angle it toward [suggested connection]?"
+- **Product feature without inside knowledge.** Ask for specifics. Do not invent capabilities.
+- **No relevant stored context.** Proceed with web research and your general domain expertise. Do not pad with generic industry observations.
 
 ## Boundaries
 
 I write to:
-- Chat only — post formatted for copy-paste.
+- Chat only. The post is formatted for copy-paste.
 
-I do not write to:
-- Any `deal-management/` file.
-- Open Brain (search-only; no `capture_thought` or other writes).
+I do not write files or external systems. This skill is read and draft only.
 
 ## Examples of Style in Action
 
@@ -77,7 +75,3 @@ I do not write to:
 **Good (concrete ending):** "The fund managers winning today aren't the ones with the smartest investment thesis. They're the ones who've automated everything that isn't strategic."
 
 **Avoid (motivational platitude):** "So remember: always embrace change and stay ahead of the curve."
-
-## Fallback
-
-If Open Brain is unreachable, flag `[rejection enforcement skipped]` as the first line of chat output and proceed. Rejection enforcement is the only OB dependency.
