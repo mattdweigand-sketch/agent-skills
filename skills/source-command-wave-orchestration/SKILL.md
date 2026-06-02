@@ -10,7 +10,7 @@ Use this skill when the user asks to run the migrated source command
 
 ## Command Template
 
-Invoke the `wave-supervisor` skill and follow its instructions exactly.
+Invoke the `wave-orchestration` skill and follow its instructions exactly.
 
 Treat `/wave-orchestration` as the top-level entrypoint for the wave workflow:
 
@@ -27,6 +27,7 @@ deployments.
 
 ## Related Skills
 
+- `wave-orchestration`
 - `wave-supervisor`
 - `wave-worker`
 - `wave-reviewer`
