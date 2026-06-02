@@ -22,6 +22,7 @@ Portable agent skill library for agentic repo work, eval loops, research, writin
 | `research-synthesis` | Turn source sets into decision-grade synthesis. |
 | `skill-creator-v3` | Create, improve, evaluate, and package skills. |
 | `source-command-context-audit` | Route the migrated context-audit command. |
+| `source-command-wave-orchestration` | Route `/wave-orchestration` to the wave supervisor workflow. |
 | `wave-reviewer` | Review wave worker PRs or branches against bundle acceptance criteria. |
 | `wave-supervisor` | Split a large repo change into coordinated worker bundles under `.wave/`. |
 | `wave-worker` | Implement one assigned wave bundle in an isolated branch or worktree. |
