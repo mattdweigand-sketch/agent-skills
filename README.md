@@ -12,6 +12,7 @@ Portable agent skill library for agentic repo work, eval loops, research, writin
 | `code-project-structure` | Apply structural rules and scaffold new projects. |
 | `consolidate-memory` | Consolidate memory files and prune stale facts. |
 | `humanizer` | Remove AI writing patterns and improve clarity. |
+| `judgment-audit` | Audit subjective eval criteria and decide which deserve LLM judges, deterministic checks, manual review, or removal. |
 | `karpathy-guidelines` | Keep coding work simple, surgical, and verified. |
 | `linkedin-post` | Draft LinkedIn posts in a defined voice and structure. |
 | `n-agentic-harnesses` | Design and evaluate agentic harnesses. |
