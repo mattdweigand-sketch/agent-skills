@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Tune"
+  short_description: "Audit prompt artifacts for debt"
+  default_prompt: "Use $skill-tune to audit this prompt artifact for prompt technical debt. Return findings only unless I ask to apply edits."
