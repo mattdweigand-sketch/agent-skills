@@ -9,7 +9,7 @@ Audit prompt artifacts for debt. Default to findings only; edit only when the us
 
 ## Thesis
 
-When available, audit against the user-supplied canonical prompt-debt thesis. Compact fallback: own as little prompt as possible. Keep durable knowledge in canonical context, put checkable behavior in code or tests, and delete or isolate perishable steering.
+Prompt artifacts are technical debt because model-specific steering decays silently as models and harnesses change. Own as little prompt as possible: keep durable knowledge in canonical context, put checkable behavior in code or tests, delete or isolate perishable steering, and leave generic behavior to stock platform defaults.
 
 Classify each meaningful instruction by format, fate, and verification:
 
