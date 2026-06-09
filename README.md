@@ -12,6 +12,7 @@ Portable agent skill library for agentic repo work, eval loops, research, writin
 | `code-project-structure` | Apply structural rules and scaffold new projects. |
 | `consolidate-memory` | Consolidate memory files and prune stale facts. |
 | `criteria` | Audit subjective eval criteria and decide which deserve LLM judges, deterministic checks, manual review, or removal. |
+| `grade` | Audit whether a judgment-encoding system grades its captured patterns against real outcomes. |
 | `humanizer` | Remove AI writing patterns and improve clarity. |
 | `karpathy-guidelines` | Keep coding work simple, surgical, and verified. |
 | `linkedin-post` | Draft LinkedIn posts in a defined voice and structure. |
