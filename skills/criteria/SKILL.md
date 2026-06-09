@@ -1,12 +1,12 @@
 ---
-name: judgment-audit
-description: "Audit judge-style criteria, rubrics, or manual evaluation checks to decide which should become automated LLM judges, deterministic checks, manual reviews, or be dropped. Use when the user asks for a judgment audit, judge criteria audit, rubric promotion review, eval coverage audit, or wants to decide whether subjective criteria are worth automating."
+name: criteria
+description: "Audit judge-style criteria, rubrics, or manual evaluation checks to decide which should become automated LLM judges, deterministic checks, manual reviews, or be dropped. Use when the user runs /criteria or asks for a criteria audit, judge criteria audit, rubric promotion review, eval coverage audit, or wants to decide whether subjective criteria are worth automating. Not for checking whether a system grades encoded judgment against outcomes (that's the grade skill)."
 version: "2.0"
 category: "analysis"
 tags: ["evals", "judgment", "rubrics", "quality"]
 ---
 
-# Judgment Audit
+# Rubric Promotion Audit
 
 Audit subjective evaluation criteria and recommend which ones deserve automation.
 
@@ -78,7 +78,7 @@ If any of these are unclear and not discoverable from local files, ask one conci
 ## Report Template
 
 ```markdown
-# Judgment Audit: <scope>
+# Rubric Promotion Audit: <scope>
 
 ## Scope
 - Repo:
