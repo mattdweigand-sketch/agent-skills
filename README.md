@@ -21,6 +21,7 @@ Portable agent skill library for agentic repo work, eval loops, research, writin
 | `ralf-loop` | Run local smoke/eval loops until `pass`, `needs-human`, or `blocked`. |
 | `research-synthesis` | Turn source sets into decision-grade synthesis. |
 | `skill-creator-v3` | Create, improve, evaluate, and package skills. |
+| `scope` | Gate missing authority before durable state, external output, or file/config changes. |
 | `source-command-context-audit` | Route the migrated context-audit command. |
 | `source-command-wave-orchestration` | Route `/wave-orchestration` to the wave supervisor workflow. |
 | `wave-orchestration` | Top-level skill for deciding, planning, running, reviewing, and verifying a wave. |
