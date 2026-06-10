@@ -26,7 +26,7 @@ Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
 | `research-synthesis` | Turns a source set into clear findings, contradictions, gaps, and next questions. |
 | `quality-check-eval` | Sorts AI output quality checks into four buckets: automate in code, judge with an LLM, keep for human review, or remove. |
 | `run-kit` | Turns fuzzy agent work into a scoped run, then helps review or cross-check the result. |
-| `scope` | Adds a short authority check before durable writes, external output, or risky config changes. |
+| `runtime-guard` | Prevents an agent from editing or publishing without clearly defined authority, boundaries, stop conditions, or rollback. |
 | `skill-creator-v3` | Creates, improves, tests, and packages reusable skills. |
 | `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |
 | `weekly-signal-diff-ai` | Summarizes what structurally changed in AI this week and why it matters. |
