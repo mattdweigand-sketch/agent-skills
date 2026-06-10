@@ -1,0 +1,23 @@
+{
+  "skill_name": "run-kit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Turn this into a run spec: audit my wiki root docs against the current scripts, but don't edit anything. I only want a report and I can review for 15 minutes.",
+      "expected_output": "A RUN SPEC that identifies a verification or investigation run, names source-of-truth docs and scripts, keeps actions read-only, requires concrete proof, and checks the review budget.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Should I steer this or dispatch it? I want an AI to improve my sales workflow, but I don't know what good looks like yet.",
+      "expected_output": "A VERDICT that classifies the work as steering, explains that the problem is still becoming clear, and recommends talking through the standard before dispatch.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Is this real? The agent says it rewrote my document and ran validation, but it only gave me a final summary.",
+      "expected_output": "An IS IT REAL? - AUDIT response that flags missing proof, asks for or recommends inspecting diff/rendered output/validation logs, and does not accept the agent summary as proof.",
+      "files": []
+    }
+  ]
+}
