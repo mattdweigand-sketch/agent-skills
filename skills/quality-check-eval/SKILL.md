@@ -1,23 +1,34 @@
 ---
-name: criteria
-description: "Audit judge-style criteria, rubrics, or manual evaluation checks to decide which should become automated LLM judges, deterministic checks, manual reviews, or be dropped. Use when the user runs /criteria or asks for a criteria audit, judge criteria audit, rubric promotion review, eval coverage audit, or wants to decide whether subjective criteria are worth automating. Not for checking whether a system grades encoded judgment against outcomes (that's the grade skill)."
+name: quality-check-eval
+description: "Sort AI output quality checks into four buckets: automate in code, judge with an LLM, keep for human review, or remove. Use when reviews are too manual, evals are vague, a workflow needs clearer quality gates, or the user wants to decide which AI output checks are worth automating. Not for checking whether a system grades encoded judgment against real outcomes; use grade for that."
 metadata:
   version: "2.0"
   category: "analysis"
-  tags: ["evals", "judgment", "rubrics", "quality"]
+  tags: ["evals", "checks", "judges", "quality"]
 ---
 
-# Rubric Promotion Audit
+# Quality Check Eval
 
-Audit subjective evaluation criteria and recommend which ones deserve automation.
+Use this when an AI workflow has quality checks, review notes, rubric items, or
+acceptance criteria, and you need to decide how each one should be handled.
+
+The skill sorts each check into one of four buckets:
+
+- automate in code
+- judge with an LLM
+- keep for human review
+- remove
+
+This is useful when reviews are too manual, evals are vague, or a team is unsure
+which quality checks are worth automating.
 
 ## Use This When
 
 Use this skill when the user asks to:
-- audit `type: judge`, manual, rubric, or subjective success criteria
+- audit `type: judge`, manual, rubric, or subjective eval checks
 - decide whether to build an LLM-judge runner
 - review skipped eval coverage
-- rank criteria by frequency, stakes, and automation value
+- rank eval checks by frequency, stakes, and automation value
 - convert subjective checks into deterministic checks where possible
 
 ## Contract
@@ -30,7 +41,7 @@ Use this skill when the user asks to:
 
 Before acting, state:
 - which repo/worktree you are auditing
-- where criteria live
+- where eval checks live
 - where eval logs or recent artifacts live
 - what report path you will write
 
@@ -38,17 +49,17 @@ If any of these are unclear and not discoverable from local files, ask one conci
 
 ## Audit Workflow
 
-1. **Find criteria.**
+1. **Find eval checks.**
    Use `rg` and local file inspection. Look for terms such as `type: judge`, `type: manual`, `success_criteria`, `rubric`, `judge`, `manual`, `criteria`, and `eval`.
 
-2. **Catalog criteria.**
-   Build a table with: criterion id, parent job/file, type, rubric/check text, expected evidence, and current evaluator path if any.
+2. **Catalog eval checks.**
+   Build a table with: check id, parent job/file, type, rubric/check text, expected evidence, and current evaluator path if any.
 
 3. **Scan execution signal.**
-   Read eval logs, run reports, or recent output artifacts. Count how often each criterion is skipped, manually reviewed, failed, or would have been relevant. Prefer actual logs over speculation.
+   Read eval logs, run reports, or recent output artifacts. Count how often each check is skipped, manually reviewed, failed, or would have been relevant. Prefer actual logs over speculation.
 
 4. **Check deterministic alternatives.**
-   For each criterion, ask whether it can become a deterministic check:
+   For each check, ask whether it can become a deterministic check:
    - file exists / section exists
    - regex or structured parse
    - JSON/schema validation
@@ -57,9 +68,9 @@ If any of these are unclear and not discoverable from local files, ask one conci
    - retrieval or metadata query through approved tools
 
 5. **Spot-check real artifacts.**
-   Inspect 2 to 5 recent representative outputs. Ask whether each criterion would have caught a real quality issue. If it would not have fired, call that out.
+   Inspect 2 to 5 recent representative outputs. Ask whether each check would have caught a real quality issue. If it would not have fired, call that out.
 
-6. **Score each criterion.**
+6. **Score each check.**
    Use:
    - Frequency: high / medium / low
    - Stakes: high / medium / low
@@ -67,7 +78,7 @@ If any of these are unclear and not discoverable from local files, ask one conci
    - Evidence quality: strong / mixed / weak
 
 7. **Recommend one action.**
-   For each criterion, choose exactly one:
+   For each check, choose exactly one:
    - `PROMOTE` — build an LLM judge
    - `AUTO-CONVERT` — replace with deterministic check
    - `KEEP-MANUAL` — judgment matters, but automation is not worth it yet
@@ -79,24 +90,24 @@ If any of these are unclear and not discoverable from local files, ask one conci
 ## Report Template
 
 ```markdown
-# Rubric Promotion Audit: <scope>
+# Quality Check Eval: <scope>
 
 ## Scope
 - Repo:
-- Criteria source:
+- Check source:
 - Eval/log source:
 - Artifact sample:
 
-## Criteria Catalog
-| Criterion | Parent | Type | Rubric | Current status |
+## Eval Check Catalog
+| Check | Parent | Type | Rubric | Current status |
 |---|---|---|---|---|
 
 ## Execution Signal
-| Criterion | Observed skips/reviews/failures | Artifact evidence | Notes |
+| Check | Observed skips/reviews/failures | Artifact evidence | Notes |
 |---|---:|---|---|
 
 ## Recommendations
-| Criterion | Frequency | Stakes | Auto-convertibility | Evidence | Recommendation |
+| Check | Frequency | Stakes | Auto-convertibility | Evidence | Recommendation |
 |---|---|---|---|---|---|
 
 ## V2 Judge Scope
@@ -107,7 +118,7 @@ List the 3 to 5 best LLM-judge candidates. For each, include:
 - expected output shape
 
 ## Auto-Conversion Candidates
-List criteria that should become deterministic checks instead of LLM judges.
+List eval checks that should become deterministic checks instead of LLM judges.
 
 ## Drop / Keep Manual
 Explain briefly.
@@ -115,9 +126,9 @@ Explain briefly.
 
 ## Output Rules
 
-- Be direct. Do not promote criteria just because they exist.
+- Be direct. Do not automate checks just because they exist.
 - Prefer deterministic checks over LLM judges when the signal can be verified mechanically.
-- Separate "valuable criterion" from "worth automating."
+- Separate "valuable review question" from "worth automating."
 - Include file paths and line references for important claims.
 - End with a short summary: top promotions, auto-conversions, drops, and rough implementation effort.
 - Provide a `computer://` link to the saved report.
