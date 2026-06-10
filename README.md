@@ -18,7 +18,6 @@ Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
 | `grade` | Checks whether a judgment system measures its captured patterns against real outcomes. |
 | `humanizer` | Rewrites prose so it sounds clearer, more natural, and less AI-generated. |
 | `karpathy-guidelines` | Keeps coding work simple, scoped, and easy to verify. |
-| `linkedin-post` | Drafts a concise LinkedIn post for a personal feed. |
 | `n-agentic-harnesses` | Helps design or review the system around AI agents, tools, memory, permissions, and evals. |
 | `parallel-refactor` | Coordinates a large refactor across multiple isolated worktrees. |
 | `ralf-loop` | Runs a repeatable test-and-fix loop until the work passes, blocks, or needs a decision. |
