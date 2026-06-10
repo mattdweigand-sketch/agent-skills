@@ -12,7 +12,7 @@ Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
 
 | Skill | Description |
 |---|---|
-| `60-30-10` | Checks whether an AI system keeps judgment in data and code instead of overloaded prompts. |
+| `60-30-10` | Evaluate where a project keeps its judgment, and whether the allocation matches the durable shape: mostly owned data, partly deterministic code, only a thin layer of live model. |
 | `autoresearch` | Improves a prompt, config, or workflow by testing one change at a time against a fixed score. |
 | `context-window-audit` | Finds startup context, settings, wrappers, and memory entries that waste context-window space. |
 | `criteria` | Sorts eval criteria into deterministic checks, LLM judges, manual review, or deletion. |
