@@ -1,12 +1,13 @@
 ---
-name: source-command-context-audit
-description: "Audit an agent setup for token waste, context bloat, stale instructions, and dead command wrappers. Use when the user says context audit, audit my context, check my settings, why is Codex so slow, token optimization, or asks why startup context is too large."
+name: context-window-audit
+description: "Audit an agent setup for token waste, context-window bloat, stale instructions, and dead command wrappers. Use when the user says context-window audit, context audit, audit my context, check my settings, why is Codex so slow, token optimization, or asks why startup context is too large."
 ---
 
-# source-command-context-audit
+# Context Window Audit
 
-Use this skill when the user asks to run the migrated source command
-`context-audit` or otherwise wants an audit of agent startup context.
+Use this skill when the user asks for a context-window audit, context audit,
+token optimization, settings cleanup, or an explanation of why an agent session
+is loading too much context.
 
 ## Scope
 
