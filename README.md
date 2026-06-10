@@ -13,6 +13,7 @@ Use this table as a routing guide. Each skill has its full workflow in
 
 | Skill | What it does | Use when |
 |---|---|---|
+| `60-30-10` | Audits where an AI system keeps load-bearing judgment across owned data, deterministic code, and live model prompts. | You want to know whether durable judgment is in data/code or trapped in perishable prompt prose. |
 | `autoresearch` | Runs a measure, edit, re-measure loop against a frozen test set and keeps only changes that improve the score. | You have a prompt, retrieval config, template, ranking rule, or other editable surface with a repeatable metric. |
 | `criteria` | Audits rubric items and subjective checks, then recommends deterministic checks, LLM judges, manual review, or deletion. | You have eval criteria and need to decide which ones are worth automating. |
 | `grade` | Checks whether a system that captures judgment also grades that judgment against real outcomes. | You are reviewing an eval, scoring, recommendation, sales-intelligence, or agent system that may be accumulating unverified patterns. |
@@ -55,6 +56,7 @@ cp -R skills/ralf-loop ~/.agents/skills/ralf-loop
 
 Ask your agent:
 
+- `run a 60/30/10 composition audit`
 - `run a RALF loop on this repo`
 - `run the smoke test until it converges`
 - `audit this repo structure`
