@@ -6,7 +6,8 @@ Rules for using it:
 
 - Start here only if the user has not provided categories, entities, or a source packet.
 - Treat the categories and entities as suggested defaults.
-- Re-rank, replace, or expand the list using Open Brain memory and active projects before writing the final diff.
+- Re-rank, replace, or expand the list using available memory, prior digests,
+  active projects, and current user context before writing the final diff.
 - Preserve some baseline discovery. Do not personalize so aggressively that the scan stops surfacing new signal (new entrants, regulation shifts, and dependency changes matter even when they aren't tied to a current project).
 
 ## Suggested Categories and Entities
@@ -28,7 +29,7 @@ Rules for using it:
 
 Promote an entity or category when:
 
-- it shows up in active projects or recent Open Brain captures
+- it shows up in active projects, prior digests, or available memory
 - it directly competes with or enables tools the user currently uses
 - a regulation or compute shift affects the user's stack or market view
 - it appeared in the last digest and has unresolved momentum
@@ -44,4 +45,4 @@ Demote or replace an entity or category when:
 
 Use wording like this at the top of the weekly diff:
 
-`This week's scan started from 10 suggested AI categories and 30 suggested entities, then reweighted coverage using Open Brain context around [focus areas — e.g., frontier lab pricing moves, EU AI Act implementation, agentic tooling shifts].`
+`This week's scan started from 10 suggested AI categories and 30 suggested entities, then reweighted coverage using available project context around [focus areas — e.g., frontier lab pricing moves, EU AI Act implementation, agentic tooling shifts].`

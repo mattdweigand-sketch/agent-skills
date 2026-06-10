@@ -1,6 +1,5 @@
 ---
 name: humanizer
-version: 3.0.0
 description: |
   Remove signs of AI-generated writing and fix clarity failures in text. Use when
   editing or reviewing any prose to make it sound natural and human-written: emails,
@@ -9,10 +8,12 @@ description: |
   three, AI vocabulary, copula avoidance, negative parallelism, filler, hedging) and
   runs a clarity pass for problems that survive a clean scan: redundant structure,
   abstract claims with no example, wrong framing, backwards information order.
-category: writing
-tags: ["writing", "editing", "voice", "ai-detection", "clarity"]
 license: MIT
-compatibility: Codex opencode
+metadata:
+  version: 3.0.0
+  category: writing
+  tags: ["writing", "editing", "voice", "ai-detection", "clarity"]
+  compatibility: Codex opencode
 allowed-tools:
   - Read
   - Write

@@ -1,9 +1,10 @@
 ---
 name: autoresearch
-description: "Eval-driven keep/discard optimization loop for any laptop-runnable target — Open Brain retrieval, a skill's routing/description, a prompt or talk-track, an email template, a deck outline, a config, any editable surface you can score against a frozen labeled test set. Measure a baseline, make ONE change, re-measure, keep if the metric improved, revert if not, log every experiment, repeat until it converges. Use whenever the user says '/autoresearch', 'optimize my <X>', 'tune <X> against a test set', 'improve <X> accuracy/quality', 'find the best <params/wording/config>', or 'is this change actually better' — even when phrased loosely as wanting something to work better and there's a way to score it. Do NOT use to merely diagnose a skill (use skill-eval) or merely edit one (use skill-creator); this skill owns the measure→edit→re-measure loop that ties them together."
-version: "2.0"
-category: "meta"
-tags: ["optimization", "eval", "autoresearch", "keep-discard", "retrieval"]
+description: "Eval-driven keep/discard optimization loop for any laptop-runnable target — Open Brain retrieval, a skill's routing/description, a prompt or talk-track, an email template, a deck outline, a config, any editable surface you can score against a frozen labeled test set. Measure a baseline, make ONE change, re-measure, keep if the metric improved, revert if not, log every experiment, repeat until it converges. Use whenever the user says '/autoresearch', 'optimize my target', 'tune this against a test set', 'improve this accuracy/quality', 'find the best params/wording/config', or 'is this change actually better' — even when phrased loosely as wanting something to work better and there's a way to score it. Do NOT use to merely diagnose a skill (use skill-eval) or merely edit one (use skill-creator); this skill owns the measure→edit→re-measure loop that ties them together."
+metadata:
+  version: "2.0"
+  category: "meta"
+  tags: ["optimization", "eval", "autoresearch", "keep-discard", "retrieval"]
 ---
 
 # autoresearch

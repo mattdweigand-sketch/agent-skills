@@ -14,9 +14,10 @@ description: >-
   things, context getting stale, sessions not surviving crashes, tools running
   without permission, or costs spiraling — even if they do not use the word
   "harness."
-version: "2.0"
-category: "agentic-systems"
-tags: ["harness", "architecture", "multi-agent", "evaluation", "design"]
+metadata:
+  version: "2.0"
+  category: "agentic-systems"
+  tags: ["harness", "architecture", "multi-agent", "evaluation", "design"]
 ---
 
 # N Agentic Harnesses

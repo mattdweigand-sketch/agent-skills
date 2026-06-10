@@ -1,7 +1,8 @@
 ---
 name: grade
 description: This skill should be used when the user wants to evaluate whether a system that captures or encodes judgment actually grades that judgment against real outcomes. Trigger on "/grade", "judgment audit", "does this close the outcome loop", "is this aligned with the encoded-judgment thesis", "cyborg check", "does this grade its patterns", "thesis-eval", "audit this project for capture-without-grading", or when assessing an AI/agentic system, eval pipeline, scoring engine, recommendation system, or internal "intelligence" product for whether it encodes verified judgment versus merely captured judgment. Not for ordinary software with no judgment loop.
-version: 0.1.0
+metadata:
+  version: 0.1.0
 ---
 
 # Judgment Audit

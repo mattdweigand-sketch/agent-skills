@@ -1,9 +1,10 @@
 ---
 name: code-project-structure
 description: Structural rules and scaffolding workflow for projects under ~/Code/. Source of truth for what belongs at a project root, where files go, how AGENTS.md is shaped, and how new projects get scaffolded. Invoke when starting a new project under ~/Code/, creating or moving files inside a project under ~/Code/, editing a project's AGENTS.md, modifying .Codex/settings.json or .Codex/settings.local.json, or auditing project structure. Distinguishes code projects from knowledge projects (wikis, corpus stores, markdown-only) and applies different rules to each.
-version: "2.0"
-category: "tooling"
-tags: ["project-structure", "scaffolding", "Codex-md", "settings"]
+metadata:
+  version: "2.0"
+  category: "tooling"
+  tags: ["project-structure", "scaffolding", "Codex-md", "settings"]
 ---
 
 # Code project structure

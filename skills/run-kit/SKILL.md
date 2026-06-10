@@ -1,9 +1,10 @@
 ---
 name: run-kit
 description: "Design, route, audit, or cross-check AI agent runs. Use when the user wants to turn a fuzzy task into an agent-ready assignment, decide whether to steer or dispatch work, inspect whether an agent result is real, cross-check one agent's output with another, package agent-run prompts, or talk about proof, review burden, source of truth, permissions, completion theater, or understanding theater."
-version: "2.0"
-category: "agentic-systems"
-tags: ["agents", "workflow", "audit", "prompts"]
+metadata:
+  version: "2.0"
+  category: "agentic-systems"
+  tags: ["agents", "workflow", "audit", "prompts"]
 ---
 
 # Run Kit

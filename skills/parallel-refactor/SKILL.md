@@ -5,9 +5,10 @@ description: >
   Trigger on /parallel-refactor [goal], "parallel refactor", "multi-agent refactor",
   "refactor using agents", or when the user wants to split a refactor across multiple
   agents or worktrees. Works on any codebase — no harness-specific knowledge required.
-version: "2.0"
-category: agentic-systems
-tags: [refactor, multi-agent, worktrees, parallel, harness]
+metadata:
+  version: "2.0"
+  category: agentic-systems
+  tags: [refactor, multi-agent, worktrees, parallel, harness]
 ---
 
 # /parallel-refactor [goal]

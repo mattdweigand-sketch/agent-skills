@@ -7,9 +7,10 @@ description: |
   key findings", or "where do these sources disagree". Best when you have a research
   question, a defined audience, and a set of source materials. Optional Open Brain
   search and capture can pull prior context and store the final synthesis.
-version: "2.0"
-category: "research"
-tags: ["research", "synthesis", "analysis"]
+metadata:
+  version: "2.0"
+  category: "research"
+  tags: ["research", "synthesis", "analysis"]
 ---
 
 # Research Synthesis

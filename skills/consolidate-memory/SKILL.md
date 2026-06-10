@@ -1,9 +1,10 @@
 ---
 name: consolidate-memory
 description: "Reflective pass over memory files — merge duplicates, fix stale facts, prune the index."
-version: "2.0"
-category: "meta"
-tags: ["memory", "consolidation", "open-brain"]
+metadata:
+  version: "2.0"
+  category: "meta"
+  tags: ["memory", "consolidation", "open-brain"]
 ---
 
 # Memory Consolidation

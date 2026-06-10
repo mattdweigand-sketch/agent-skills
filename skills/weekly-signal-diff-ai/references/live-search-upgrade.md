@@ -57,8 +57,8 @@ Prefer prompts or search instructions that request:
 For scheduled runs:
 
 - Keep retrieval and synthesis structure consistent every week so diffs stay comparable
-- Store the final digest back in Open Brain so next week's run has something to diff against
+- Store the final digest in the user's chosen memory or notes system so next week's run has something to diff against
 - Track the week-ending date in the saved summary
 - If cost matters, use a cheaper broad sweep and spend extra search depth only on the top candidate shifts
 
-The search layer finds evidence. Open Brain and active project context decide what matters to this user. Keep those roles separate.
+The search layer finds evidence. Available memory and active project context decide what matters to this user. Keep those roles separate.

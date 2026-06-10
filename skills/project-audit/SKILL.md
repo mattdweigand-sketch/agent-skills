@@ -1,9 +1,10 @@
 ---
 name: project-audit
 description: Audit code projects against the structural rules in the code-project-structure skill. Reports which projects conform, which don't, and what's missing. Use when the user says "audit my projects", "check project structure", "are my projects conforming", "/audit", or wants to migrate an external project into ~/Code/.
-version: "2.0"
-category: "tooling"
-tags: ["audit", "project-structure", "quality"]
+metadata:
+  version: "2.0"
+  category: "tooling"
+  tags: ["audit", "project-structure", "quality"]
 ---
 
 # project-audit

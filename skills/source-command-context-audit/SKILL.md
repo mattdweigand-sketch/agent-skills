@@ -1,12 +1,67 @@
 ---
-name: "source-command-context-audit"
-description: "Audit your Codex setup for token waste and context bloat. Use when the user says 'audit my context', 'check my settings', 'why is Codex so slow', 'token optimization', 'context audit', or runs"
+name: source-command-context-audit
+description: "Audit an agent setup for token waste, context bloat, stale instructions, and dead command wrappers. Use when the user says context audit, audit my context, check my settings, why is Codex so slow, token optimization, or asks why startup context is too large."
 ---
 
 # source-command-context-audit
 
-Use this skill when the user asks to run the migrated source command `context-audit`.
+Use this skill when the user asks to run the migrated source command
+`context-audit` or otherwise wants an audit of agent startup context.
 
-## Command Template
+## Scope
 
-Invoke the `context-audit` skill from the active skills directory and follow its instructions exactly.
+Audit prompt and context surfaces that load automatically or are likely to be
+pulled into many sessions:
+
+- global and repo instruction files such as `AGENTS.md`, `CLAUDE.md`, command
+  wrappers, settings, and skill descriptions
+- enabled skills, plugins, and connectors when visible
+- memory summaries or routed context files when they affect startup behavior
+- repeated references that cause large files to be read by default
+
+Do not audit private content for substance unless it is relevant to context
+loading. The goal is smaller, clearer context, not content cleanup.
+
+## Process
+
+1. Identify the startup path.
+   - List the files, skills, commands, memories, or settings that are loaded or
+     strongly routed at session start.
+   - Separate automatic context from on-demand references.
+
+2. Find bloat and dead routes.
+   - Look for duplicated rules, stale model-specific instructions, wrappers that
+     invoke missing skills or commands, broad "read everything" guidance, and
+     large reference files that should be loaded only on demand.
+
+3. Classify each issue.
+   - `delete`: no longer useful or duplicated by a canonical owner
+   - `shorten`: useful but too verbose for startup
+   - `route`: move behind a task router, command wrapper, or skill trigger
+   - `reference`: keep as a reference file, not startup context
+   - `code`: replace prompt instructions with scripts, tests, schemas, or hooks
+   - `keep`: justified startup context
+
+4. Report findings before edits.
+   - Prioritize issues by token impact and failure risk.
+   - Name the canonical owner for every duplicated rule.
+   - Call out any command wrapper that points to a missing target.
+
+5. Apply changes only if asked.
+   - Keep edits narrow.
+   - Preserve repo-specific authority boundaries.
+   - Validate any edited skill frontmatter or command wrapper if a validator is
+     available.
+
+## Output
+
+Return:
+
+- `Startup map`: what appears to load by default
+- `Findings`: prioritized issues with file paths and concrete actions
+- `Suggested removals`: prompt surface that can be deleted or parked
+- `Suggested routing`: context that should become on-demand
+- `Validation`: checks run and anything not verified
+
+If no meaningful bloat is found, say that directly and list the remaining
+context surfaces that still deserve periodic review.

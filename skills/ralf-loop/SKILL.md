@@ -9,9 +9,10 @@ description: >-
   asks to repeatedly harden a repo, harness, skill, prompt, test suite, workflow,
   retrieval system, exporter, parser, or agentic product using local tests and
   review gates. Works on any repo with a local command or scorable workflow.
-version: "1.0"
-category: "agentic-systems"
-tags: ["ralf", "testing", "multi-agent", "smoke-test", "eval", "harness"]
+metadata:
+  version: "1.0"
+  category: "agentic-systems"
+  tags: ["ralf", "testing", "multi-agent", "smoke-test", "eval", "harness"]
 ---
 
 # RALF Loop

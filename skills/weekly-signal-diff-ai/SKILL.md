@@ -11,8 +11,9 @@ description: |
   structural shifts". Optional live search upgrade: if OpenRouter access is
   available, prefer the Perplexity Sonar family for fresh web-grounded
   retrieval with citations.
-author: Nate B. Jones (adapted for Matt Weigand, AI scope)
-version: 1.1.0-ai
+metadata:
+  author: Nate B. Jones, adapted for AI scope
+  version: 1.1.0-ai
 ---
 
 # Weekly Signal Diff — AI
@@ -142,7 +143,7 @@ When this skill works correctly, the user gets:
 
 ## Notes for Other Clients
 
-- This skill is portable across Codex, Codex, Cursor, and similar clients
+- This skill is portable across Codex, Claude Code, Cursor, and similar clients
   because the core behavior is procedural.
 - For scheduled runs, pair the skill with the user's automation system and keep
   the same structure every week so diffs stay comparable.
