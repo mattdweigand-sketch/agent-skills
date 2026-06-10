@@ -28,7 +28,7 @@ Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
 | `run-kit` | Turns fuzzy agent work into a scoped run, then helps review or cross-check the result. |
 | `scope` | Adds a short authority check before durable writes, external output, or risky config changes. |
 | `skill-creator-v3` | Creates, improves, tests, and packages reusable skills. |
-| `skill-tune` | Audits prompts and skills for context bloat, duplicated rules, and stale instructions. |
+| `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |
 | `weekly-signal-diff-ai` | Summarizes what structurally changed in AI this week and why it matters. |
 
 ## Install
