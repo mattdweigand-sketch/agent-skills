@@ -13,7 +13,7 @@ Create new skills and iteratively improve them. Core loop: draft the skill, crea
 
 ## Contract
 
-**Produces:** A complete skill folder (SKILL.md + optional bundled resources), packaged as a .skill file when ready. During development, produces eval results, benchmark reports, and an interactive viewer for human review.
+**Produces:** A complete skill folder (SKILL.md + optional bundled resources), packaged as a .skill file when tooling is available. During development, produces eval results, benchmark reports, and human-review artifacts.
 **Upstream input:** User intent (conversation context, example workflows, existing skill drafts). Available MCPs for research. Prior eval results for iteration.
 **Downstream consumers:** skill-eval tests the finished skill in production. skill-manager handles packaging and distribution.
 **Does NOT produce:** Production-ready skills without human review. Does not run ongoing production testing (use skill-eval). Does not manage or install skills (use skill-manager).
@@ -112,9 +112,9 @@ See `references/schemas.md` for the full schema including the assertions field.
 
 ## Running and Evaluating Test Cases
 
-Read `references/eval-methodology.md` for the complete eval workflow: spawning parallel runs, drafting assertions, grading, aggregating benchmarks, launching the viewer, and reading feedback. That file is the single source of truth for the eval process.
+Read `references/eval-methodology.md` for the complete eval workflow: running prompts, drafting assertions, grading, aggregating benchmarks, using optional review tooling, and reading feedback. That file is the single source of truth for the eval process.
 
-IMPORTANT: Always generate the eval viewer (using `eval-viewer/generate_review.py`) BEFORE evaluating outputs yourself. Get results in front of the human first.
+Get eval outputs in front of the human before evaluating them yourself. If a local `eval-viewer/generate_review.py` tool is available, use it; otherwise present a concise markdown review table.
 
 ## Improving the Skill
 
@@ -128,26 +128,23 @@ Four principles for improvement:
 
 4. **Look for repeated work.** Read transcripts. If all test cases independently wrote similar helper scripts, bundle that script in `scripts/` and tell the skill to use it.
 
-After improving, rerun all test cases, launch the viewer, iterate. See `references/eval-methodology.md` for the full iteration loop.
+After improving, rerun all test cases, prepare human review, and iterate. See `references/eval-methodology.md` for the full loop.
 
 ## Description Optimization
-
 Read `references/description-optimization.md` for the complete process: generating trigger eval queries, reviewing with the user, running the optimization loop, and applying results.
 
 ## Package and Present
-
-If `present_files` tool is available, package with `python -m scripts.package_skill <path/to/skill-folder>` and direct the user to the `.skill` file.
+If packaging tooling is available, package the skill and direct the user to the `.skill` file. Some environments provide `python -m scripts.package_skill <path/to/skill-folder>` outside the skill folder; if unavailable, present the folder tree and files to deliver.
 
 ## Environment Notes
-
 Read `references/environment-instructions.md` for Codex.ai (no subagents, no browser) and Cowork (static HTML viewer, feedback download) adaptations.
 
 ## Reference Files
 
-- `agents/grader.md`, `agents/comparator.md`, `agents/analyzer.md`: Eval subagent instructions
+- `agents/grader.md`, `agents/comparator.md`, `agents/analyzer.md`: Optional eval subagent instructions
 - `references/schemas.md`: JSON structures for evals.json, grading.json, benchmark.json
 - `references/eval-methodology.md`: Complete eval running workflow
 - `references/description-optimization.md`: Trigger accuracy optimization
 - `references/environment-instructions.md`: Codex.ai and Cowork adaptations
 
-Add "Create evals JSON and run `eval-viewer/generate_review.py` so human can review test cases" to your TodoList.
+Add "Create evals JSON and put eval outputs in front of the human before self-grading" to your TodoList.

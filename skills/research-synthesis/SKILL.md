@@ -88,6 +88,9 @@ Default output:
 - gaps and follow-up questions
 - recommendation support or decision implications when appropriate
 
+Use `references/output-template.md` when the user wants a brief and has not
+provided a stronger structure.
+
 ## Works Well With
 
 - `competitive-analysis` when market and company findings need stronger synthesis
@@ -99,3 +102,7 @@ Default output:
 
 - Synthesis is not compression for its own sake.
 - The best synthesis usually makes the open questions sharper, not smaller.
+
+## References
+
+- `references/output-template.md` — default brief structure with confidence and contradiction tables.

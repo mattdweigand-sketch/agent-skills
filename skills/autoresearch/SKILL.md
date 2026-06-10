@@ -44,6 +44,9 @@ Pin down before any experiment:
 4. **Run tag** — e.g. `ob-retrieval-may24`. Results go to a fresh `results-<tag>.tsv`.
 5. **Confirm and go.**
 
+Use `references/experiment-schema.md` when the run needs a more explicit record
+than the TSV row alone.
+
 ## Two rules that keep it honest
 
 - **Freeze the test.** The test set and scorer do not change mid-run. Editing the test to make a
@@ -83,3 +86,5 @@ residual misses *with why* (content gap, label issue, true ceiling).
 
 - `references/targets.md` — per-target playbooks (retrieval, skill-routing, prompt/template, config),
   the `results.tsv` format, and a worked example.
+- `references/experiment-schema.md` — run header, experiment row, and stop-record fields for
+  repeatable logs.

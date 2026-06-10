@@ -102,6 +102,9 @@ buckets.
 5. **Punch list.** Give concrete moves ordered by leverage and lowest risk first.
    Separate safe moves from changes gated on evidence.
 
+Use `references/audit-worksheet.md` as the internal worksheet when the system is
+large enough that the ratio could otherwise become a vibe.
+
 ## What Good And Bad Look Like
 
 Good: a thin prompt for format and genuine interpretation, a fat owned-data
@@ -137,10 +140,10 @@ Use this exact template:
 ```
 
 Read `references/worked-example.md` before a first run to calibrate depth.
+Use `references/audit-worksheet.md` for repeatable inventory and rule sorting.
 
 ## Source
 
 This skill operationalizes four ideas: judgment routing, prompt technical debt,
 storage versus enforcement, and context as a durable advantage. The skill body is
 self-contained; external notes can deepen the concepts but are not required.
-

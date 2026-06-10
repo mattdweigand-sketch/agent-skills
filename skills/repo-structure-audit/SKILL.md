@@ -83,6 +83,16 @@ domain glossaries, product specs, and context files usually belong in `docs/`.
    - Agent config files and local settings hygiene
    - Root file count, flagging obvious sprawl rather than enforcing a hard quota
 
+   Optional deterministic support: if this repo includes `scripts/repo_structure_check.py`, run:
+
+   ```bash
+   python3 scripts/repo_structure_check.py <repo-root>
+   ```
+
+   Use it as evidence for root hygiene, missing startup files, local-settings ignores, tracked
+   local-only files, and obvious root-doc sprawl. If the helper is unavailable, perform the same
+   checks manually; do not make audited repos depend on this script.
+
 3. Check safety.
    - `.env` and `.Codex/settings.local.json` are not tracked
    - no secrets appear in `.env.example` or shared settings

@@ -79,6 +79,17 @@ deliverables/ralf-loop/<run-tag>/iterations/<NN>-analysis.md
 
 If the repo has its own artifact convention, follow it, but keep the RALF report under `deliverables/ralf-loop/`.
 
+Optional deterministic support: if this repo includes `scripts/ralf_bootstrap.py`, use it to
+create the artifact scaffold and validate the summary shape:
+
+```bash
+python3 scripts/ralf_bootstrap.py init --root <repo-root> --run-tag <run-tag> --target-command "<command>"
+python3 scripts/ralf_bootstrap.py validate <repo-root>/deliverables/ralf-loop/<run-tag>
+```
+
+If the helper is unavailable, create the same files by hand. The skill remains portable and does
+not require this script.
+
 ## Frozen Gates
 
 Before making fixes, define the gates. Good gates include:

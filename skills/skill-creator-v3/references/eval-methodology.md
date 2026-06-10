@@ -6,8 +6,8 @@ Complete workflow for running, grading, and iterating on skill evals.
 
 ## Overview
 
-The eval loop: draft prompts → run in parallel → grade assertions → human review → iterate.
-Always generate the viewer before grading yourself. Human review comes first.
+The eval loop: draft prompts -> run them -> prepare human review -> grade assertions -> iterate.
+Use a viewer when available; otherwise use a markdown review. Human review comes first.
 
 ---
 
@@ -22,9 +22,9 @@ Share prompts with the user for approval before running.
 
 ---
 
-## Step 2: Run Evals in Parallel
+## Step 2: Run Evals
 
-Spawn one agent per eval prompt. Each agent:
+When subagents or parallel workers are available, spawn one agent per eval prompt. Otherwise, run prompts sequentially and record each output before judging it. Each run:
 1. Receives the prompt plus the SKILL.md (and referenced files)
 2. Produces output as if the skill is active
 3. Returns raw output to the grading step
@@ -33,17 +33,17 @@ Do not evaluate the output yourself before the human sees it.
 
 ---
 
-## Step 3: Generate the Viewer
+## Step 3: Prepare Human Review
 
-Run before grading:
+If a local review generator is available, run it before grading:
 
 ```bash
 python eval-viewer/generate_review.py evals/grading.json
 ```
 
-This produces a static HTML file the user can open locally. Present the path and ask the user to review it. Wait for feedback.
+This is optional external/local tooling, not part of every skill checkout. When present, it produces a static HTML file the user can open locally. Present the path and ask the user to review it. Wait for feedback.
 
-If in Claude.ai (no browser): present a formatted markdown summary of outputs for each eval instead.
+If the viewer is unavailable, present a formatted markdown summary of outputs for each eval instead.
 
 ---
 
@@ -103,4 +103,4 @@ Aggregate in benchmark.json under `human_scores`.
 
 ## Cowork Environment
 
-Static HTML viewer works normally. Feedback is downloaded as a JSON file from the viewer. Load it back: `python eval-viewer/load_feedback.py <path-to-feedback.json>`.
+If the static HTML viewer exists in the surrounding workspace, feedback is downloaded as a JSON file from the viewer. Load it back with the matching local helper, commonly `python eval-viewer/load_feedback.py <path-to-feedback.json>`. If that helper is unavailable, record the user's feedback manually in `grading.json`.

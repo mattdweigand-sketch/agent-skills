@@ -40,13 +40,13 @@ Ask the user to review and reply with pass/fail per eval. Wait before writing as
 
 **Grading and benchmark:** Write `grading.json` and `benchmark.json` manually based on user feedback. No automated runner.
 
-**Packaging:** The `python -m scripts.package_skill` step is unavailable. Present the skill folder structure as a tree and list which files to create manually.
+**Packaging:** Local packaging helpers may be unavailable. Present the skill folder structure as a tree and list which files to create manually.
 
 ---
 
 ## Cowork Environment
 
-**What's available:**
+**What's often available:**
 - Full subagent support
 - File writes
 - Python scripts
@@ -56,13 +56,15 @@ Ask the user to review and reply with pass/fail per eval. Wait before writing as
 - Feedback is collected via file download
 
 **Viewer workflow:**
-1. Run `python eval-viewer/generate_review.py evals/grading.json` — produces `eval-viewer/review.html`
+1. If the local viewer helper exists, run `python eval-viewer/generate_review.py evals/grading.json` — produces `eval-viewer/review.html`
 2. Tell the user the file path and ask them to open it locally in a browser
 3. The viewer has a "Download Feedback" button — user downloads `feedback.json`
-4. Load it back: `python eval-viewer/load_feedback.py <path-to-feedback.json>`
+4. If the local feedback helper exists, load it back: `python eval-viewer/load_feedback.py <path-to-feedback.json>`
 5. This updates `grading.json` with `human_score` and `human_notes` per eval
 
-**Everything else:** Runs as described in `eval-methodology.md` — parallel agents, automated grading, benchmark appending.
+If either helper is unavailable, use the markdown review fallback and update `grading.json` from the user's feedback manually.
+
+**Everything else:** Follow `eval-methodology.md`, using parallel agents and automated grading only when those capabilities exist.
 
 ---
 

@@ -61,6 +61,22 @@ If it shows modified/staged files:
   user's work — never blind-merge over it).
 - `abort` → stop.
 
+Optional deterministic support: if this repo includes `scripts/parallel_refactor_preflight.py`,
+run it from the skill repo against the target root as a read-only helper:
+
+```bash
+python3 scripts/parallel_refactor_preflight.py <root>
+```
+
+After Phase 2, pass planned builder files to check for dirty-tree collisions:
+
+```bash
+python3 scripts/parallel_refactor_preflight.py <root> --planned-files-from <newline-file-list>
+```
+
+If the helper is unavailable, use the prose checks above. Do not make the target repo depend on
+this script.
+
 ## Phase 1 — Scout
 
 Spawn one **Explore** agent. Full prompt: `references/scout-prompt.md`.

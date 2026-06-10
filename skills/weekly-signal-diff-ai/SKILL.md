@@ -100,6 +100,8 @@ the strongest search mode the environment supports.
    - A good weekly diff usually has 3-7 structural shifts.
    - Merge duplicates, drop weak stories, and explicitly label speculation as
      speculation.
+   - Use `references/structural-scorecard.md` when candidate signals are noisy
+     or the scan risks becoming a digest.
 
 1. Produce the weekly diff in chat.
    - Output the full diff directly in the conversation. Do NOT create a file
@@ -150,3 +152,10 @@ When this skill works correctly, the user gets:
 - If OpenRouter is available, prefer a Perplexity Sonar web-search model for
   the retrieval pass, then use the local AI client or model to do the actual
   synthesis if that split is more ergonomic.
+
+## References
+
+- `references/starter-universe.md` — bootstrap categories and entities.
+- `references/live-search-upgrade.md` — optional live retrieval upgrade.
+- `references/structural-scorecard.md` — candidate scoring table for separating
+  structural shifts from ordinary news.

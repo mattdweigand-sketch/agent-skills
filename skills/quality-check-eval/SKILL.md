@@ -12,15 +12,15 @@ metadata:
 Use this when an AI workflow has quality checks, review notes, rubric items, or
 acceptance criteria, and you need to decide how each one should be handled.
 
-The skill sorts each check into one of four buckets:
-
-- automate in code
-- judge with an LLM
-- keep for human review
-- remove
+The skill sorts each check into one of four buckets: automate in code, judge
+with an LLM, keep for human review, or remove.
 
 This is useful when reviews are too manual, evals are vague, or a team is unsure
 which quality checks are worth automating.
+
+Load `references/eval-check-routing.md` when auditing. That file owns the stable
+recommendation taxonomy, scoring fields, deterministic alternatives, and report
+template.
 
 ## Use This When
 
@@ -59,70 +59,23 @@ If any of these are unclear and not discoverable from local files, ask one conci
    Read eval logs, run reports, or recent output artifacts. Count how often each check is skipped, manually reviewed, failed, or would have been relevant. Prefer actual logs over speculation.
 
 4. **Check deterministic alternatives.**
-   For each check, ask whether it can become a deterministic check:
-   - file exists / section exists
-   - regex or structured parse
-   - JSON/schema validation
-   - count or threshold
-   - local command/test result
-   - retrieval or metadata query through approved tools
+   Use the deterministic alternatives in `references/eval-check-routing.md`.
 
 5. **Spot-check real artifacts.**
    Inspect 2 to 5 recent representative outputs. Ask whether each check would have caught a real quality issue. If it would not have fired, call that out.
 
 6. **Score each check.**
-   Use:
-   - Frequency: high / medium / low
-   - Stakes: high / medium / low
-   - Auto-convertibility: yes / partial / no
-   - Evidence quality: strong / mixed / weak
+   Use the scoring fields in `references/eval-check-routing.md`.
 
 7. **Recommend one action.**
-   For each check, choose exactly one:
-   - `PROMOTE` — build an LLM judge
-   - `AUTO-CONVERT` — replace with deterministic check
-   - `KEEP-MANUAL` — judgment matters, but automation is not worth it yet
-   - `DROP` — low signal, unclear rubric, or no observed value
+   For each check, choose exactly one action from `references/eval-check-routing.md`.
 
 8. **Write the report.**
-   Save inside the audited repo. Prefer an existing eval/report folder. If none exists, use `research/` or `reports/`.
+   Save inside the audited repo. Prefer an existing eval/report folder. If none exists, use `research/` or `reports/`. Use the report template in `references/eval-check-routing.md`.
 
 ## Report Template
 
-```markdown
-# Quality Check Eval: <scope>
-
-## Scope
-- Repo:
-- Check source:
-- Eval/log source:
-- Artifact sample:
-
-## Eval Check Catalog
-| Check | Parent | Type | Rubric | Current status |
-|---|---|---|---|---|
-
-## Execution Signal
-| Check | Observed skips/reviews/failures | Artifact evidence | Notes |
-|---|---:|---|---|
-
-## Recommendations
-| Check | Frequency | Stakes | Auto-convertibility | Evidence | Recommendation |
-|---|---|---|---|---|---|
-
-## V2 Judge Scope
-List the 3 to 5 best LLM-judge candidates. For each, include:
-- why deterministic checks are insufficient
-- judgment prompt sketch
-- required evidence/context
-- expected output shape
-
-## Auto-Conversion Candidates
-List eval checks that should become deterministic checks instead of LLM judges.
-
-## Drop / Keep Manual
-Explain briefly.
-```
+Use `references/eval-check-routing.md`.
 
 ## Output Rules
 

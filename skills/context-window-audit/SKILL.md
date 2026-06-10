@@ -23,6 +23,10 @@ pulled into many sessions:
 Do not audit private content for substance unless it is relevant to context
 loading. The goal is smaller, clearer context, not content cleanup.
 
+Load `references/context-surface-taxonomy.md` when classifying issues or
+formatting the final audit. That file owns the stable action taxonomy and output
+template.
+
 ## Process
 
 1. Identify the startup path.
@@ -36,12 +40,7 @@ loading. The goal is smaller, clearer context, not content cleanup.
      large reference files that should be loaded only on demand.
 
 3. Classify each issue.
-   - `delete`: no longer useful or duplicated by a canonical owner
-   - `shorten`: useful but too verbose for startup
-   - `route`: move behind a task router, command wrapper, or skill trigger
-   - `reference`: keep as a reference file, not startup context
-   - `code`: replace prompt instructions with scripts, tests, schemas, or hooks
-   - `keep`: justified startup context
+   Use the action taxonomy in `references/context-surface-taxonomy.md`.
 
 4. Report findings before edits.
    - Prioritize issues by token impact and failure risk.
@@ -56,13 +55,7 @@ loading. The goal is smaller, clearer context, not content cleanup.
 
 ## Output
 
-Return:
-
-- `Startup map`: what appears to load by default
-- `Findings`: prioritized issues with file paths and concrete actions
-- `Suggested removals`: prompt surface that can be deleted or parked
-- `Suggested routing`: context that should become on-demand
-- `Validation`: checks run and anything not verified
+Use the output template in `references/context-surface-taxonomy.md`.
 
 If no meaningful bloat is found, say that directly and list the remaining
 context surfaces that still deserve periodic review.
