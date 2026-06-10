@@ -26,7 +26,7 @@ Figure out where the user is in this loop and help them progress. If they say "j
 
 Understand what the user wants. If the current conversation already contains a workflow to capture (e.g., "turn this into a skill"), extract answers from conversation history first: tools used, sequence of steps, corrections, input/output formats. The user fills the gaps and confirms.
 
-1. What should this skill enable Codex to do?
+1. What should this skill enable an agent to do?
 2. When should it trigger? (user phrases/contexts)
 3. What's the expected output format?
 4. Should we set up test cases? Skills with objectively verifiable outputs (file transforms, data extraction, code generation) benefit from test cases. Subjective skills (writing style, art) often don't. Suggest the appropriate default, let the user decide.
@@ -51,7 +51,7 @@ tags: ["tag1", "tag2", "tag3"]
 
 **`name`** — kebab-case identifier matching the folder name.
 
-**`description`** — the primary triggering mechanism. Include both what the skill does AND specific trigger contexts. Make it "pushy" — Codex tends to undertrigger. Example: instead of "How to build a dashboard", write "How to build a dashboard. Use whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of data, even if they don't explicitly ask for a dashboard." All "when to use" logic goes here, not in the body.
+**`description`** — the primary triggering mechanism. Include both what the skill does AND specific trigger contexts. Make it "pushy" because skill selectors tend to undertrigger. Example: instead of "How to build a dashboard", write "How to build a dashboard. Use whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of data, even if they don't explicitly ask for a dashboard." All "when to use" logic goes here, not in the body.
 
 **`version`** — `"2.0"` for all new skills.
 
@@ -137,7 +137,7 @@ Read `references/description-optimization.md` for the complete process: generati
 If packaging tooling is available, package the skill and direct the user to the `.skill` file. Some environments provide `python -m scripts.package_skill <path/to/skill-folder>` outside the skill folder; if unavailable, present the folder tree and files to deliver.
 
 ## Environment Notes
-Read `references/environment-instructions.md` for Codex.ai (no subagents, no browser) and Cowork (static HTML viewer, feedback download) adaptations.
+Read `references/environment-instructions.md` for platform-specific adaptations when tooling differs from the local CLI.
 
 ## Reference Files
 
@@ -145,6 +145,6 @@ Read `references/environment-instructions.md` for Codex.ai (no subagents, no bro
 - `references/schemas.md`: JSON structures for evals.json, grading.json, benchmark.json
 - `references/eval-methodology.md`: Complete eval running workflow
 - `references/description-optimization.md`: Trigger accuracy optimization
-- `references/environment-instructions.md`: Codex.ai and Cowork adaptations
+- `references/environment-instructions.md`: Platform-specific adaptations
 
 Add "Create evals JSON and put eval outputs in front of the human before self-grading" to your TodoList.

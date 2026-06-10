@@ -29,10 +29,11 @@
 - `docs/` - architecture, specs, ADRs, and deeper context
 ```
 
-## `.Codex/settings.json` Baseline
+## Agent Settings Baseline
 
-Shared settings should be safe by default. Put personal overrides in
-`.Codex/settings.local.json` and keep that file gitignored.
+Shared runtime settings should be safe by default. Put personal overrides in
+the runtime's local settings file and keep that file gitignored. For Codex,
+that is commonly `.Codex/settings.local.json`.
 
 ```json
 {
@@ -61,6 +62,7 @@ Shared settings should be safe by default. Put personal overrides in
 ```gitignore
 .DS_Store
 .Codex/settings.local.json
+.claude/settings.local.json
 .env
 *.swp
 *.swo
@@ -74,4 +76,3 @@ Shared settings should be safe by default. Put personal overrides in
 - `.env.example` - env var template, no secrets
 - stack manifest - `package.json`, `pyproject.toml`, `Cargo.toml`, or `go.mod`
 - lockfile - committed when the stack uses one
-

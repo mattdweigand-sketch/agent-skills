@@ -8,7 +8,7 @@ Cursor, and other AGENTS-aware tools.
 
 ## Included Skills
 
-Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
+Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 
 | Skill | Description |
 |---|---|
@@ -71,6 +71,8 @@ Ask your agent:
 - Negative controls for retrieval, AI, parser, and workflow tests.
 - Small, surgical changes.
 - Evidence and source quality over confident prose.
+- Agent-neutral skill bodies. Put platform-specific behavior only in clearly
+  labeled adaptation references.
 
 ## License
 

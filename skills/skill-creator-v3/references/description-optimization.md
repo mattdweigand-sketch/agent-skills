@@ -7,7 +7,7 @@ Complete process for improving skill triggering accuracy via eval queries.
 
 ## Overview
 
-A skill description does two things: tells Claude what the skill is for, and determines when it fires. Optimization focuses on the second: ensuring the description triggers on the right prompts and stays silent on the wrong ones.
+A skill description does two things: tells the agent runtime what the skill is for, and determines when it fires. Optimization focuses on the second: ensuring the description triggers on the right prompts and stays silent on the wrong ones.
 
 The process: generate test queries → user reviews and edits → run trigger simulation → score → rewrite description → rerun.
 
@@ -37,7 +37,7 @@ Present these as a numbered list. Ask the user to mark each: `Y` (should trigger
 
 ## Step 2: Simulate Triggering
 
-For each query, simulate how Claude's skill selection behaves:
+For each query, simulate how the active agent's skill selection behaves:
 
 1. Show the current description.
 2. For each query, reason aloud: "Based on this description, would I activate this skill?"
@@ -77,7 +77,7 @@ Apply targeted fixes based on the failure pattern:
 **Description format principles:**
 - Lead with what the skill *does*, not what it's called
 - Enumerate trigger phrases explicitly, especially non-obvious ones
-- Make it "pushy" — Claude tends to undertrigger by default
+- Make it "pushy" because skill selectors tend to undertrigger by default
 - Keep it under ~80 words; longer descriptions degrade scannability
 - Do not bury the trigger — put the clearest phrase in the first sentence
 

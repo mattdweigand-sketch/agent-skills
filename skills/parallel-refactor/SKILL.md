@@ -14,7 +14,7 @@ metadata:
 # /parallel-refactor [goal]
 
 Thin coordinator pattern: specialist agents work on isolated worktrees simultaneously.
-Main Codex routes — it does not implement. A reviewer checks cross-partition consistency
+The main coordinator routes — it does not implement. A reviewer checks cross-partition consistency
 before any merge guidance is given.
 
 The [karpathy-guidelines](../karpathy-guidelines/SKILL.md) (simplicity-first, surgical changes,
@@ -135,10 +135,10 @@ Proceed? (yes / edit / abort)
 Builder prompt template: `references/builder-prompt.md`.
 Fill in per-partition values before sending each agent.
 
-**Wave A** — spawn all Wave A agents in a **single message** (multiple Agent tool calls):
-- `subagent_type: "Codex"`
-- `isolation: "worktree"`
-- `run_in_background: true`
+**Wave A** — spawn all Wave A agents together when the runtime supports parallel worker calls:
+- worker type: use the local coding agent or repo-capable worker
+- isolation: use a separate git worktree per worker
+- background execution: enabled when available
 
 Wait for all Wave A notifications. Collect each agent's summary block
 (`CHANGED / CREATED / CONCERNS / COMMIT / BRANCH / STATUS`). Record each branch + commit SHA.
@@ -156,7 +156,7 @@ partitions (see `{{wave_b_context}}` in builder-prompt.md). Repeat for Wave C if
 
 ## Phase 5 — Review
 
-Spawn one **Codex** agent (no worktree isolation, no background).
+Spawn one reviewer agent (no worktree isolation, no background).
 Full prompt: `references/reviewer-prompt.md`.
 Pass all builder summaries + worktree branch names.
 

@@ -13,7 +13,7 @@ metadata:
   version: 3.0.0
   category: writing
   tags: ["writing", "editing", "voice", "ai-detection", "clarity"]
-  compatibility: Codex opencode
+  compatibility: agent-neutral
 allowed-tools:
   - Read
   - Write

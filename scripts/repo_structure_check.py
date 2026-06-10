@@ -35,6 +35,11 @@ SECRET_PATTERNS = [
     re.compile(r"(?i)(api[_-]?key|secret|token|password)\s*=\s*['\"]?[A-Za-z0-9_./+=-]{12,}"),
     re.compile(r"sk-[A-Za-z0-9]{20,}"),
 ]
+LOCAL_ONLY_FILES = (
+    ".env",
+    ".Codex/settings.local.json",
+    ".claude/settings.local.json",
+)
 
 
 def git_output(root: Path, args: list[str]) -> subprocess.CompletedProcess[str]:
@@ -112,10 +117,10 @@ def build_report(root: Path) -> dict[str, Any]:
 
     hygiene: list[str] = []
     if git_repo and ".gitignore" in root_names:
-        for required in (".env", ".Codex/settings.local.json"):
+        for required in LOCAL_ONLY_FILES:
             if required not in ignored:
                 hygiene.append(f".gitignore missing {required}")
-    for sensitive in (".env", ".Codex/settings.local.json"):
+    for sensitive in LOCAL_ONLY_FILES:
         if sensitive in tracked:
             hygiene.append(f"tracked local-only file: {sensitive}")
     for finding in scan_env_example(root):

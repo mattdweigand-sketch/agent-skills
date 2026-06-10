@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Portable Codex skill library for reusable agent workflows.
+Portable agent skill library for reusable agent workflows.
 
 ## How To Use It
 
@@ -19,7 +19,7 @@ cp -R skills/* ~/.agents/skills/
 - Each skill's source of truth is its `SKILL.md`.
 - Preserve bundled `references/`, `scripts/`, `agents/`, and other skill-local resources.
 - Do not flatten skill folders.
-- Do not add generated artifacts or local Codex settings.
+- Do not add generated artifacts or local agent settings.
 
 ## Do Not Do Without Asking
 

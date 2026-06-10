@@ -101,6 +101,6 @@ Aggregate in benchmark.json under `human_scores`.
 
 ---
 
-## Cowork Environment
+## File Workspace Without Browser Access
 
 If the static HTML viewer exists in the surrounding workspace, feedback is downloaded as a JSON file from the viewer. Load it back with the matching local helper, commonly `python eval-viewer/load_feedback.py <path-to-feedback.json>`. If that helper is unavailable, record the user's feedback manually in `grading.json`.

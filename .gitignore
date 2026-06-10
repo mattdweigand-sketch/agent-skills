@@ -1,5 +1,6 @@
 .DS_Store
 .env
 .Codex/settings.local.json
+.claude/settings.local.json
 node_modules/
 deliverables/

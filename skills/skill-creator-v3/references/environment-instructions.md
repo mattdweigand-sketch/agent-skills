@@ -1,11 +1,11 @@
 ---
-# Skill Creator — Environment Adaptations
+# Skill Creator — Platform Adaptations
 
 How to run the skill creator workflow in environments without full tool access.
 
 ---
 
-## Claude.ai (Web — No Subagents, No Browser)
+## Web Chat Environments Without Tools
 
 **What's unavailable:**
 - Spawning parallel agent runs for evals
@@ -44,7 +44,7 @@ Ask the user to review and reply with pass/fail per eval. Wait before writing as
 
 ---
 
-## Cowork Environment
+## Agent Workspaces With Files But No Browser
 
 **What's often available:**
 - Full subagent support
@@ -72,8 +72,8 @@ If either helper is unavailable, use the markdown review fallback and update `gr
 
 | Signal | Environment |
 |---|---|
-| `present_files` tool available | CLI / Claude Code |
-| No tool for spawning agents | Claude.ai web |
-| Agents available, no browser MCP | Cowork |
+| `present_files` or packaging helper available | Local CLI or desktop workspace |
+| No file writes or Python execution | Web chat |
+| File writes and agents available, no browser tool | Agent workspace without browser access |
 
-When unsure, ask: "Are you running in Claude.ai, Cowork, or the CLI?" before starting the eval loop.
+When unsure, ask which tools are available before starting the eval loop.

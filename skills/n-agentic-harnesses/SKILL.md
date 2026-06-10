@@ -62,7 +62,7 @@ Pick the closest shape and state the assumption if ambiguous.
 | `references/08-design-and-build-playbook.md` | Build-ready plan from idea to implementation |
 | `references/09-evaluation-and-improvement-playbook.md` | Findings, missing primitives, upgrade priorities, acceptance tests |
 | `references/10-example-requests-and-output-patterns.md` | Prompt examples or response structure examples |
-| `references/11-codex-translation-notes.md` | Adapting to Codex or mapping between environments |
+| `references/11-platform-adaptation-notes.md` | Adapting the skill to platform-specific runtimes without changing canonical guidance |
 
 Do not rely on reference-to-reference chains. This file is the index.
 

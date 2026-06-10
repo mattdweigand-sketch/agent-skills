@@ -37,23 +37,23 @@ Universal root files:
 
 - `AGENTS.md` - agent operating map, kept short enough to load every session
 - `README.md` - human-facing intro
-- `.gitignore` - if git-tracked; must ignore `.Codex/settings.local.json` and `.env`
+- `.gitignore` - if git-tracked; must ignore `.env` and any local-only agent settings
 
 Code-project root files:
 
 - `.env.example` - template only; never commit `.env`
 - one stack manifest - `package.json`, `pyproject.toml`, `Cargo.toml`, `go.mod`, or equivalent
 - one lockfile, committed next to the manifest when the stack uses one
-- optional `.Codex/settings.json` for shared, safe-by-default agent settings
+- optional shared, safe-by-default agent settings for the active runtime
 
 Put deeper material outside the root:
 
 | Content | Location |
 |---|---|
 | Architecture, ADRs, specs, glossaries | `docs/` |
-| Project-specific agent config | `.Codex/` |
-| Repo-local commands | `.Codex/commands/` |
-| Repo-local subagents | `.Codex/agents/` |
+| Project-specific agent config | runtime-specific agent config folder |
+| Repo-local commands | runtime-specific commands folder |
+| Repo-local subagents | runtime-specific agents folder |
 | Source code | `src/` |
 | Tests | `tests/` |
 | Automation | `scripts/` |
@@ -94,7 +94,7 @@ domain glossaries, product specs, and context files usually belong in `docs/`.
    checks manually; do not make audited repos depend on this script.
 
 3. Check safety.
-   - `.env` and `.Codex/settings.local.json` are not tracked
+   - `.env` and local-only agent settings are not tracked
    - no secrets appear in `.env.example` or shared settings
    - no destructive moves or deletes are proposed without approval
 
@@ -126,7 +126,7 @@ example
 When creating a new project, start minimal:
 
 - Code: `AGENTS.md`, `README.md`, `.gitignore`, stack manifest, optional
-  `.Codex/settings.json`
+  shared agent settings for the active runtime
 - Knowledge: `AGENTS.md` and `README.md` if useful
 
 Do not pre-fill commands, subagents, ADRs, or elaborate docs until friction

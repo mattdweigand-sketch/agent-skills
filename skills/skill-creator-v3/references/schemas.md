@@ -58,7 +58,7 @@ Stores per-run grading results. Lives at `evals/grading.json`.
     {
       "eval_id": 1,
       "prompt": "User's task prompt",
-      "output": "Claude's response",
+      "output": "Agent response",
       "assertions_passed": 2,
       "assertions_total": 3,
       "assertion_details": [
