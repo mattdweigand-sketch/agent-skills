@@ -15,7 +15,7 @@ Each skill has its full workflow in `skills/<skill-name>/SKILL.md`.
 | `60-30-10` | Evaluate where a project keeps its judgment, and whether the allocation matches the durable shape: mostly owned data, partly deterministic code, only a thin layer of live model. |
 | `autoresearch` | Improves a prompt, config, or workflow by testing one change at a time against a fixed score. |
 | `context-window-audit` | Finds startup context, settings, wrappers, and memory entries that waste context-window space. |
-| `grade` | Checks whether a judgment system measures its captured patterns against real outcomes. |
+| `cyborg-check` | Audits whether a judgment system closes the loop between captured patterns and real outcomes, or is spreading unverified judgment. |
 | `humanizer` | Rewrites prose so it sounds clearer, more natural, and less AI-generated. |
 | `karpathy-guidelines` | Keeps coding work simple, scoped, and easy to verify. |
 | `n-agentic-harnesses` | Helps design or review the system around AI agents, tools, memory, permissions, and evals. |

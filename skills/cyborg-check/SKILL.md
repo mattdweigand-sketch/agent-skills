@@ -1,15 +1,17 @@
 ---
-name: grade
-description: This skill should be used when the user wants to evaluate whether a system that captures or encodes judgment actually grades that judgment against real outcomes. Trigger on "/grade", "judgment audit", "does this close the outcome loop", "is this aligned with the encoded-judgment thesis", "cyborg check", "does this grade its patterns", "thesis-eval", "audit this project for capture-without-grading", or when assessing an AI/agentic system, eval pipeline, scoring engine, recommendation system, or internal "intelligence" product for whether it encodes verified judgment versus merely captured judgment. Not for ordinary software with no judgment loop.
+name: cyborg-check
+description: Audit whether a judgment-encoding system closes the loop between captured patterns and real outcomes, or is becoming an org-scale cyborg that spreads unverified judgment at machine speed. Trigger on "/cyborg-check", "cyborg check", "does this close the outcome loop", "is this just captured judgment", "capture without grading", "judgment audit", "are these patterns verified", or when assessing an AI/agentic system, eval pipeline, scoring engine, recommendation system, sales-intelligence system, or internal "best practice" tool. Do not use for ordinary grading, document review, rubric scoring, or software with no judgment loop.
 metadata:
   version: 0.1.0
 ---
 
-# Judgment Audit
+# Cyborg Check
 
 Evaluate whether a judgment-encoding system encodes **verified** judgment or merely **captured** judgment.
 
-The thesis this enforces: a system that accumulates "criteria we find useful" without grading them against real outcomes is not intelligence, it is confident guessing at scale. The dangerous failure mode is the "org-scale cyborg": ungraded patterns pushed to users automatically at machine speed.
+Capturing judgment is not the same as proving it. This skill checks whether the system connects its captured criteria, patterns, recommendations, or scores to real outcome labels before those patterns become trusted or user-visible.
+
+The dangerous failure mode is the org-scale cyborg: ungraded patterns pushed to users automatically at machine speed.
 
 This skill produces an **inline verdict** with evidence and a punch list. It does not write a file.
 

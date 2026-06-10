@@ -1,6 +1,6 @@
 ---
 name: quality-check-eval
-description: "Sort AI output quality checks into four buckets: automate in code, judge with an LLM, keep for human review, or remove. Use when reviews are too manual, evals are vague, a workflow needs clearer quality gates, or the user wants to decide which AI output checks are worth automating. Not for checking whether a system grades encoded judgment against real outcomes; use grade for that."
+description: "Sort AI output quality checks into four buckets: automate in code, judge with an LLM, keep for human review, or remove. Use when reviews are too manual, evals are vague, a workflow needs clearer quality gates, or the user wants to decide which AI output checks are worth automating. Not for checking whether a system grades encoded judgment against real outcomes; use cyborg-check for that."
 metadata:
   version: "2.0"
   category: "analysis"

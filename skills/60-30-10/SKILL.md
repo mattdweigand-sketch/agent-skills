@@ -7,8 +7,8 @@ description: >
   60/30/10 here", "is too much in the prompt", "where does the judgment live",
   "budget check", or runs /60-30-10, or when reviewing an agent/harness/AI system for
   whether durable value sits in data and code versus trapped in perishable prose.
-  Pairs with the grade skill, which checks whether judgment is graded, but this
-  skill checks where judgment lives, not whether it is verified.
+  Pairs with `cyborg-check`, which checks whether judgment is graded against
+  outcomes, but this skill checks where judgment lives, not whether it is verified.
 metadata:
   version: 0.3.0
   user-invocable: true

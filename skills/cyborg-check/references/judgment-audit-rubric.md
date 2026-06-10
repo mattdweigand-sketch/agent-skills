@@ -1,6 +1,6 @@
-# Judgment Audit Rubric
+# Cyborg Check Rubric
 
-Use this reference when `grade` applies. It owns the stable rubric and verdict taxonomy so `SKILL.md` can stay focused on routing and process.
+Use this reference when `cyborg-check` applies. It owns the stable rubric and verdict taxonomy so `SKILL.md` can stay focused on routing and process.
 
 ## Applicability Gate
 
