@@ -15,7 +15,6 @@ Use this table as a routing guide. Each skill has its full workflow in
 |---|---|---|
 | `autoresearch` | Runs a measure, edit, re-measure loop against a frozen test set and keeps only changes that improve the score. | You have a prompt, retrieval config, template, ranking rule, or other editable surface with a repeatable metric. |
 | `code-project-structure` | Defines how code and knowledge projects under `~/Code/` should be scaffolded and organized. | You are starting a new project, moving files, editing project instructions, or checking whether a project root is shaped correctly. |
-| `consolidate-memory` | Reviews memory files, merges duplicates, fixes stale time references, and prunes low-value entries. | The memory layer has grown noisy, overlapping, or out of date and needs a cleanup pass. |
 | `criteria` | Audits rubric items and subjective checks, then recommends deterministic checks, LLM judges, manual review, or deletion. | You have eval criteria and need to decide which ones are worth automating. |
 | `grade` | Checks whether a system that captures judgment also grades that judgment against real outcomes. | You are reviewing an eval, scoring, recommendation, sales-intelligence, or agent system that may be accumulating unverified patterns. |
 | `humanizer` | Edits prose to remove AI writing tells and fix clarity problems while preserving meaning and register. | You are revising emails, docs, posts, READMEs, specs, or reports that sound generic, inflated, or unclear. |
