@@ -50,30 +50,6 @@ Install one skill by copying only that folder:
 cp -R skills/ralf-loop ~/.agents/skills/ralf-loop
 ```
 
-## Example Triggers
-
-Ask your agent:
-
-- `run a 60/30/10 composition audit`
-- `run a RALF loop on this repo`
-- `run the smoke test until it converges`
-- `audit this repo structure`
-- `run autoresearch on this retrieval config`
-- `humanize this README`
-- `use skill-tune to audit this SKILL.md`
-- `turn these sources into a research synthesis`
-- `run my weekly AI signal diff`
-
-## Library Defaults
-
-- Local-first. No cloud deploys unless explicitly authorized.
-- Frozen gates before iterative edits.
-- Negative controls for retrieval, AI, parser, and workflow tests.
-- Small, surgical changes.
-- Evidence and source quality over confident prose.
-- Agent-neutral skill bodies. Put platform-specific behavior only in clearly
-  labeled adaptation references.
-
 ## License
 
 [MIT](LICENSE)
