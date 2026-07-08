@@ -28,6 +28,7 @@ Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 | `runtime-guard` | Prevents an agent from editing or publishing without clearly defined authority, boundaries, stop conditions, or rollback. |
 | `skill-creator-v3` | Creates, improves, tests, and packages reusable skills. |
 | `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |
+| `swarm` | Invocation-only workflow for turning a bounded task into a verified planner, worker, checker, and reviewer swarm. |
 | `weekly-signal-diff-ai` | Summarizes what structurally changed in AI this week and why it matters. |
 
 ## Install
