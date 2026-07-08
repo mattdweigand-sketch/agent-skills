@@ -1,6 +1,6 @@
 ---
 name: swarm
-description: "Invocation-only workflow. Use only when the user explicitly invokes `swarm` as a command or asks to swarm a task. Do not trigger for broader agent, harness, judge, checker, orchestration, or multi-agent requests unless the literal `swarm` invocation is present."
+description: "Invocation-only workflow. Use only when the user includes literal `swarm` as an instruction to apply this workflow. Do not trigger for broader agent, harness, judge, checker, orchestration, or multi-agent requests unless the literal `swarm` invocation is present."
 ---
 
 # Swarm
@@ -11,7 +11,7 @@ The core rule: do not trust the agents. Build the institution around them.
 
 ## Trigger Boundary
 
-Use this skill only when the user explicitly invokes `swarm`, for example:
+Use this skill only when the user includes literal `swarm` as an instruction to apply this workflow, for example:
 
 - `swarm this`
 - `run swarm on this workflow`
@@ -25,6 +25,8 @@ Do not use this skill for incidental mentions of agents, multi-agent design, orc
 Swarm is not the default answer. A task earns a swarm only when it can be split into bounded lanes and checked cheaply enough that parallelism reduces review burden instead of multiplying it.
 
 If the task is not swarm-ready, return `DO NOT SWARM` with the smallest better alternative.
+
+Plan-only by default. Produce `SWARM PLAN`; do not spawn agents, edit files, run commands, or take durable/external side effects unless the user explicitly asks to execute the plan.
 
 ## Workflow
 
@@ -50,6 +52,12 @@ Classify the task:
 - `SINGLE RUN`: one agent/thread should do it; parallelism adds overhead.
 - `STEER FIRST`: the work is still too ambiguous.
 - `DO NOT RUN`: permission, source-of-truth, safety, or rollback path is missing.
+
+Fallback routing:
+
+- `SINGLE RUN`: use `run-kit` for a scoped run spec, proof, or cross-check.
+- `STEER FIRST`: stay in conversation until the source of truth, done condition, and review budget are clear.
+- `DO NOT RUN`: stop and ask for the missing authority, permission, or rollback path.
 
 Use `SWARM` only when all are true:
 
@@ -105,7 +113,7 @@ Include:
 - constitution
 - lane specs
 - worker outputs or expected artifacts
-- checks run or proposed
+- proposed checks by default; checks run only after explicit execution
 - failures, retries, and appeals
 - unresolved risks
 - final recommendation
@@ -123,7 +131,7 @@ Then include:
 - `Constitution`: numbered testable rules
 - `Org Chart`: planner, workers, checkers, reviewer, owner
 - `Worker Lanes`: lane name, task, input, output, forbidden actions
-- `Checks`: command, citation check, deterministic check, LLM judge, or human review
+- `Checks`: proposed checks by default; commands, citation checks, deterministic checks, LLM judges, or human reviews actually run only after explicit execution
 - `Appeals`: retry, checker correction, escalation path
 - `Review Packet`: what the final packet must contain
 - `Execution Notes`: exact next prompts, commands, or dispatch instructions if execution is requested
