@@ -1,149 +1,44 @@
 ---
 name: 60-30-10
-description: >
-  Evaluate how a project allocates its judgment across owned data, deterministic
-  code, and live model. Use when the user says "60/30/10", "composition audit",
-  "audit this project's structure", "is this allocated right", "what's the
-  60/30/10 here", "is too much in the prompt", "where does the judgment live",
-  "budget check", or runs /60-30-10, or when reviewing an agent/harness/AI system for
-  whether durable value sits in data and code versus trapped in perishable prose.
-  Pairs with `cyborg-check`, which checks whether judgment is graded against
-  outcomes, but this skill checks where judgment lives, not whether it is verified.
-metadata:
-  version: 0.3.0
-  user-invocable: true
+description: "Evaluate how a project allocates judgment across owned data, deterministic code, and live model work. Invocation-only: use this skill only when the user explicitly invokes `$60-30-10` or `/60-30-10`, or explicitly asks to use or run the 60-30-10 skill. Do not infer its use from related audit, architecture, prompt, agent, harness, workflow, or judgment-allocation requests."
 ---
 
 # Composition Audit
 
-Evaluate where a project keeps its judgment, and whether the allocation matches
-the durable shape: mostly owned data, partly deterministic code, only a thin
-layer of live model.
+## Invocation Gate
 
-The thesis this enforces: every piece of judgment has a right home, and the
-default, prose in a prompt, is usually the wrong one. A healthy system routes
-each piece to the bucket that fits, and the result is roughly 60% database, 30%
-code, 10% model. The naive build inverts that ratio, traps load-bearing judgment
-in prompt text, and decays silently on every model upgrade. This skill estimates
-the current ratio, names the biggest misallocation, and gives a punch list of
-moves. It produces an inline verdict. It does not write a file unless asked.
+Run this workflow only when the user directly invokes `$60-30-10` or `/60-30-10`, or explicitly asks to use or run the 60-30-10 skill. Do not trigger it from topic similarity or from phrases such as composition audit, structure audit, prompt allocation, or judgment allocation alone.
 
-## Step 0: Applicability Gate
+Evaluate whether a project puts each kind of judgment in its most durable home: facts and chosen policy in owned data, machine-checkable behavior in deterministic code, and only genuine interpretation and steering in live model work.
 
-This applies to any system that encodes judgment as prompts, data, or code: an
-agent harness, a sales/intelligence tool, an eval pipeline, a scoring or
-recommendation engine, a RAG app, or a workflow built on `AGENTS.md`, `CLAUDE.md`,
-skills, MCP, or similar agent context.
+The principle this enforces: every piece of judgment has a right home, and the default home, prose in a prompt, is usually the wrong one. `60/30/10` is a memorable directional guideline for that principle, not a quota, score, compliance threshold, or required numerical result. A healthy system routes each piece to the bucket that fits; its actual ratio may differ substantially for good domain-specific reasons. The failure mode is not missing an exact percentage. It is trapping durable or machine-checkable judgment in perishable model context.
 
-If the project has no model and no encoded judgment, such as a plain CRUD app, a
-static site, or a byte-moving pipeline, say so in one sentence and stop. Do not
-force the rubric.
+Produce an inline verdict. Do not write a file unless asked.
 
-## The Three Buckets
+## Applicability Gate
 
-**60% database = the facts you chose, held as owned data.** This is the durable
-layer: ICP rules, banned phrases, stage gates, win stories, deal genomes. It is
-the biggest bucket because most of what feels like "the system's intelligence"
-is accumulated fact, not live reasoning.
+Audit the target only if it holds reusable judgment: rules, policies, or criteria that decide outputs across runs. This includes agent harnesses, skills, `AGENTS.md` or `CLAUDE.md` systems, MCP workflows, eval pipelines, scoring or recommendation engines, RAG apps, sales or intelligence tools, and wiki or process systems that agents operate against.
 
-**30% automation = deterministic code and checks.** The rails, validators,
-scanners, gates, and orchestration that fetch the right records and enforce
-machine-checkable rules. This is the only bucket that crosses the reliability
-ceiling, so anything that has to be reliable belongs here, not in the 10.
-
-**10% LLM/AI = the prompt and model doing genuine interpretation.** Keep it
-small, concrete, and perishable. It should steer the task and interpret what
-cannot be reduced to data or code.
-
-The percentages are a target shape, not a precise quota. The point is the order
-of magnitude: data should dwarf code, and code should dwarf prompt. If prompt is
-the biggest bucket, the build is inverted.
-
-Measure by load-bearing judgment, not raw line count. A 2,000-line prose file of
-durable teaching is not automatically 2,000 lines of debt, and a 16-row JSON
-file can carry the policy that actually decides outputs. Weight each bucket by
-how much the system relies on what it holds.
-
-Two counting traps:
-
-- Owned data often lives off-repo. Database rows, memory stores, retrieved
-  records, and vector stores carry real weight in the 60 but may have no repo
-  line count.
-- Prompt surface is whatever loads into model context per run, not just files
-  named like prompts. Always-on system prompts and frequently injected reference
-  docs count toward the 10.
-
-## Routing Sort
-
-For every piece of judgment, ask in sequence:
-
-1. **Steering or fact?** Output format, reasoning scaffolds, and
-   hypothesis-vs-observed marking are steering. Steering stays in the prompt.
-2. **If a fact: chosen or predictive?** A chosen fact is policy set by fiat, such
-   as a banned phrase, ICP boundary, or required field. Chosen facts become data.
-   A predictive fact claims a correlation with outcome. Predictive facts need an
-   outcome grade before they become authoritative.
-3. **Machine-checkable?** If a rule is mechanically verifiable, it also gets a
-   deterministic check in code.
-
-The unit of the sort is the rule, not the file. One document can split across
-buckets.
+If the target has no reusable judgment, say so in one sentence and stop. Do not force the rubric.
 
 ## Procedure
 
-1. **Inventory.** Find where judgment physically lives. List prompt surface,
-   owned data, and deterministic code. Correct for off-repo data and
-   actually-loaded reference docs.
-2. **Classify the load-bearing judgment.** Name the top eight to twelve rules
-   that decide outputs. Record where each currently lives and where it belongs.
-3. **Estimate the ratio.** Anchor the estimate in that rule set, not a vibe. Give
-   an approximate current split against 60/30/10 and state confidence.
+1. **Inventory.** Find where judgment physically lives. List prompt surface, owned data, and deterministic code. Correct for off-repo data and reference documents that actually load into model context.
+2. **Classify the load-bearing judgment.** Load `references/composition-model.md`. Name the top eight to twelve rules that decide outputs. Record where each currently lives, where it belongs, and who writes it.
+3. **Estimate the shape.** Anchor the estimate in that rule set, not a vibe. Give an approximate current split and state confidence. Treat it as a diagnostic aid, never a score.
 4. **Name the biggest misallocation.** Identify the single highest-leverage move.
-5. **Punch list.** Give concrete moves ordered by leverage and lowest risk first.
-   Separate safe moves from changes gated on evidence.
+5. **Give a punch list.** Order concrete moves by leverage and lowest risk first.
+6. **Render the verdict.** Use the template and field specification in `references/output-template.md`.
 
-Use `references/audit-worksheet.md` as the internal worksheet when the system is
-large enough that the ratio could otherwise become a vibe.
+This skill produces the verdict and punch list only. It does not execute the moves. Apply-mode requests route to the target project's own tooling and authority boundaries.
 
-## What Good And Bad Look Like
+## Reference Loading
 
-Good: a thin prompt for format and genuine interpretation, a fat owned-data
-layer of chosen facts and graded rules, and deterministic code enforcing
-everything machine-checkable. New rules land as data rows or code checks, not
-prompt edits.
+- `references/composition-model.md` — required for step 2. Owns the buckets, routing sort, counting traps, and good or bad shapes.
+- `references/output-template.md` — required for step 6. Owns the verdict template and field specification.
+- `references/audit-worksheet.md` — load when the target is large enough that the estimate would otherwise become a vibe.
+- `references/worked-example.md` — load before the first run in a session to calibrate depth. Treat its dated project facts as illustrative, not current.
 
-Bad: `AGENTS.md` and prompt templates are the biggest surface, the same policy is
-duplicated across prose files, reliability-critical rules are phrased as polite
-requests to the model, and a model upgrade can degrade behavior silently.
+## Sources
 
-## Output Format
-
-Use this exact template:
-
-```text
-**Verdict:** [inverted / prose-heavy / mid-migration / roughly balanced / healthy]. One line on why. Use mid-migration when some layers are routed right and others are not.
-
-**Estimated ratio:** ~[X/Y/Z] against the 60/30/10 target. [One line on confidence and what drove the estimate.]
-
-**Bucket findings:**
-- Data (should be ~60, is ~[X]): [what is held; what durable fact is missing from here]
-- Code (should be ~30, is ~[Y]): [what is enforced; what reliability-critical rule is not]
-- Prompt (should be ~10, is ~[Z]): [what is steering and correct; what is relocatable]
-
-**Biggest misallocation:** [the single highest-leverage move, named concretely.]
-
-**Punch list (lowest risk first):**
-1. Safe now: [chosen policy to data, or machine-checkable rule to code]
-2. Safe now: [...]
-3. Gated on evidence: [predictive rule that needs an outcome grade before it moves]
-4. Leave: [genuine steering, correctly placed]
-```
-
-Read `references/worked-example.md` before a first run to calibrate depth.
-Use `references/audit-worksheet.md` for repeatable inventory and rule sorting.
-
-## Source
-
-This skill operationalizes four ideas: judgment routing, prompt technical debt,
-storage versus enforcement, and context as a durable advantage. The skill body is
-self-contained; external notes can deepen the concepts but are not required.
+This Codex skill is ported from Matt's Claude `60-30-10` skill. It operationalizes the wiki concepts `judgment-routing`, `prompt-technical-debt`, `storage-vs-enforcement`, and `context-as-moat`. When auditing the wiki repo, read the relevant wiki pages only if needed for the target.
