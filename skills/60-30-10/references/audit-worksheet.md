@@ -6,15 +6,23 @@ Use this as an internal worksheet before writing the final verdict. Do not paste
 
 | Bucket | Artifacts found | Loaded by default? | Notes |
 |---|---|---:|---|
-| Data |  | yes/no | Owned records, reference tables, schemas, eval sets, stored examples |
-| Code |  | yes/no | Scripts, tests, validators, schemas, gates, typed parsers |
-| Prompt |  | yes/no | System prompts, `SKILL.md` bodies, command wrappers, templates, injected references |
+| Owned data |  | yes/no | Governed records, reference tables, schemas, eval sets, stored examples |
+| Deterministic code |  | yes/no | Pipelines, tests, validators, gates, detectors, alerts, typed parsers |
+| Prompt-model work |  | yes/no | System prompts, `SKILL.md` bodies, command wrappers, templates, injected references |
 
 ## Rule Sort
 
-| Rule or judgment | Current home | Correct home | Writer and check | Reason | Safe move? |
-|---|---|---|---|---|---|
-|  | data/code/prompt | data/code/prompt | human/code/model; checked/unchecked | steering/chosen fact/predictive/checkable | yes/no/evidence needed |
+| Rule or apparent judgment | Current home | Correct home or delete | Consequence if wrong once | Writer and check | Reason | Safe move? |
+|---|---|---|---|---|---|---|
+|  | owned data/code/prompt-model | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; checked/unchecked | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
+
+## Connected-target policy check
+
+| Chosen policy | Homes found | Canonical owner | Reference or retrieval path | Finding |
+|---|---|---|---|---|
+|  |  |  |  | duplicate / single-owned / not assessed |
+
+Record the bounded connected-target scope inspected:
 
 ## Shape Estimate
 
@@ -22,9 +30,9 @@ Anchor the estimate in the eight to twelve load-bearing rules, not raw line coun
 
 | Bucket | Estimated share | Evidence |
 |---|---:|---|
-| Data |  |  |
-| Code |  |  |
-| Prompt |  |  |
+| Owned data |  |  |
+| Deterministic code |  |  |
+| Prompt-model work |  |  |
 
 ## Misallocation
 
@@ -44,4 +52,4 @@ Name one highest-leverage move:
 
 ---
 
-*Owner: Matt Weigand. Last reviewed: 2026-07-30. Re-review when the output template or routing sort changes.*
+*Owner: Matt Weigand. Last reviewed: 2026-08-04. Re-review when the output template, routing sort, or cross-target check changes.*
