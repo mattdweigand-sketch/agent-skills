@@ -30,6 +30,7 @@ Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 | `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |
 | `swarm` | Invocation-only workflow for turning a bounded task into a verified planner, worker, checker, and reviewer swarm. |
 | `weekly-signal-diff-ai` | Summarizes what structurally changed in AI this week and why it matters. |
+| `write-discoverable-code` | Writes and reviews source code with distinctive names and precise public APIs so coding agents can find and use it efficiently. |
 
 ## Install
 

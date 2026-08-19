@@ -1,0 +1,44 @@
+{
+  "description": "Examples of file and symbol names that can be too generic for plain-text search. Use them as review prompts: inspect the target repository's actual search results and local conventions before renaming. Prefer concept-named alternatives when a name produces many unrelated hits.",
+  "source": "https://modem.dev/blog/how-coding-agents-read-your-code",
+  "advisory_file_stems": [
+    "helpers",
+    "utils",
+    "util",
+    "common",
+    "misc",
+    "shared",
+    "lib",
+    "core",
+    "client",
+    "signer",
+    "queue",
+    "manager",
+    "handler",
+    "service",
+    "base",
+    "index"
+  ],
+  "advisory_symbol_names": [
+    "create",
+    "get",
+    "set",
+    "do",
+    "handle",
+    "process",
+    "run",
+    "validate",
+    "check"
+  ],
+  "advisory_symbol_names_note": "Review these only when used as the entire name (for example, `create()` or `validate()`). They are often fine as prefixes of a distinctive name (`createStripeClient`, `validateNotificationDeliveryConfig`).",
+  "examples": {
+    "bad_to_good": {
+      "create()": "createStripeClient()",
+      "client.ts": "stripe-client.ts",
+      "queue.ts": "channel-router.ts",
+      "signer.ts": "hmac-payload-signer.ts",
+      "validateConfig()": "validateNotificationDeliveryConfig()",
+      "helpers.py": "concept-named module (e.g. `email_folders.py`)"
+    }
+  }
+}
