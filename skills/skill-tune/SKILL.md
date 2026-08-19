@@ -1,6 +1,6 @@
 ---
 name: skill-tune
-description: "Audit or refactor an existing skill or prompt artifact for prompt technical debt. Use when the user runs /skill-tune or explicitly asks to audit, tune, or refactor a SKILL.md, skill directory or ZIP, AGENTS.md, CLAUDE.md, system prompt, command wrapper, or tool instruction for over-steering, context bloat, stale model-specific steering, duplicated canonical rules, misplaced executable checks, or missing authority boundaries. Use skill-creator-v3 for net-new skills; not for rubric grading or reviewing a single PR."
+description: "Audit or refactor an existing skill or prompt artifact for prompt technical debt. Use when the user invokes $skill-tune or /skill-tune, or explicitly asks to audit, tune, or refactor a SKILL.md, skill directory or archive, AGENTS.md, CLAUDE.md, system prompt, command wrapper, or tool instruction for prompt debt, over-steering, context bloat, stale model-specific steering, duplicated canonical rules, misplaced executable checks, or missing authority boundaries. Use skill-creator for net-new skill scaffolding. Do not use for rubric design or general pull-request review."
 ---
 
 # Skill Tune

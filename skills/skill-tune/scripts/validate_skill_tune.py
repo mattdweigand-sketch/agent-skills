@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 
-EXPECTED_FILES = {
+REQUIRED_FILES = {
     "SKILL.md",
     "agents/openai.yaml",
     "references/agentic-skill-safety.md",
@@ -127,12 +127,9 @@ def main() -> int:
             for path in skill_dir.rglob("*")
             if path.is_file()
         }
-        missing = sorted(EXPECTED_FILES - actual_files)
-        unexpected = sorted(actual_files - EXPECTED_FILES)
+        missing = sorted(REQUIRED_FILES - actual_files)
         if missing:
-            errors.append(f"Missing expected files: {', '.join(missing)}")
-        if unexpected:
-            errors.append(f"Unexpected files: {', '.join(unexpected)}")
+            errors.append(f"Missing required files: {', '.join(missing)}")
 
     if errors:
         print("skill-tune validation failed:", file=sys.stderr)

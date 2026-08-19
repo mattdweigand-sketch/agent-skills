@@ -50,11 +50,11 @@ Every finding `skill-tune` returns uses this shape. Fields are required unless m
 
 | Field | Content |
 |---|---|
-| Title | Short imperative naming the debt (e.g., "Trigger description collides with skill-review"). |
+| Title | Short imperative name for the debt. |
 | Bucket | One of: Durable, Perishable, Executable, Reference, Duplicate. |
 | Action | Exactly one from the Actions table above. |
 | Location | File path plus line range or section anchor. |
-| Evidence | Verbatim quote of the offending text (short). |
+| Evidence | Short verbatim quote of the offending text. |
 | Recommendation | Concrete change, small enough to patch in one edit. |
 | Priority (optional) | Ordering hint when the audit returns many findings. |
 
