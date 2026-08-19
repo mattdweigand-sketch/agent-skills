@@ -12,7 +12,7 @@ Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 
 | Skill | Description |
 |---|---|
-| `60-30-10` | Evaluate where a project keeps its judgment, and whether the allocation matches the durable shape: mostly owned data, partly deterministic code, only a thin layer of live model. |
+| `60-30-10` | Evaluate whether load-bearing judgment is routed to owned data, deterministic code, or prompt-model work. |
 | `autoresearch` | Improves a prompt, config, or workflow by testing one change at a time against a fixed score. |
 | `context-window-audit` | Finds startup context, settings, wrappers, and memory entries that waste context-window space. |
 | `cyborg-check` | Audits whether a judgment system closes the loop between captured patterns and real outcomes, or is spreading unverified judgment. |

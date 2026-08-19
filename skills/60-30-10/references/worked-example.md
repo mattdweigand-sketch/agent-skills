@@ -8,7 +8,7 @@ Treat the project facts and numbers below as illustrative, not current.
 
 ## Input
 
-"Audit sales-os composition. It runs prep/debrief/close through an MCP harness backed by Open Brain, an off-repo record store."
+"$60-30-10 sales-os. It runs prep/debrief/close through an MCP harness backed by Open Brain, an off-repo record store."
 
 ## Inventory
 
@@ -28,9 +28,16 @@ No unnecessary live decision was found in this snapshot; the model performs inte
 
 ## Output
 
-**Verdict:** Mid-migration. The voice layer is correctly routed to data plus code, but the largest body of load-bearing judgment—ICP fit, triggers, segments, and loss patterns—is still prose.
+**Verdict:** mid-migration. The voice layer is correctly routed to data plus code, but the largest body of load-bearing judgment—ICP fit, triggers, segments, and loss patterns—is still prose.
 
-**Estimated shape:** ~15/30/55. Medium confidence. Voice rules sit in data and code, but ICP, trigger, segment, and loss-pattern rules still live in prose, so data is thin and prompt is heavy. The estimate would shift if the off-repo records were weighted more heavily. This is descriptive, not a score.
+**Estimated shape:** ~15/30/55 (owned data/deterministic code/prompt-model work). Medium confidence. Voice rules sit in owned data and deterministic code, but ICP, trigger, segment, and loss-pattern rules still live in prompt-model work, so data is thin and prompt is heavy. The estimate would shift if the off-repo records were weighted more heavily. This is descriptive, not a score.
+
+**Rule basis:**
+- Banned vocabulary: current owned data + deterministic code → correct owned data + deterministic code; writer human — checked.
+- ICP boundaries, accounts, stages, triggers, and segment vocabulary: current prompt-model work → correct owned data; writer human — unchecked.
+- Loss patterns and trigger weights: current prompt-model work → correct prompt-model work; writer human — unchecked.
+- Stage advancement: current prompt-model work → correct deterministic code; writer model — unchecked.
+- Output format, hypothesis marking, and deal-genome reasoning: current prompt-model work → correct prompt-model work; writer human — checked.
 
 **Bucket findings:**
 - Owned data (~15): holds `voice-constraints.json` and off-repo signals. Missing the chosen interpretation layer: ICP boundaries, persona weights, trigger list, and segment vocabulary.

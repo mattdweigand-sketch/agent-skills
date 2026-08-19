@@ -15,7 +15,7 @@ In this skill, `60/30/10` always means **owned data / deterministic code / promp
 
 The principle this enforces: every necessary piece of judgment has a right home, and the default home, prose in a prompt, is usually the wrong one. `60/30/10` is a memorable directional guideline for that principle, not a quota, score, compliance threshold, codebase-composition claim, or required numerical result. A healthy system routes each piece to the bucket that fits; its actual ratio may differ substantially for good domain-specific reasons. The failure mode is not missing an exact percentage. It is manufacturing live decisions for fixed sequences or trapping durable and consequence-worthy judgment in perishable model context.
 
-Produce an inline verdict. Do not write a file unless asked.
+Produce an inline verdict. Do not write a file unless asked. When the user asks for a saved verdict, validate its structure before delivery.
 
 ## Applicability Gate
 
@@ -25,13 +25,13 @@ If the target has no reusable judgment, say so in one sentence and stop. Do not 
 
 ## Procedure
 
-1. **Inventory.** Find where judgment physically lives. List owned data, deterministic code, and prompt-model work. Correct for off-repo data and reference documents that actually load into model context. Identify any model decision that is really a fixed pipeline.
-2. **Classify the load-bearing judgment.** Load `references/composition-model.md`. Name the top eight to twelve rules or manufactured decisions that decide outputs. Record where each currently lives, where it belongs or whether it should be deleted, its consequence if wrong once, and who writes it.
+1. **Inventory.** Read the user-supplied target and its declared direct dependencies. List owned data, deterministic code, and prompt-model work. Correct for declared off-repo data and reference documents that actually load into model context. Do not query connectors, credentials, or unrelated repositories to discover more data. If a declared dependency cannot be read, mark that bucket `unknown/unverified`, state the resulting confidence limit, and do not infer its contents. Identify any model decision that is really a fixed pipeline.
+2. **Classify the load-bearing judgment.** Load `references/composition-model.md`. When the target has fewer than eight load-bearing rules, name all of them; otherwise name the top eight to twelve. Record where each currently lives, where it belongs or whether it should be deleted, its consequence if wrong once, and who writes it.
 3. **Estimate the shape.** Anchor the estimate in that rule set, not a vibe. Give an approximate current split and state confidence. Treat it as a diagnostic aid, never a score.
 4. **Name the biggest misallocation.** Identify the single highest-leverage move.
-5. **Check connected targets for duplicated policy.** Inspect only the repos, workflows, or execution surfaces the target directly names, loads, generates, or depends on. Name one duplicated chosen policy and its owner, or state the bounded scope and that none was found. Do not roam unrelated systems.
+5. **Check connected targets for duplicated policy.** Inspect only the repos, workflows, or execution surfaces the target directly names, loads, generates, or depends on. Do not use connectors or credentials to discover targets. Name one duplicated chosen policy and its owner, or state the bounded scope and that none was found. Do not roam unrelated systems.
 6. **Give a punch list.** Order concrete moves by leverage and lowest risk first.
-7. **Render the verdict.** Use the template and field specification in `references/output-template.md`.
+7. **Render the verdict.** Use the template and field specification in `references/output-template.md`. When the verdict is available as a local text file, run `python3 scripts/validate_composition_audit_report.py <report-file>` and correct structural failures before delivery. The validator checks format only, never placement judgment.
 
 This skill produces the verdict and punch list only. It does not execute the moves. Apply-mode requests route to the target project's own tooling and authority boundaries.
 
@@ -40,7 +40,8 @@ This skill produces the verdict and punch list only. It does not execute the mov
 - `references/composition-model.md` — required for step 2. Owns the buckets, routing sort, counting traps, and good or bad shapes.
 - `references/output-template.md` — required for step 6. Owns the verdict template and field specification.
 - `references/audit-worksheet.md` — load when the target is large enough that the estimate would otherwise become a vibe.
-- `references/worked-example.md` — load before the first run in a session to calibrate depth. Treat its dated project facts as illustrative, not current.
+- `references/worked-example.md` — load when the target's shape is unfamiliar and you need to calibrate depth. Treat its dated project facts as illustrative, not current.
+- `scripts/validate_composition_audit_report.py` — run only against a saved verdict. Owns the mechanically checkable output contract.
 
 ## Sources
 

@@ -1,6 +1,6 @@
 # 60-30-10 Audit Worksheet
 
-Use this as an internal worksheet before writing the final verdict. Do not paste the whole worksheet unless the user asks for supporting detail.
+Use this as an internal worksheet before writing the final verdict. Render a compact `Rule basis` in the final verdict; do not paste the whole worksheet unless the user asks for supporting detail.
 
 ## Inventory
 
