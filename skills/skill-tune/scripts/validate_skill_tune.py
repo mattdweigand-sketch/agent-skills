@@ -36,8 +36,12 @@ def parse_frontmatter(path: Path) -> dict[str, str]:
             continue
         if ":" not in line:
             raise ValueError(f"Invalid frontmatter line: {line!r}")
-        key, value = line.split(":", 1)
-        fields[key.strip()] = value.strip()
+        key, value = (part.strip() for part in line.split(":", 1))
+        if not key or not value:
+            raise ValueError(f"Empty frontmatter field: {line!r}")
+        if key in fields:
+            raise ValueError(f"Duplicate frontmatter field: {key!r}")
+        fields[key] = value
     return fields
 
 
