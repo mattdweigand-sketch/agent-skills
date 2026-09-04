@@ -1,6 +1,6 @@
 # icm-architect
 
-A Claude skill that designs any process, idea, or problem into an **ICM workspace** — folder structure as agent architecture — or restructures an existing folder, repo, or vault into one.
+A Codex skill that designs any process, idea, or problem into an **ICM workspace** — folder structure as agent architecture — or restructures an existing folder, repo, or vault into one.
 
 ICM (Interpretable Context Methodology) replaces orchestration code with structure: numbered folders carry sequencing, hierarchy carries context scoping, plain markdown files carry state. One agent, reading the right files at the right moment, does the work of a multi-agent framework — and a human can open any folder and see exactly what state the system is in.
 
@@ -10,6 +10,8 @@ The workspace is a library. The routing files are the catalog: small, stable, th
 - Community: [Clief Notes](https://www.skool.com/cliefnotes)
 
 ## What it does
+
+Audits and walk tests report findings without changing files. Build and restructure apply changes within the authorized scope.
 
 Two modes:
 
@@ -21,6 +23,8 @@ Six forms, one skeleton: **Pipeline** (production line), **Umbrella** (portfolio
 Every result is validated with the **walk test**: an agent with no memory must orient, act, and report status from the files alone.
 
 ## Install
+
+**Codex:** the installed user-scoped copy lives at `~/.codex/skills/icm-architect/`.
 
 **Claude Code:** copy this folder to `~/.claude/skills/icm-architect/` (or `.claude/skills/icm-architect/` inside a project), then ask Claude to "ICM this" / "structure this for agents" / "build me a workspace for X".
 
@@ -34,8 +38,10 @@ icm-architect/
 ├─ references/
 │  ├─ core.md            five principles, five-layer hierarchy, naming, token discipline
 │  ├─ forms.md           the six forms in depth: skeletons, moves, failure modes
+│  ├─ reference-integrity.md move preflight and byte verification
 │  └─ system-map.md      audit pipeline for the System map form
-└─ assets/templates/     copyable starters: CLAUDE.md, CONTEXT.md, stage contract,
+├─ scripts/migration_preflight.py  read-only collision and parity checks
+└─ assets/templates/     copyable starters: AGENTS.md, optional CLAUDE.md pointer, CONTEXT.md, stage contract,
                          node card, object/process cards, schema, questionnaire
 ```
 

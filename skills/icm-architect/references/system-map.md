@@ -28,13 +28,13 @@ Product language and file/type names often disagree. State both once in the cata
 
 Propose before writing. Prefer a `map/` shelf next to existing orientation (`developer-docs/`, `docs/`, vault root) so the subject’s entry file can add one routing row. Do not drop a map inside `src/` or scatter cards through the tree you are mapping.
 
-Entry files: edit `CLAUDE.md`. Generate `AGENTS.md` and `routing.md` as byte-identical twins in the same folder. Never hand-edit the twins. Tools that ignore `CLAUDE.md` still get the catalog.
+Follow the Scope and entry files policy in `SKILL.md`. The tree below illustrates a new map with `AGENTS.md`; preserve an existing workspace's canonical owner and generated-file policy.
 
 ## Target tree (smallest that carries the work)
 
 ```
 map/
-├─ CLAUDE.md              L0 catalog (twins: AGENTS.md, routing.md)
+├─ AGENTS.md              L0 canonical catalog
 ├─ CONTEXT.md             how to walk; the universes; name collisions
 ├─ _meta/schema.md        closed node types
 ├─ _templates/            object.md, process.md
@@ -50,15 +50,15 @@ Do not create `processes/` or `effects/` empty. Three verified noun clusters bea
 
 ## Audit pipeline (human-gated slices)
 
-Stop after each slice. A person or a cold walk reads the output before the next slice starts.
+Creating a map follows these slices when writes are authorized. For a read-only audit, inspect existing artifacts and report gaps without scaffolding cards. A cold walk validates a slice; it does not substitute for a required human approval.
 
 ### 0 — Inventory, do not write cards
 
-List the tree. Classify each area: catalog / contract / factory / product / dead (Restructure mode). Infer nouns (types, durable files, note kinds) and verbs (movements that repeat). Mark universe. Present the proposed tree and cluster list. Get approval.
+List the tree. Classify each area: catalog / contract / factory / product / dead (Restructure mode). Infer nouns (types, durable files, note kinds) and verbs (movements that repeat). Mark universe. Present the proposed tree and cluster list. Get approval for the concrete write scope unless already authorized.
 
 ### 1 — Catalog
 
-Write `CLAUDE.md`, `CONTEXT.md`, schema, templates, `objects/_index.md` with **stub lines** for every noun you will not invent a body for. Wire one routing row from the subject’s existing entry file. Walk: “where do I go to understand X?” lands in two hops.
+Write the canonical entry, `CONTEXT.md`, schema, templates, `objects/_index.md` with **stub lines** for every noun you will not invent a body for. Wire one routing row from the subject’s existing entry file. Walk: “where do I go to understand X?” lands in two hops.
 
 ### 2 — Nouns (objects)
 
@@ -85,6 +85,8 @@ Each process card: Input → Movement → Output; numbered steps with citations;
 
 `effects/CONTEXT.md` is a catalog: “if you are changing X, open these cards.” It does not copy waterfalls. If the index and a card disagree, fix the card.
 
+Also record known external consumers on the cards they reference: other repos, configurations, agents, or scheduled jobs. Ask the owner about consumers not discoverable within the scoped tree. Do not claim the list is exhaustive when external usage is unknown.
+
 ### 5 — Re-verify
 
 After the first fill, rip the load-bearing claims again (especially Hits / Does not hit). Wrong waterfalls are more expensive than missing cards.
@@ -104,13 +106,13 @@ After the first fill, rip the load-bearing claims again (especially Hits / Does 
 A cold agent, no memory of the subject:
 
 1. Open the subject’s entry file. Is the map one hop away?
-2. Open `map/CLAUDE.md`. Can it say what the colliding names mean without opening a card?
+2. Open the map's canonical entry. Can it say what the colliding names mean without opening a card?
 3. Open one object card. Does it cite source, state the why, and give a first-order waterfall?
 4. From `effects/CONTEXT.md`, can it name what a stated change hits and what it does not?
 5. Follow one `See` link. Does it land on source, not another essay?
 6. Token check: entry + hub + one card stays in the 2k–8k band.
 
-If a step fails, split or move files. Do not add a “how to read this map” novel.
+Report failures with evidence. Split or move files only when fixes are authorized; otherwise describe the proposed structural correction.
 
 ## Failure modes
 

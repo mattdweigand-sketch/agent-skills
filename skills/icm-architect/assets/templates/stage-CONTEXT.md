@@ -3,7 +3,7 @@
 One job: {the single thing this stage does}.
 
 ## Inputs
-- Working (this run): ../{NN-1}_{prev-stage}/output/{file}
+- Working (this run): ../{prev-stage-folder}/output/{run-id}/{file}, using the actual folder name and active run ID; update this path when renumbering
 - Reference (every run): ../../_shared/{rules-file}.md
 - Reference (every run): references/{stage-specific-guide}.md
 
@@ -15,7 +15,10 @@ Do NOT load: {anything an eager agent would wrongly pull in — other stages' re
 3. {Hard limits worth restating: length, count, format.}
 
 ## Outputs
-- {artifact}.md → output/
+- {artifact}.md → output/{run-id}/
+- Ready when: {checks that establish the artifact is complete and usable}.
 
 ## Human check
+Review record: {path for this run, recording approval and the reviewed artifact revision; invalidate approval if that artifact changes}.
+
 {One concrete act: read it aloud / verify the numbers against X / confirm the order survived. Edit the output in place — the next stage reads whatever is here.}
