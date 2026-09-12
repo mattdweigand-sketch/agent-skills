@@ -3,8 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Portable skill library for architecture, code quality, prompt maintenance,
-research, and multi-agent workflows. These skills work across Codex, Claude
-Code, Cursor, and other AGENTS-aware tools.
+research, interview-led builds, and multi-agent workflows. These skills work
+across Codex, Claude Code, Cursor, and other AGENTS-aware tools.
 
 ## Included Skills
 
@@ -13,6 +13,7 @@ Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 | Skill | Description |
 |---|---|
 | `60-30-10` | Evaluate whether load-bearing judgment is routed to owned data, deterministic code, or prompt-model work. |
+| `build` | Interviews the user to define the result, builds it, and checks it against the agreed requirements. Covers tools, documents, spreadsheets, skills, workflows, and prototypes. |
 | `icm-architect` | Designs processes and knowledge as walkable folder-based workspaces, or restructures existing folders to follow ICM conventions. |
 | `karpathy-guidelines` | Keeps coding work simple, scoped, and easy to verify. |
 | `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |

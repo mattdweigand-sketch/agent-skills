@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build"
+  short_description: "Interview, build, and check the result"
+  default_prompt: "Use $build to interview me for the information needed, then build the result and check it against what we agreed."
