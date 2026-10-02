@@ -10,7 +10,7 @@ Run each check below. Record pass/fail and any issues found.
 
 2. **No circular dependencies.** Trace the reference graph. If Stage A references Stage B, Stage B must not reference Stage A (directly or through other stages). Draw the dependency graph and confirm it is a directed acyclic graph.
 
-3. **Placeholder coverage.** Scan all markdown files for `{{PLACEHOLDER}}` patterns. Every placeholder found must have a corresponding question in the questionnaire. Every question must map to at least one file that contains its placeholder. List any orphaned placeholders or orphaned questions.
+3. **Placeholder coverage.** Check the discovery map identifies system-level variables, optional stages and their conditions, and required or optional tools per stage. Scan all markdown files for `{{PLACEHOLDER}}` patterns. Each system-level placeholder must map to a setup question or derived value and its target files; each per-run value must be collected by its entry contract. List orphaned variables, placeholders, or questions.
 
 4. **Conditional section validity.** Every `{{?SECTION}}...{{/SECTION}}` block must wrap a complete section (a heading and all content below it). No inline conditional wrapping. Flag any violations.
 
@@ -36,3 +36,21 @@ For a build or authorized repair, fix issues and re-run the failed checks. For a
 
 
 Finish by tracing a representative task from a fresh context through its entry, scoped inputs, output, human check, and consumer. Say whether this was a static trace or an executed run.
+
+## Safe migration
+
+Use before moving or replacing existing workspace files. Establish the durable destination and a usable backup or Git recovery point. Temporary storage is staging, not the final workspace.
+
+1. Map each source to its destination and identify internal links, relative paths, symlinks, and known external consumers. Record unknown coverage. A live consumer must keep working or receive an authorized update in the same migration. Check planned destinations against each other for overlaps and case-insensitive name collisions.
+2. Run the read-only checker below for each source/destination pair. It requires an absent destination; resolve conflicts before copying. Copy without overwriting existing paths. Keep the source and copied bytes unchanged until verification passes.
+3. Run `--verify`. It compares relative file/directory inventories and whole-file SHA-256 hashes, including binary files and empty directories. Only after parity passes may an authorized removal occur. On failure, retain the source, report the partial destination, and resolve the failure before retrying.
+4. Apply authorized content and reference updates after copy verification. Recheck the affected consumers and task navigation from the new location. Use existing authorization; passing checks does not authorize deletion or publication.
+
+From the skill directory, using Python 3.9 or newer:
+
+```sh
+python3 scripts/migration_preflight.py /absolute/source /absolute/destination
+python3 scripts/migration_preflight.py /absolute/source /absolute/destination --verify
+```
+
+The checker rejects overlapping trees, existing destinations in preflight mode, case/Unicode-normalization collisions, symlinks, and special files. Reports are JSON; exit 0 means passed, 1 means a check or filesystem failure, and 2 means invalid command syntax. It reads only. It does not find consumers, compare multiple planned moves, verify permissions or extended attributes, or stop concurrent writers. Use quiescent inputs and recheck if they change; symlinks need a separately planned move that preserves their meaning.

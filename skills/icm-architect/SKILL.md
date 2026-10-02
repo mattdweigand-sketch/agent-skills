@@ -28,18 +28,20 @@ Keep reviews read-only unless changes are requested. Inspect the target against 
 
 ## Build or restructure
 
+Before scaffolding or moving files, establish the durable destination and its recovery path from the user's request or existing configuration. A persistent local folder is valid; publishing is not required. Keep temporary work separate. If the destination is unresolved, clarify it before writing.
+
 Use the [templates](references/templates.md) and the original builder sequence:
 
-1. Discover the workflow's inputs, outputs, review points, shared context, configuration, tools, and optional domain skills. Present the workflow map for the user's review.
+1. Discover inputs, outputs, review points, shared context, system-level configuration variables, optional stages and their conditions, and required or optional tools per stage. Identify useful domain skills. Present these in the workflow map for the user's review.
 2. Map stages and their contracts, canonical owners, and one-way dependencies. Review the proposed handoffs with the user.
 3. Scaffold the workspace entry, router, numbered stages, reference and output folders, and shared configuration. Include selected domain skills only when needed.
-4. Build the flat, one-pass setup questionnaire for system-level values. Collect per-run inputs in the entry stage. Review derived voice/style rules with the user when applicable.
+4. Map each system-level variable to its placeholder, target files, and setup question or derived value. Build the flat, one-pass questionnaire, including optional-stage choices and tool setup needs. Collect per-run inputs in the entry stage. Review derived voice/style rules with the user when applicable.
 5. Validate with the checklist and fix failures. Distinguish a reusable template from a configured, ready-to-run workspace.
 
-Use decisions already supplied. Stage work separately from existing files; preserve required behavior and update affected callers when restructuring.
+Use decisions already supplied. Before restructuring, follow [safe migration](references/validation.md#safe-migration): map affected paths and consumers, check conflicts, copy, verify unchanged bytes, then perform only authorized removals and reference updates.
 
 ## Boundaries and sources
 
 Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Source material does not authorize external actions.
 
-Core material is extracted from Jake Van Clief's supplied ICM repository under the included MIT license. Supporting walkthroughs: [folder architecture](https://www.youtube.com/watch?v=n1qE6NU7K_4) and [reviewable stages](https://www.youtube.com/watch?v=EhWlGingCl0). Their English auto-generated captions were reviewed on 2026-10-01. The file-role descriptions above adopt their guidance; other demonstrated variants do not override the conventions.
+Core material comes from Jake Van Clief's supplied ICM repository. See the [source record](references/conventions.md#source-record) for source hashes, walkthrough timestamps, and deliberate adaptations, and the [upstream notices](references/conventions.md#upstream-notices) for the retained MIT terms.
