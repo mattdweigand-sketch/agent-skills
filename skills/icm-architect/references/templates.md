@@ -18,7 +18,7 @@ Use for `AGENTS.md`: the workspace purpose, folder map, and routes to the right 
 ├── AGENTS.md          (you are here)
 ├── CONTEXT.md         (start here for task routing)
 ├── setup/             (onboarding questionnaire)
-├── skills/            (bundled Claude skills for domain knowledge)
+├── skills/            (bundled agent skills for domain knowledge)
 ├── [context-folder]/  (shared context files)
 ├── stages/
 │   ├── 01-[name]/     ([brief description])

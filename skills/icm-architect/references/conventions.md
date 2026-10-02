@@ -190,12 +190,12 @@ The questionnaire template at [questionnaire template](templates.md#questionnair
 
 ## Pattern 9: Bundled Skills
 
-Workspaces can bundle Claude Code skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
+Workspaces can bundle agent skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
 
 ```
 workspace/
 ├── skills/
-│   ├── [skill-name]/          (copied from ~/.claude/skills/ or cloned from GitHub)
+│   ├── [skill-name]/          (copied from a local skill installation or cloned from GitHub)
 │   │   ├── SKILL.md           (skill entry point)
 │   │   ├── rules/             (detailed rule files, if any)
 │   │   └── scripts/           (utility scripts, if any)
@@ -204,7 +204,7 @@ workspace/
 ```
 
 **Discovery:** During workspace building (Stage 01), the builder identifies relevant skills by:
-1. Scanning `~/.claude/skills/` and `~/.agents/skills/` for locally installed skills
+1. Checking the current environment's configured skill directories for locally installed skills
 2. Searching GitHub for skill repos matching the workspace domain (e.g., "remotion skill", "pptx skill")
 3. Presenting candidates to the user for selection
 
@@ -218,7 +218,7 @@ workspace/
 
 Skills replace custom reference docs when an official skill covers the same ground. Keep workspace-specific files (design systems, brand config, build conventions) alongside skills, not inside them.
 
-**When NOT to bundle:** Do not bundle skills that are purely about Claude Code itself (e.g., skill-creator, mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
+**When NOT to bundle:** Do not bundle skills that are purely about configuring or extending the agent platform (e.g., skill-creator, mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
 
 ---
 
