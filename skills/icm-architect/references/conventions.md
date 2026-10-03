@@ -1,36 +1,42 @@
 # ICM Conventions
 
-Core specification extracted from Jake Van Clief's user-supplied Interpretable-Context-Methodology-main snapshot on 2026-10-01. Entry files use the requested `AGENTS.md` adaptation. Workspace overviews and explicit human-check declarations incorporate the author walkthroughs, as requested. Original examples and bundled production tools are omitted; the 15 convention patterns are retained.
+Core specification extracted from Jake Van Clief's user-supplied Interpretable-Context-Methodology-main snapshot on 2026-10-01. Entry files use the requested `AGENTS.md` adaptation. Workspace overviews and explicit human-check declarations incorporate the author walkthroughs. The supplied customization lesson, preserved on 2026-10-02, adds task-sized workspaces and conditional use of the pipeline patterns below. Original repository examples and bundled production tools are omitted; the lesson's three examples are retained through the [example index](examples.md).
 
 ---
 
-## Five-Layer Routing Architecture
+## Workspace Shape and Routing Layers
+
+Start with one real task and the smallest useful workspace. A workspace groups a responsibility, client, or mode of work; a stage performs one step in a sequential workflow. A collection can route directly from its `AGENTS.md` to each workspace's `CONTEXT.md`. One simple workspace can use `AGENTS.md` and local context without a `stages/` tree or an extra collection router.
+
+The lesson's three-layer view (entry, workspace context, skills/tools) and the core's five-layer view below describe different levels of detail. Use the expanded view for workflows that need stage contracts and separate references. These are routing roles, not a requirement to create five levels of folders. Select patterns only where they apply; retain established source-code and artifact locations.
 
 Agents read down the layers. They stop as soon as they have what they need.
 
 ```
-Layer 0: AGENTS.md           -> "Where am I?"            (always loaded, ~800 tokens)
-Layer 1: CONTEXT.md          -> "Where do I go?"          (read on entry, ~300 tokens)
-Layer 2: Stage CONTEXT.md    -> "What do I do?"            (read per-task, ~200-500 tokens)
+Layer 0: AGENTS.md           -> "Where am I?"            (entry instructions)
+Layer 1: CONTEXT.md          -> "Where do I go?"          (read for the workspace)
+Layer 2: Stage CONTEXT.md    -> "What do I do?"            (when stages are needed)
 Layer 3: Reference material  -> "What rules apply?"        (loaded selectively, varies)
 Layer 4: Working artifacts   -> "What am I working with?"  (loaded selectively, varies)
 ```
 
-**Layer 0 -- AGENTS.md** is the agent entry file. Use a harness that loads it automatically, or provide it explicitly as the workspace entry instructions. It contains the folder map, naming conventions, and a routing table that points to workspace-level files. One per workspace.
+**Layer 0 -- AGENTS.md** is the project or workspace entry file. Use a harness that loads it automatically, or provide it explicitly as entry instructions. It contains the purpose, folder map, naming conventions, and task routes. Add nested entry files only when the environment and scope require them.
 
-**Layer 1 -- Top-level CONTEXT.md** is the first thing an agent reads when entering the workspace. It contains one pipeline table with each stage and contract route, command or trigger, output artifact and location, and human check. Shared-resource routes follow as needed. One per workspace.
+**Layer 1 -- Workspace CONTEXT.md** describes its purpose, task routes, scoped inputs, process, outputs, and quality expectations. Concise guidance owned only here can remain inline. A staged workspace uses a pipeline table with each stage and contract route, command or trigger, output artifact and location, and human check. Shared-resource routes follow as needed.
 
-**Layer 2 -- Stage CONTEXT.md files** live inside each stage folder. They contain the scope definition, what-to-load tables, and step-by-step process. One per stage. Layer 2 is the control point of the system -- its Inputs table determines exactly which files from Layers 3 and 4 the agent loads.
+**Layer 2 -- Stage CONTEXT.md files**, where needed, contain the scope definition, what-to-load tables, and step-by-step process. Their Inputs tables scope the references and working artifacts for that stage. A simple workspace can express its task directly without this extra layer.
 
-**Layer 3 -- Reference material** is the persistent context: design systems, voice rules, build conventions, style guides, domain knowledge bundled as skill files. These files are configured once during workspace setup and remain stable across every run of the pipeline. They live in `references/` folders within stages, in workspace-level configuration folders (like `brand-vault/` or `design-system/`), in `shared/`, and in `skills/`. Larger reference collections can include their own CONTEXT.md routing files to help agents navigate within the collection.
+**Layer 3 -- Reference material** is reusable context: design systems, voice rules, build conventions, style guides, and domain skills. Extract guidance here when it becomes long, shared, or duplicated. It persists across runs and is updated deliberately as requirements change. It can live in stage `references/`, workspace configuration, `shared/`, or skill folders. Larger collections can have their own routing files.
 
-**Layer 4 -- Working artifacts** are the per-run context: previous stage outputs, user-provided source material, anything specific to this particular run. These files are produced and consumed during execution and change every time the pipeline runs. They live in `output/` folders.
+**Layer 4 -- Working artifacts** are the per-run context: previous stage outputs, supplied source material, and other task-specific files. Use explicit canonical locations such as `drafts/`, `deliverables/`, existing code paths, or stage `output/` folders.
 
 The distinction between Layers 3 and 4 matters because they require different things from the model. Layer 3 material needs to be internalized as constraints and patterns -- write like this, use these colors, follow these conventions. Layer 4 material needs to be processed as input -- transform this research into a script, convert this script into a specification. Layer 3 is the factory. Layer 4 is the product.
 
 A rendering agent might only need Layers 0 through 2. A script-writing agent reads down to Layer 4 to access both voice rules (Layer 3) and source material (Layer 4). No agent reads everything.
 
-Every token of irrelevant context is a token of diluted attention. Workspace AGENTS.md files should explicitly map each task to its minimal required files. Loading more context does not make output better. It makes it worse.
+Map each task to the relevant files and sections. Verify that the routed guidance was actually read; a `CONTEXT.md` filename does not establish that. Naming a skill in a routing table does not install or activate it. Follow the environment's loading rules and verify availability. Client or workspace folders organize context; name permitted sources and inspect their use. Access isolation depends on tool permissions and the execution environment.
+
+Run one representative task before adding more structure, within the authorized scope. Use its results to revise context, then re-run the affected task to assess the change. Remove instructions that add noise. If execution is unavailable, label the navigation check as a static trace and leave task behavior unverified.
 
 ---
 
@@ -64,7 +70,7 @@ Every stage uses these three execution sections plus an explicit Checkpoints dec
 
 ## Pattern 2: Stage Handoffs via Output Folders
 
-Every stage has an `output/` subfolder. The agent writes its artifact there. The next stage reads from the previous stage's `output/` folder.
+For file-based pipelines, a stage `output/` subfolder is the default handoff location. The next stage reads the declared artifact there. A simple workspace can use its existing draft or deliverable folders; code stays in its established source paths. Preserve deliberate external handoffs and document their producer, consumer, location, and review point instead of inventing a duplicate file copy.
 
 The convention:
 - Stage N produces: `stages/0N-name/output/artifact-name.md`
@@ -116,16 +122,14 @@ Smell test: search the repo for a specific phrase. If it appears in more than on
 
 ---
 
-## Pattern 6: CONTEXT.md = Routing, Not Content
+## Pattern 6: Concise Local Context
 
 CONTEXT.md files answer three questions:
 1. What is this folder?
 2. What do I load?
 3. What is the process?
 
-They never contain the actual reference material. No definitions. No rules. No extended examples. No voice guidelines. This keeps them small (25-80 lines) and prevents them from going stale when the content they would otherwise duplicate gets updated.
-
-If you find yourself writing more than a one-sentence description in a CONTEXT.md, that content belongs in a separate file that the CONTEXT.md points to.
+They can also contain short, locally owned guidance about voice, audience, conventions, and what good work looks like. Aim for a page of useful guidance. Extract material into a canonical reference when it becomes long, shared, or duplicated, and route to the relevant section. Do not create a separate file for every short rule. Stage contracts retain their execution sections; a brief local rule does not make them invalid.
 
 ---
 
@@ -143,11 +147,11 @@ Note: When a workspace bundles skills (Pattern 9), many tools that would have ne
 
 ## Trigger Keywords
 
-Every workspace recognizes these triggers:
+Add these triggers only when the workspace needs onboarding or pipeline status. A simple task workspace need not define either.
 
-**`setup`** -- Starts the onboarding questionnaire. The agent reads `setup/questionnaire.md`, asks the questions conversationally, collects answers, replaces placeholders across the workspace, and verifies no placeholders remain.
+**`setup`** -- For a reusable workspace with unresolved system-level choices, reads `setup/questionnaire.md`, collects missing answers, replaces mapped placeholders, and verifies the configuration. Use known values directly; do not create a questionnaire just to restate them.
 
-**`status`** -- Shows pipeline completion. The agent scans all `stages/*/output/` folders and renders an ASCII pipeline diagram:
+**`status`** -- Shows the declared handoffs and completion checks. For a file-based staged pipeline, inspect its output locations and summarize them, for example:
 
 ```
 Pipeline Status: [workspace-name]
@@ -157,7 +161,7 @@ Pipeline Status: [workspace-name]
   (artifact.md)              (empty)                  (empty)
 ```
 
-For each stage: if the output folder contains files (other than .gitkeep), the stage is COMPLETE and the filenames are listed. If the output folder is empty or contains only .gitkeep, the stage is PENDING.
+For each stage, list the declared output artifact and whether it exists. File presence alone does not prove completion or review; use the stage's quality and human-check requirements before reporting COMPLETE. For other handoff locations, inspect the declared location rather than assuming an `output/` folder.
 
 Workspaces can define additional trigger keywords in their own AGENTS.md.
 
@@ -165,24 +169,24 @@ Workspaces can define additional trigger keywords in their own AGENTS.md.
 
 ## Naming Conventions
 
-- Folders and files: `lowercase-with-hyphens`
-- Stage folders: zero-padded numbers prefix: `01-`, `02-`, `03-`
+- New workflow folders and files: `lowercase-with-hyphens`; preserve required entry filenames and established codebase conventions
+- Stage folders, when sequence matters: zero-padded numbers prefix: `01-`, `02-`, `03-`
 - Placeholders: `{{SCREAMING_SNAKE_CASE}}`
 - Output artifacts: `[topic-slug]-[artifact-type].md`
-- No spaces in file or folder names
+- Avoid spaces in new workflow file or folder names; do not rename existing paths just to fit an example
 
 ---
 
 ## Pattern 8: Questionnaire Design
 
-Onboarding questionnaires configure the production system, not a specific run. They follow these rules:
+Use a questionnaire only when a reusable workspace has unresolved system-level choices. It configures persistent defaults, not a specific run. Where needed, follow these rules:
 
 1. **Flat structure.** No category groupings. Just a numbered list of questions.
 2. **All at once.** Every question appears in one pass. The user should be able to answer everything in a single message.
 3. **System-level only.** Questions configure things that stay the same across runs: identity, brand, design, tool preferences, default workflow. Per-run details (project name, topic, audience, scope) are collected conversationally at the start of each pipeline run by the entry stage.
 4. **Derive, do not ask.** If a field can be inferred from another answer, the agent fills it in. List derived fields under the question they depend on. Do not add a separate question.
 5. **Sensible defaults.** Every question should have a default or example so the user can skip what they do not care about.
-6. **Ask once, never again.** After setup, the user should never see these questions again. The answers are baked into the workspace files permanently.
+6. **Persist the answers.** Reuse configured values on later runs. Revisit them only when requirements change or the user requests an update.
 
 The questionnaire template at [questionnaire template](templates.md#questionnaire) encodes these rules.
 
@@ -190,7 +194,7 @@ The questionnaire template at [questionnaire template](templates.md#questionnair
 
 ## Pattern 9: Bundled Skills
 
-Workspaces can bundle agent skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
+Workspaces can bundle domain skills (APIs, best practices, code examples) when portability requires a local copy. Use the environment's supported discovery or explicit-read mechanism; a generic `skills/` folder is not a guarantee of discovery, installation, or activation. Existing available skills can be used without copying them.
 
 ```
 workspace/
@@ -203,12 +207,12 @@ workspace/
 │       └── SKILL.md
 ```
 
-**Discovery:** During workspace building (Stage 01), the builder identifies relevant skills by:
+**Discovery:** When the task needs domain guidance, identify relevant skills by:
 1. Checking the current environment's configured skill directories for locally installed skills
 2. Searching GitHub for skill repos matching the workspace domain (e.g., "remotion skill", "pptx skill")
 3. Presenting candidates to the user for selection
 
-**Bundling:** Selected skills are copied (local) or cloned (GitHub) into the workspace's `skills/` folder during scaffolding (Stage 03). This makes the workspace self-contained.
+**Bundling:** When a local copy is needed, copy or clone the selected skill into the supported location and preserve its dependencies and notices. Verify its loading path and prerequisites before calling the workspace ready to run.
 
 **Referencing:** Stage CONTEXT.md files reference skills in their Inputs table:
 
@@ -224,16 +228,16 @@ Skills replace custom reference docs when an official skill covers the same grou
 
 ## Pattern 10: Specs Are Contracts
 
-Specification stages define WHAT the output should achieve and WHEN things happen. They do not prescribe HOW to implement. The build stage has creative freedom within the quality floor defined by the design system.
+Specification stages define the intended outcome and acceptance criteria for their consumer. In the original video-production workflow, the spec defines WHAT and WHEN, leaving HOW to the build stage within the design system's quality requirements. Other domains can require architecture or implementation constraints in the spec.
 
-A spec contains:
+For a video-production workflow, a spec can contain:
 - **Beat map** with approximate durations, narration, and mood
 - **Visual philosophy** describing what a muted viewer should understand
 - **Key moments** that MUST land, and why each matters
 - **Audio sync points** mapping narration words to visual events
 - **Color flow** with per-scene dominant color and mood
 
-A spec does NOT contain: frame numbers, component names, pixel positions, spring configs, or prop definitions. These are implementation decisions that belong to the build stage.
+In that workflow, frame numbers, component names, pixel positions, spring configs, and prop definitions belong to the build stage. Use domain-appropriate specification criteria elsewhere; these video examples are not universal requirements for software architecture or other workspaces.
 
 ---
 
@@ -281,15 +285,13 @@ Value types are workspace-specific. A content workspace might use NOVEL, USABLE,
 
 ## Pattern 14: Docs Over Outputs
 
-Reference docs (design system, build conventions, skill rules) are the authoritative source for how to build. Previous stage outputs in `output/` folders are artifacts, not templates. Agents should not read other outputs to learn patterns.
-
-This prevents copying from older, lower-quality work and ensures docs remain the single source of truth for quality standards. Early outputs are the worst outputs. If future agents learn from them, quality never improves.
+Canonical guidance (local context, design systems, build conventions, skill rules) defines how to build. Prior outputs do not automatically become templates or authority. Explicitly selected writing samples and approved examples can guide or evaluate a task; identify their role and keep their facts scoped to their original context. Update canonical guidance deliberately when a tested example reveals a useful improvement.
 
 ---
 
 ## Pattern 15: Shared Constants
 
-Workspaces that produce code should define a constants pattern. Configurable values (colors, fonts, timing, layout) live in shared files that all build outputs import from. The questionnaire populates these files once during onboarding. Change a value once, it updates everywhere.
+Where code reuses configurable values (colors, fonts, timing, layout), keep them in shared files that relevant outputs import from. Configure known values directly, or populate them through onboarding when needed. Change a shared value once to update its consumers.
 
 This is Pattern 5 (Canonical Sources) applied to code values. Without shared constants, the same hex code or font name is hardcoded in every output file. Changing the brand color means a find-and-replace across every file ever built.
 
@@ -299,11 +301,11 @@ For non-code workspaces (content writing, course design), this pattern does not 
 
 ## Quality Guardrails
 
-- CONTEXT.md files: under 80 lines
-- Reference files: under 200 lines (if longer, split into multiple files)
+- CONTEXT.md files: aim for a page; review files over 80 lines for avoidable detail or repetition
+- Maintained workspace reference files: review files over 200 lines for useful section routing or splitting; preserved sources and template collections are not subject to automatic splitting
 - Use plain English. Avoid jargon. If a term needs explaining, it is too specialized.
-- No em dashes anywhere in the repo
-- Every folder that should persist but starts empty gets a `.gitkeep` file
+- For newly authored workflow guidance, use plain punctuation; preserve source text and existing codebase conventions
+- Required empty folders that must persist in Git get a `.gitkeep` file
 - Every markdown file should be readable by someone who understands markdown and git basics but does not have a deep engineering background
 
 ## Source record
@@ -323,7 +325,9 @@ Walkthrough evidence is paraphrased from English auto-generated captions retriev
 - [Folder architecture, 1:11](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=71s): entry map; [2:17](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=137s): Input, Do, Output, Human check; [7:51](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=471s): fresh-chat navigation check.
 - [Reviewable stages, 2:34](https://www.youtube.com/watch?v=EhWlGingCl0&t=154s): workspace pipeline table; [4:11](https://www.youtube.com/watch?v=EhWlGingCl0&t=251s): review before downstream production.
 
-Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a task walk-through. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
+Supplementary source: the user-supplied lesson **3.2 Customizing for Your Use Case**, preserved verbatim on 2026-10-02 in [sources/customizing-for-your-use-case.md](sources/customizing-for-your-use-case.md). SHA-256: `ab3f740795797e6972bd75e875b1d0738d393b62b1f003fb57d17433cbb6718e`. This identifies the supplied text, not a verified live course revision. It contains all three example trees, routing tables, explanatory text, and linked references. Original `CLAUDE.md` examples remain unchanged as source evidence; use `AGENTS.md` when applying them here.
+
+Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a representative task run or clearly labeled static trace. The 2026-10-02 update adopts task-sized workspaces, conditional pipeline scaffolding, concise inline context, and revision from task results. These supersede the earlier blanket pipeline and context-purity requirements in this maintained guidance; the supplied sources retain their differing formulations. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
 
 ## Upstream notices
 

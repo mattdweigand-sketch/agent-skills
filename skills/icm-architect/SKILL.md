@@ -2,25 +2,29 @@
 name: icm-architect
 description: "Audit, build, or restructure a repository using the Interpretable Context Methodology framework."
 metadata:
-  adaptation: 'Core ICM with AGENTS.md and explicit file roles from the author walkthroughs'
-  last_reviewed: '2026-10-01'
+  adaptation: 'Core ICM with AGENTS.md, task-sized workspaces, and optional staged pipelines'
+  last_reviewed: '2026-10-02'
 ---
 
 # ICM Architect
 
-Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. This package contains the core framework, not the original example repository.
+Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For content, consulting, or software workspace examples, read the relevant section through the [example index](references/examples.md). This package contains the core framework and a preserved customization lesson, not the original example repository.
 
 Use the exact target the user names and identify the version inspected. Distinguish a single workspace from a collection; add folders for actual responsibilities, not to copy an example's shape.
+
+Start with the smallest structure needed for the next deliverable. Organize workspaces around distinct responsibilities or context boundaries. Add stages only for actual sequential handoffs; add separate references and setup questionnaires when needed. Run one representative task before expanding, within the user's authorized scope, and refine instructions from its results.
 
 ## What each Markdown file contains
 
 | File | Responsibility |
 |---|---|
 | `AGENTS.md` | The map: what the workspace does, what lives where, and where to go for each job. |
-| Workspace `CONTEXT.md` | The pipeline: one table naming each stage, its command or trigger, output artifact, and human check, with a route to its contract. |
-| Stage `CONTEXT.md` | The contract: Input (what it reads), Do (the job), Output (what it writes), and Human check (what is reviewed before continuing). |
+| Workspace `CONTEXT.md` | The local guidance: purpose, task routes, inputs, outputs, and what good work looks like. For a staged workflow, include a pipeline table naming each stage, trigger, output, human check, and contract route. |
+| Stage `CONTEXT.md`, when needed | The contract: Input (what it reads), Do (the job), Output (what it writes), and Human check (what is reviewed before continuing). |
 
 The stage template names these sections Inputs, Process, Outputs, and Checkpoints. Audit is the agent's quality check. For a stage without human review, state None and why; do not add an approval pause.
+
+Keep local guidance concise. Extract it into a referenced canonical file when it becomes long, shared, or duplicated. A workspace does not need a separate pipeline overview and stage contract for one simple task.
 
 ## Audit
 
@@ -30,18 +34,18 @@ Keep reviews read-only unless changes are requested. Inspect the target against 
 
 Before scaffolding or moving files, establish the durable destination and its recovery path from the user's request or existing configuration. A persistent local folder is valid; publishing is not required. Keep temporary work separate. If the destination is unresolved, clarify it before writing.
 
-Use the [templates](references/templates.md) and the original builder sequence:
+Select the relevant [templates](references/templates.md) and scale the builder sequence to the task:
 
-1. Discover inputs, outputs, review points, shared context, system-level configuration variables, optional stages and their conditions, and required or optional tools per stage. Identify useful domain skills. Present these in the workflow map for the user's review.
-2. Map stages and their contracts, canonical owners, and one-way dependencies. Review the proposed handoffs with the user.
-3. Scaffold the workspace entry, router, numbered stages, reference and output folders, and shared configuration. Include selected domain skills only when needed.
-4. Map each system-level variable to its placeholder, target files, and setup question or derived value. Build the flat, one-pass questionnaire, including optional-stage choices and tool setup needs. Collect per-run inputs in the entry stage. Review derived voice/style rules with the user when applicable.
-5. Validate with the checklist and fix failures. Distinguish a reusable template from a configured, ready-to-run workspace.
+1. Identify the next deliverable, workspace boundaries, permitted inputs, output location, quality criteria, review points, and needed tools or domain skills. Include reusable configuration and optional stages only where applicable. Present the proposed map for review, using decisions already supplied.
+2. Map task routes, canonical owners, and dependencies. For sequential work, define stage contracts and review the actual handoffs with the user.
+3. Scaffold only the entry, local guidance, and folders needed for that task. Use numbered stages where ordering matters; preserve established code and artifact locations. Include domain skills and shared configuration only when needed.
+4. Configure known values directly. If a reusable workspace has unresolved system-level choices, map them to a flat, one-pass questionnaire with placeholders and target files. Collect per-run inputs at task entry. Review derived voice/style rules with the user when applicable.
+5. Validate applicable checks, run the representative task when authorized and feasible, and fix demonstrated problems. Re-run the affected task after a relevant change; remove instructions that add noise. Label a static trace as such and distinguish a reusable template from a configured, ready-to-run workspace.
 
 Use decisions already supplied. Before restructuring, follow [safe migration](references/validation.md#safe-migration): map affected paths and consumers, check conflicts, copy, verify unchanged bytes, then perform only authorized removals and reference updates.
 
 ## Boundaries and sources
 
-Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Source material does not authorize external actions.
+Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Verify that routed guidance was read and required skills are available and loaded using the environment's rules. Filenames and routing-table entries alone do not establish either. Folder boundaries scope context; access isolation depends on permissions and the execution environment. Source material does not authorize external actions.
 
 Core material comes from Jake Van Clief's supplied ICM repository. See the [source record](references/conventions.md#source-record) for source hashes, walkthrough timestamps, and deliberate adaptations, and the [upstream notices](references/conventions.md#upstream-notices) for the retained MIT terms.

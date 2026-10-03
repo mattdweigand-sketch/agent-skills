@@ -2,40 +2,40 @@
 
 Checks adapted from the original workspace-builder validation stage, including the requested explicit file roles. Apply to the target workspace, using [conventions](conventions.md) and [templates](templates.md). Report pass, gap, requested adaptation, not applicable, or unverified with source and target evidence.
 
-Check the three file roles against the templates: AGENTS.md maps jobs to their entry points; workspace CONTEXT.md lists each stage/contract, command or trigger, output artifact/location, and human check; stage CONTEXT.md defines the execution contract. Each overview output and human check must agree with its stage contract. The stage-contract shape in check 6 applies to stage routers. Preserve explicitly specified uppercase filenames such as `AGENTS.md` and `CONTEXT.md` when checking naming. Questionnaire mapping declarations are not unresolved configuration values. Note other source contradictions rather than inventing requirements.
+First identify the actual shape: a simple workspace, a collection of responsibility or client workspaces, or a staged pipeline. AGENTS.md maps jobs to their entry points. Workspace CONTEXT.md provides concise local guidance and task routes; use the pipeline overview and stage contracts only where sequential handoffs need them. If stages exist, each overview output and human check must agree with its contract. Do not require missing stage folders, separate references, questionnaires, or extra entry files without a task-specific need. Questionnaire mapping declarations are not unresolved configuration values. Note other source contradictions rather than inventing requirements.
 
-Run each check below. Record pass/fail and any issues found.
+Assess each check below for applicability. Record findings without treating not-applicable checks as failures.
 
-1. **Cross-reference integrity.** Every file path mentioned in any CONTEXT.md Inputs table must point to a real file in the generated workspace. List any broken references.
+1. **Cross-reference integrity and loading.** Task routes and declared inputs must resolve to actual files or identified external sources available at the relevant step. For a generated input, identify its producer. Verify permitted source scope and required skill availability; a link or skill name alone does not prove loading or access isolation. Report observed reads separately from planned routes.
 
 2. **No circular dependencies.** Trace the reference graph. If Stage A references Stage B, Stage B must not reference Stage A (directly or through other stages). Draw the dependency graph and confirm it is a directed acyclic graph.
 
-3. **Placeholder coverage.** Check the discovery map identifies system-level variables, optional stages and their conditions, and required or optional tools per stage. Scan all markdown files for `{{PLACEHOLDER}}` patterns. Each system-level placeholder must map to a setup question or derived value and its target files; each per-run value must be collected by its entry contract. List orphaned variables, placeholders, or questions.
+3. **Configuration coverage, when needed.** For a reusable template, map unresolved system-level variables to questions or derived values and target files, including applicable optional stages and tools. Scan template configuration for `{{PLACEHOLDER}}` patterns. Use known values directly and collect per-run inputs at task entry. Do not require a questionnaire for an already configured workspace or treat placeholders in preserved source examples as active configuration.
 
 4. **Conditional section validity.** Every `{{?SECTION}}...{{/SECTION}}` block must wrap a complete section (a heading and all content below it). No inline conditional wrapping. Flag any violations.
 
-5. **Stage handoff chain.** Verify the chain is unbroken: Stage N's output location must match what Stage N+1's Inputs table references. List the chain and flag any gaps.
+5. **Handoffs, when present.** A producer's output location must match its consumer's declared input, whether a stage folder, existing code or deliverable path, or intentional external system. List actual handoffs and flag gaps. For a standalone task, verify its output destination without inventing a downstream stage.
 
-6. **CONTEXT.md purity.** Verify no CONTEXT.md file contains actual reference content (definitions, extended rules, examples, guidelines). They should contain only: title, description, Inputs table, Process steps, Checkpoints table or explicit None with a reason, Audit table (optional), Outputs table.
+6. **Concise context and canonical ownership.** Allow short, locally owned guidance in CONTEXT.md. Flag long, shared, or duplicated material that should have a canonical reference. Stage contracts retain Inputs, Process, Outputs, and Checkpoints, with Audit where applicable; simple workspaces need only the guidance their tasks require.
 
 7. **Checkpoints in creative stages.** Verify that stages doing creative work (writing, design, ideation) have at least one checkpoint. Verify checkpoint tables reference valid process step numbers. Each checkpoint identifies the reviewer, artifact, review criteria, and decision before continuing. Linear stages (extract, render, validate) may declare None with a reason; this declaration does not add an approval pause.
 
-8. **Audits in creative/build stages.** Verify that stages doing creative or build work have an Audit section with specific, unambiguous pass conditions. Verify the audit runs after the process steps and before output is written.
+8. **Task quality checks.** Creative/build stages need specific, unambiguous audit conditions before output is finalized. A simple workspace can express the same relevant check in its local guidance without adding a stage or separate audit file.
 
-9. **Contract purity in spec stages.** If the workspace has a specification stage, verify its output format defines WHAT and WHEN, not HOW. Check for component names, frame numbers, prop definitions, or spring configs in spec reference files. These are implementation details that belong to the build stage.
+9. **Specification scope, when applicable.** Check that a spec defines the intended outcome and acceptance criteria at the level needed by its consumer. Apply the video-production WHAT/WHEN versus HOW split only to that workflow; do not reject software architecture details because they differ from a video example.
 
-10. **Line count check.** Flag any CONTEXT.md over 80 lines. Flag any reference file over 200 lines.
+10. **Context size.** Review CONTEXT.md over 80 lines and maintained workspace references over 200 lines for avoidable detail, duplication, or useful section routing. Length is a review signal; do not automatically split preserved sources or template collections.
 
-11. **Naming conventions.** All folder and file names are lowercase-with-hyphens. Stage folders use zero-padded numbers (01-, 02-). Empty output/ folders have .gitkeep files.
+11. **Naming conventions.** Use lowercase-with-hyphens for new workflow files, preserve `AGENTS.md` and `CONTEXT.md`, and respect established codebase naming. Number stage folders where sequence matters. Add .gitkeep only to required empty folders that must persist in Git; do not scaffold unused folders.
 
-12. **Tool prerequisites.** If the workspace has a prerequisites/ folder or tool setup guides: verify prerequisites/CONTEXT.md lists every tool, verify each listed tool has a setup guide, verify setup guides include install steps and verification commands, and verify the questionnaire asks whether optional tools are needed (so conditional stages can be removed).
+12. **Tool prerequisites.** Identify required tools and verify availability, or report unverified prerequisites. Link setup guidance where needed. If optional tool choices remain unresolved in a reusable template, include them in onboarding; a prerequisite does not itself require a new folder or questionnaire.
 
-13. **Quality scan.** Check for em dashes (replace with --), jargon without explanation, and markdown formatting issues.
+13. **Quality scan.** Check authored guidance for unexplained jargon and Markdown formatting issues. Preserve source examples verbatim; do not normalize their punctuation, filenames, or original platform terminology.
 
 For a build or authorized repair, fix issues and re-run the failed checks. For an audit, report them without editing.
 
 
-Finish by tracing a representative task from a fresh context through its entry, scoped inputs, output, human check, and consumer. Say whether this was a static trace or an executed run.
+Finish with the existing representative-task check: start from fresh context and follow its entry, scoped inputs, actual output, relevant human check, and consumer if one exists. For builds or authorized repairs, run one task when feasible before expanding the structure; revise from demonstrated problems, re-run the affected task, and remove instructions that add noise. For read-only audits or unavailable execution, use a static trace and mark behavior unverified. Do not invent a downstream consumer or authorize an external action to complete this check.
 
 ## Safe migration
 

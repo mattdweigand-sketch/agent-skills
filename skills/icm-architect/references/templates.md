@@ -1,65 +1,66 @@
 # ICM Templates
 
-Adapted from the supplied ICM core templates, using `AGENTS.md` and the author walkthroughs' explicit file roles. Copy only the relevant template into the target workspace. The placeholder names below are authoring notation; finish them before delivering a configured workspace.
+Adapted from the supplied ICM core templates, walkthroughs, and customization lesson, using `AGENTS.md`. Start with the workspace entry and local context. Use the pipeline overview, stage contract, and questionnaire only when needed. The placeholder names below are authoring notation; finish them before delivering a configured workspace. See the [example index](examples.md) for three complete source examples.
 
 ## Workspace entry
 
-Use for `AGENTS.md`: the workspace purpose, folder map, and routes to the right job.
+Use for `AGENTS.md`: the project or workspace purpose, actual folder map, and task routes. For a collection, route to each workspace's local context. For one workspace, route to its own `CONTEXT.md`. Add rows and folders only for existing responsibilities.
 
 ````markdown
-# [Workspace Name]
+# [Project or Workspace Name]
 
-[One sentence: what this workspace does.]
+[One sentence: what this project or workspace does and for whom.]
 
 ## Folder Map
 
 ```
-[workspace-name]/
+[project-name]/
 ├── AGENTS.md          (you are here)
-├── CONTEXT.md         (start here for task routing)
-├── setup/             (onboarding questionnaire)
-├── skills/            (bundled agent skills for domain knowledge)
-├── [context-folder]/  (shared context files)
-├── stages/
-│   ├── 01-[name]/     ([brief description])
-│   ├── 02-[name]/     ([brief description])
-│   └── 03-[name]/     ([brief description])
-└── shared/            (cross-stage reference files)
+└── [area]/            ([responsibility])
+    ├── CONTEXT.md     (local guidance and task routes)
+    └── [working-folder]/
 ```
-
-## Triggers
-
-| Keyword | Action |
-|---------|--------|
-| `setup` | Run onboarding questionnaire |
-| `status` | Show pipeline completion for all stages |
 
 ## Routing
 
-| Task | Go To |
-|------|-------|
-| [Task type 1] | `stages/01-[name]/CONTEXT.md` |
-| [Task type 2] | `stages/02-[name]/CONTEXT.md` |
-| [Task type 3] | `stages/03-[name]/CONTEXT.md` |
+| Task | Go to | Read |
+|------|-------|------|
+| [Task] | `[area]/` | `[area]/CONTEXT.md` |
 
-## What to Load
+## Shared conventions
 
-<!-- Map each task to its minimal file set. Loading more files dilutes quality.
-     The context window is working memory, not storage. -->
-
-| Task | Load These | Do NOT Load |
-|------|-----------|-------------|
-| [Task 1] | [minimal file list] | [what to skip and why] |
-| [Task 2] | [minimal file list] | [what to skip and why] |
-
-## Stage Handoffs
-
-Each stage writes its output to its own `output/` folder. The next stage reads from there. If you edit an output file, the next stage picks up your edits.
+[Only conventions or boundaries shared across these tasks. Link existing canonical guidance.]
 ````
 
-## Workspace routing
+For a single workspace, put `CONTEXT.md` and working folders beside `AGENTS.md` rather than adding an unnecessary `[area]/` folder. Add `setup`, `status`, and skill routes only if the workspace uses them; identify required skills and verify loading separately from listing their names.
 
-Use for the workspace `CONTEXT.md`: the pipeline overview and shared-resource routes.
+## Workspace context
+
+Use for a responsibility, client, or mode of work without a staged pipeline. Keep short local guidance here; extract it when it becomes long, shared, or duplicated. Adapt the sections to the task instead of filling empty tables.
+
+````markdown
+# [Workspace Name]
+
+[Purpose, audience or client, and scope.]
+
+## Tasks
+
+| Task | Inputs to read | Process or trigger | Output and location |
+|------|----------------|--------------------|---------------------|
+| [Task] | [Permitted files and sections] | [How the task proceeds] | [Artifact or code location] |
+
+## Local guidance
+
+[Brief voice, quality, or code conventions owned here, or links to canonical references.]
+
+## Review
+
+[Relevant quality check; who reviews what before a handoff, or None and why.]
+````
+
+## Pipeline overview
+
+Use instead of the simple workspace-context template when actual sequential handoffs need separate stage contracts. Preserve established artifact locations. Number stages where order matters; include only needed stages and shared-resource rows.
 
 ````markdown
 # [Workspace Name]
@@ -88,7 +89,7 @@ Use for the workspace `CONTEXT.md`: the pipeline overview and shared-resource ro
 
 ## Stage contract
 
-Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints express the video's Input, Do, Output, and Human check. Audit is separate agent-side verification.
+Use for each stage's `CONTEXT.md` when the pipeline needs separate stages. Inputs, Process, Outputs, and Checkpoints express the video's Input, Do, Output, and Human check. Audit is separate agent-side verification. A short local rule may stay in the relevant section; it need not become a reference file.
 
 ````markdown
 # [Stage Name]
@@ -101,7 +102,7 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
 
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
-| Previous stage | `../0N-prev/output/artifact.md` | Full file | The artifact to work from |
+| Task input or previous stage | [Actual artifact or source location] | Full file | The artifact to work from |
 | Reference | `references/example.md` | "Relevant Section" | What it provides |
 
 ## Process
@@ -118,10 +119,10 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
      Good: "Propose 3-5 concept angles, each as a single sentence. Tag each
             with its value type and format." -->
 
-1. Read the input artifact from the previous stage
+1. Read the declared task input or previous-stage artifact
 2. [Step two]
 3. [Step three]
-4. Save to output/
+4. Save to the declared output location after applicable checks
 
 ## Checkpoints
 
@@ -156,12 +157,14 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
 
 | Artifact | Location | Format |
 |----------|----------|--------|
-| [Name] | `output/[slug]-[type].md` | [Description of the format] |
+| [Name] | [Canonical location, e.g. `output/[slug]-[type].md`] | [Description of the format] |
 
 <!-- Target: keep this file under 80 lines. -->
 ````
 
 ## Questionnaire
+
+Use only for unresolved system-level choices in a reusable workspace. Configure known values directly. Omit this file, the setup trigger, and placeholder machinery when they add no value.
 
 ````markdown
 # Onboarding Questionnaire
@@ -169,7 +172,8 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
 <!-- Agent instructions: Read this file when the user types "setup". Ask ALL questions
      in a single conversational pass. The user should be able to answer everything in one
      message. Collect answers. Replace placeholders across the specified files. After all
-     replacements, verify no {{PLACEHOLDER}} patterns remain in the workspace. -->
+     replacements, verify no unresolved values remain in the configured target files.
+     Exclude questionnaire mappings and preserved source examples. -->
 
 <!-- Questionnaire design rules:
      1. FLAT STRUCTURE: No category groupings. Just a numbered list of questions.
@@ -181,8 +185,8 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
         it in without asking. List derived fields under the question they depend on.
      5. SENSIBLE DEFAULTS: Every question should have a default or example so the user
         can skip what they don't care about.
-     6. ASK ONCE, NEVER AGAIN: After setup, the user should never be asked these questions
-        again. The answers are baked into the workspace files permanently.
+     6. PERSIST ANSWERS: Reuse configured values on routine runs. Revisit them when
+        requirements change or the user requests an update.
      7. EXAMPLES OVER DESCRIPTIONS: For voice/style questions, ask for concrete examples
         (sentences that sound right, sentences that sound wrong, specific error patterns)
         rather than abstract descriptions. Examples are pattern-matchable. Descriptions
@@ -211,12 +215,12 @@ Use for each stage's `CONTEXT.md`. Inputs, Process, Outputs, and Checkpoints exp
 
 [Tell the user what was configured and where to start.]
 
-After all replacements, scan the entire workspace for remaining `{{` patterns. If any remain, ask for the missing info.
+After replacements, check configured target files for unresolved values. Exclude mapping declarations and preserved sources; ask only for information still needed to configure the workspace.
 ````
 
 ## Placeholder syntax
 
-How the onboarding system works. Workspaces ship with placeholder variables in their markdown files. The onboarding agent replaces these with real content when a user runs `setup`.
+For reusable templates that need onboarding, placeholder variables mark unresolved configuration. The onboarding agent replaces these with real content when a user runs `setup`. Configured workspaces do not need this machinery.
 
 ---
 
@@ -241,9 +245,9 @@ These are literal strings in markdown files. They are not code variables. The on
 3. Each question specifies which files contain its placeholder
 4. The agent asks the questions conversationally, collecting answers
 5. The agent replaces every instance of each placeholder with the corresponding answer
-6. After all replacements, the agent scans the entire workspace for any remaining `{{` patterns
+6. After replacements, scan configured target files for unresolved `{{` patterns, excluding mapping declarations and preserved sources
 7. If any remain, the agent flags them and asks the user for the missing information
-8. Onboarding is complete only when zero placeholders remain
+8. Onboarding is complete when the configured target files have no unresolved values
 
 ---
 
