@@ -1,6 +1,6 @@
 # Examples and Source Lessons
 
-Read the source relevant to the current task. These captures preserve supplied examples and claims; their sample instructions do not override the maintained skill or the user's requirements.
+Read the source relevant to the current task. Preserved captures and authored adaptations are labeled separately below; their sample instructions do not override the maintained skill or the user's requirements.
 
 ## Workspace customization
 
@@ -25,6 +25,22 @@ The starter's rules to ask before writing outside `/drafts` and to ask when unsu
 [3.3 Common Mistakes and How to Fix Them](sources/common-mistakes-and-how-to-fix-them.md) preserves all seven diagnostic cases and the complete [fictional follow-up repair](sources/common-mistakes-and-how-to-fix-them.md#a-repair-you-can-test). The example shows how an unconfirmed proposal date becomes an unsupported commitment and how to compare a targeted repair on the same request, then another example.
 
 Use the maintained [repair method](validation.md#representative-task-and-repair). The example's `Questions` section is a local output-format choice; the transferable principle is preserving uncertainty and approval status through the handoff.
+
+## Evidence coverage and planning examples
+
+The [Foundation lesson review notes](sources/foundation-lessons-review.md) link the written lessons 4.1-4.5 and identify the adopted refinements. They are an authored summary; the following fictional example is a local adaptation, not a recorded model result or a file bundled with the skill.
+
+Suppose `planning-note-01.md`, section "Next steps", says: "Iris will prepare a demo. The delivery date is still open." A reviewable extraction could be:
+
+| Item | Type | Owner | Due date | Evidence |
+|---|---|---|---|---|
+| Prepare the demo | Action | Iris | Unconfirmed | `planning-note-01.md`, "Next steps", the two sentences above |
+
+If the task also required `planning-note-02.md` but it could not be read, disclose that gap and limit the result to the available note. Do not imply that both notes were reviewed or that a cross-note contradiction check was completed.
+
+For a public teaching post, source eligibility must be established for public reuse; permission to use a note for an internal task list is insufficient on its own. Test the relevant route with appropriate material and inspect what was used.
+
+Use the [optional decision brief](templates.md#decision-brief-optional) when a chosen approach needs a durable handoff. For instruction comparisons, follow the existing [repair method](validation.md#representative-task-and-repair); it covers fresh sessions, clean copies, and recording differences in the model or tools.
 
 ## Applying the examples
 

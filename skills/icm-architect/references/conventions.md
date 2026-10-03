@@ -36,6 +36,8 @@ A rendering agent might only need Layers 0 through 2. A script-writing agent rea
 
 Map each task to the relevant files and sections. Verify that the routed guidance was actually read; a `CONTEXT.md` filename does not establish that. Naming a skill in a routing table does not install or activate it. Follow the environment's loading rules and verify availability. Client or workspace folders organize context; name permitted sources and inspect their use. Access isolation depends on tool permissions and the execution environment.
 
+Source eligibility depends on the task's audience and intended use as well as access. Internal notes may support a private action list while a public post needs material cleared for that use. Use existing user authorization; resolve unclear sharing scope before including restricted material. A folder name such as `approved-material/` does not itself establish permission.
+
 Run one representative task before adding more structure, within the authorized scope. Use the [representative-task and repair check](validation.md#representative-task-and-repair) to evaluate changes. If execution is unavailable, label the navigation check as a static trace and leave task behavior unverified.
 
 ---
@@ -111,6 +113,10 @@ Format in CONTEXT.md Inputs tables:
 ```
 
 When a full file is needed, write "Full file" in the Section/Scope column.
+
+Compare the required input scope with what was actually read. Report unreadable, omitted, or partially read files and sections, with the resulting limits on the output. A partial review must not appear complete. For larger inputs, use manageable groups and retain the same coverage check; file count alone does not establish that the material fits.
+
+For extracted decisions, commitments, or consequential factual claims, keep a source identifier plus a short supporting passage or precise location beside each item, or in its review notes when the final format requires it. Separate decisions, suggestions, actions, and contradictions where the task calls for that distinction. Scope this evidence requirement to source-derived work; it does not require citations for every line of an unrelated creative or code artifact.
 
 ---
 
@@ -339,7 +345,9 @@ Supplementary sources supplied by the user and stored on 2026-10-02:
 
 These fingerprints identify local captures, not verified live course revisions. The inline lesson has no separate original attachment for a byte comparison. Research-paper descriptions and cross-tool evidence limits in the routing lesson remain attributed to that supplied text; the paper was not independently checked for this update. Original `CLAUDE.md` wording and sample rules remain source evidence. Use `AGENTS.md` here, and adopt example-specific permissions or output formats only when they fit the user's actual requirements.
 
-Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a representative task run or clearly labeled static trace. The 2026-10-02 updates adopt task-sized workspaces, conditional pipeline scaffolding, concise inline context, canonical maintenance, preservation of uncertainty, and comparable repair runs. These supersede the earlier blanket pipeline and context-purity requirements in this maintained guidance; the supplied sources retain their differing formulations. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
+The written Foundation lessons 4.1-4.5 were also reviewed in the browser on 2026-10-02. See the [review notes and source links](sources/foundation-lessons-review.md) for the adopted refinements and optional decision-brief example. Those notes are an authored summary, not a verbatim capture. The videos were not reviewed and the Foundation Practice download required login, so its files remain uninspected.
+
+Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a representative task run or clearly labeled static trace. The 2026-10-02 updates adopt task-sized workspaces, conditional pipeline scaffolding, concise inline context, canonical maintenance, source coverage and evidence, use-specific source eligibility, preservation of uncertainty, and comparable repair runs. These supersede the earlier blanket pipeline and context-purity requirements in this maintained guidance; the supplied sources retain their differing formulations. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
 
 ## Upstream notices
 

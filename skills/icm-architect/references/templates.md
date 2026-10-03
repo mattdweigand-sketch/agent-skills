@@ -41,7 +41,7 @@ Use for a responsibility, client, or mode of work without a staged pipeline. Kee
 ````markdown
 # [Workspace Name]
 
-[Purpose, audience or client, and scope.]
+[Purpose, audience or client, scope, and which source material is eligible for this use.]
 
 ## Tasks
 
@@ -55,7 +55,22 @@ Use for a responsibility, client, or mode of work without a staged pipeline. Kee
 
 ## Review
 
-[Relevant quality and source-fidelity check; who reviews what before a handoff, or None and why. Distinguish drafts from reviewed outputs using existing locations or status.]
+[Relevant quality and source-fidelity check; who reviews what before a handoff, or None and why. Report input coverage gaps. For extracted claims, retain supporting source locations or passages in the artifact or review notes. Distinguish drafts from reviewed outputs using existing locations or status.]
+````
+
+## Decision brief (optional)
+
+Use when a planning decision needs a durable handoff. Reuse an existing brief or decision record if it already carries these facts; do not require an extra document or approval pause for a task whose scope is settled. This is an adaptation of lesson 4.3, linked in the [review notes](sources/foundation-lessons-review.md).
+
+````markdown
+# [Decision or task]
+
+- Outcome and intended audience: [What should change and for whom]
+- Evidence and limits: [Known facts with source pointers; constraints]
+- Selected approach and rationale: [Choice already made and why]
+- Unresolved questions: [What remains unknown; do not convert to assumptions]
+- First output and destination: [One concrete deliverable and where it belongs]
+- Acceptance and review: [What it must satisfy and who checks it, if needed]
 ````
 
 ## Pipeline overview
@@ -98,7 +113,8 @@ Use for each stage's `CONTEXT.md` when the pipeline needs separate stages. Input
 
 ## Inputs
 
-<!-- List every file the agent needs. Be specific about which sections. -->
+<!-- List needed files and sections eligible for this task's audience and use.
+     Report required inputs that were unreadable, omitted, or only partly read. -->
 
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
@@ -145,6 +161,8 @@ Use for each stage's `CONTEXT.md` when the pipeline needs separate stages. Input
 
      Not every stage needs an audit. Data extraction or file conversion stages
      may not benefit. Creative and build stages almost always do.
+     For source-derived extraction, check consequential items against their
+     source identifiers and supporting passages or precise locations.
      Delete this section if no audit applies. -->
 
 | Check | Pass Condition |

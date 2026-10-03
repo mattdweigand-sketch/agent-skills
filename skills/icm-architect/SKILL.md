@@ -36,7 +36,7 @@ Before scaffolding or moving files, establish the durable destination and its re
 
 Select the relevant [templates](references/templates.md) and scale the builder sequence to the task:
 
-1. Identify the next deliverable, workspace boundaries, permitted inputs, output location, quality criteria, review points, and needed tools or domain skills. Include reusable configuration and optional stages only where applicable. Present the proposed map for review, using decisions already supplied.
+1. Identify the next deliverable, intended audience and use, workspace boundaries, eligible inputs, output location, quality criteria, review points, and needed tools or domain skills. Include reusable configuration and optional stages only where applicable. Present the proposed map for review, using decisions already supplied.
 2. Map task routes, canonical owners, and dependencies. For sequential work, define stage contracts and review the actual handoffs with the user.
 3. Scaffold only the entry, local guidance, and folders needed for that task. Use numbered stages where ordering matters; preserve established code and artifact locations. Include domain skills and shared configuration only when needed.
 4. Configure known values directly. If a reusable workspace has unresolved system-level choices, map them to a flat, one-pass questionnaire with placeholders and target files. Collect per-run inputs at task entry. Review derived voice/style rules with the user when applicable.

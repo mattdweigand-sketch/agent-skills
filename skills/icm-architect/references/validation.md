@@ -6,7 +6,7 @@ First identify the actual shape: a simple workspace, a collection of responsibil
 
 Assess each check below for applicability. Record findings without treating not-applicable checks as failures.
 
-1. **Cross-reference integrity and loading.** Task routes and declared inputs must resolve to actual files or identified external sources available at the relevant step. For a generated input, identify its producer. Verify permitted source scope and required skill availability; a link or skill name alone does not prove loading or access isolation. Report observed reads separately from planned routes.
+1. **Cross-reference integrity and input coverage.** Task routes and declared inputs must resolve to actual files or identified external sources available at the relevant step. For a generated input, identify its producer. Check source eligibility for the intended audience and use, along with required skill availability. Report observed reads against the required scope, explicitly naming unreadable, omitted, or partially read files and sections and the resulting output limits. A link, folder name, or skill name alone does not prove loading, access isolation, or sharing permission.
 
 2. **No circular dependencies.** Trace the reference graph. If Stage A references Stage B, Stage B must not reference Stage A (directly or through other stages). Draw the dependency graph and confirm it is a directed acyclic graph.
 
@@ -20,7 +20,7 @@ Assess each check below for applicability. Record findings without treating not-
 
 7. **Checkpoints in creative stages.** Verify that stages doing creative work (writing, design, ideation) have at least one checkpoint. Verify checkpoint tables reference valid process step numbers. Each checkpoint identifies the reviewer, artifact, review criteria, and decision before continuing. Linear stages (extract, render, validate) may declare None with a reason; this declaration does not add an approval pause.
 
-8. **Task quality checks.** Creative/build stages need specific, unambiguous audit conditions before output is finalized. A simple workspace can express the same relevant check in its local guidance without adding a stage or separate audit file.
+8. **Task quality checks and evidence.** Creative/build stages need specific, unambiguous audit conditions before output is finalized. For extracted decisions, commitments, or consequential factual claims, inspect the source identifier and supporting passage or precise location for each item, in the artifact or its review notes. Check the evidence supports the stated certainty and category; report contradictions rather than silently resolving them. A simple workspace can express the relevant check in its local guidance without adding a stage or separate audit file.
 
 9. **Specification scope, when applicable.** Check that a spec defines the intended outcome and acceptance criteria at the level needed by its consumer. Apply the video-production WHAT/WHEN versus HOW split only to that workflow; do not reject software architecture details because they differ from a video example.
 
@@ -38,10 +38,12 @@ For a build or authorized repair, fix issues and re-run the failed checks. For a
 
 Start from fresh context and follow one task's entry, scoped inputs, actual output, relevant human check, and consumer if one exists. For builds or authorized repairs, run it when feasible before expanding the structure. For read-only audits or unavailable execution, use a static trace and mark behavior unverified. Do not invent a consumer or authorize an external action to complete this check.
 
+After changing the model, tools, or instructions, recheck a representative task before treating the workflow as validated under those conditions. Note the relevant configuration and differences with the result; passing under one setup does not establish equivalent behavior elsewhere.
+
 When a result fails:
 
 1. Identify one concrete failure and the source, route, or rule that should have prevented it. Fix missing or stale context at its owner before adding a general instruction.
-2. Make one targeted change. Re-run the same request with the same task inputs, except any source correction being tested; state that difference so the comparison stays interpretable.
+2. Make one targeted change. For an instruction comparison, use separate fresh sessions and clean practice copies with the same request, inputs, and available model/tool settings; change only the instruction being tested. Keep earlier drafts and corrections out of the comparison. For a source correction or environment change, state that difference. If a controlled comparison is unavailable, report that limitation rather than attributing the outcome solely to the changed wording.
 3. Compare the new result with the original failure and the relevant source evidence. Keep a change that improves the result, revise an ineffective one, and remove instructions that add noise. A single improved run is evidence for that case, not a reliability guarantee.
 4. Check another relevant example before treating the fix as a reusable rule. If that check cannot be run, leave the broader rule unverified.
 
