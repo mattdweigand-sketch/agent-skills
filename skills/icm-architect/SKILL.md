@@ -2,13 +2,13 @@
 name: icm-architect
 description: "Audit, build, or restructure a repository using the Interpretable Context Methodology framework."
 metadata:
-  adaptation: 'Core ICM with AGENTS.md, task-sized workspaces, and optional staged pipelines'
+  adaptation: 'Agent-neutral ICM with task-sized workspaces and optional staged pipelines'
   last_reviewed: '2026-10-02'
 ---
 
 # ICM Architect
 
-Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For workspace, routing, or repair examples, read the relevant source through the [example index](references/examples.md). This package contains the core framework, lesson summaries, and authored examples.
+Read [conventions](references/conventions.md). Examples use `AGENTS.md` as the entry-file convention. For workspace, routing, or repair examples, read the relevant source through the [example index](references/examples.md). This package contains the core framework, lesson summaries, and authored examples.
 
 Use the exact target the user names and identify the version inspected. Distinguish a single workspace from a collection; add folders for actual responsibilities, not to copy an example's shape.
 

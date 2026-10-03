@@ -1,6 +1,6 @@
 # ICM Conventions
 
-Adapted from Jake Van Clief's supplied ICM repository and walkthroughs, with `AGENTS.md` entry files and task-sized workspaces. Apply only the patterns the work needs. See the [source record](#source-record) and [examples](examples.md).
+Adapted from Jake Van Clief's supplied ICM repository and walkthroughs, using agent-neutral entry guidance and task-sized workspaces. Apply only the patterns the work needs. See the [source record](#source-record) and [examples](examples.md).
 
 ## Workspace shape and routing layers
 
@@ -19,6 +19,8 @@ The lessons' map, rooms, and tools model is a teaching simplification. The expan
 References constrain the work; task artifacts are what the agent transforms. Keep short local rules in context and extract long, shared, or duplicated guidance. Read only the layers and sections the task needs. Preserve established code and artifact locations.
 
 ## Loading and access
+
+`AGENTS.md` is the template convention. Connect entry guidance through the active agent's supported instruction mechanism, or provide it explicitly. Preserve established entry-point ownership instead of creating competing instruction files.
 
 Verify the named instructions were read and required skills are available and loaded using the environment's supported mechanism. A filename, routing-table entry, or skill folder alone proves neither. Folder separation and routing exclusions guide context selection; access isolation requires tool permissions and the execution environment.
 
