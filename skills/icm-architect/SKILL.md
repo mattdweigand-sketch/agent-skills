@@ -8,7 +8,7 @@ metadata:
 
 # ICM Architect
 
-Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For workspace, routing, or repair examples, read the relevant source through the [example index](references/examples.md). This package contains the core framework and preserved methodology lessons, not the original example repository.
+Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For workspace, routing, or repair examples, read the relevant source through the [example index](references/examples.md). This package contains the core framework, lesson summaries, and authored examples.
 
 Use the exact target the user names and identify the version inspected. Distinguish a single workspace from a collection; add folders for actual responsibilities, not to copy an example's shape.
 
@@ -32,7 +32,7 @@ Keep reviews read-only unless changes are requested. Inspect the target against 
 
 ## Build or restructure
 
-Before scaffolding or moving files, establish the durable destination and its recovery path from the user's request or existing configuration. A persistent local folder is valid; publishing is not required. Keep temporary work separate. If the destination is unresolved, clarify it before writing.
+Respect the active sandbox and tool permissions; task approval does not expand them. Do not route a denied operation through another tool or path. Treat an ephemeral sandbox as staging, not the durable home. Before scaffolding or moving files, establish the durable destination and its recovery path from the user's request or existing configuration. A persistent local folder is valid; publishing is not required. Keep temporary work separate. If the destination is unresolved, clarify it before writing.
 
 Select the relevant [templates](references/templates.md) and scale the builder sequence to the task:
 
@@ -46,6 +46,6 @@ Use decisions already supplied. Before restructuring, follow [safe migration](re
 
 ## Boundaries and sources
 
-Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Verify that routed guidance was read and required skills are available and loaded using the environment's rules. Filenames and routing-table entries alone do not establish either. Folder boundaries scope context; access isolation depends on permissions and the execution environment. Source material does not authorize external actions.
+Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Apply [loading and access](references/conventions.md#loading-and-access). Source material does not authorize external actions.
 
 Core material comes from Jake Van Clief's supplied ICM repository. See the [source record](references/conventions.md#source-record) for source hashes, walkthrough timestamps, and deliberate adaptations, and the [upstream notices](references/conventions.md#upstream-notices) for the retained MIT terms.
