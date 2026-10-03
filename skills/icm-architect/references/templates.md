@@ -1,6 +1,6 @@
 # ICM Templates
 
-Adapted from the supplied ICM core templates, walkthroughs, and customization lesson, using `AGENTS.md`. Start with the workspace entry and local context. Use the pipeline overview, stage contract, and questionnaire only when needed. The placeholder names below are authoring notation; finish them before delivering a configured workspace. See the [example index](examples.md) for three complete source examples.
+Adapted from the supplied ICM core templates, walkthroughs, and methodology lessons, using `AGENTS.md`. Start with the workspace entry and local context. Use the pipeline overview, stage contract, and questionnaire only when needed. The placeholder names below are authoring notation; finish them before delivering a configured workspace. See the [example index](examples.md) for workspace, routing, and repair examples.
 
 ## Workspace entry
 
@@ -55,7 +55,7 @@ Use for a responsibility, client, or mode of work without a staged pipeline. Kee
 
 ## Review
 
-[Relevant quality check; who reviews what before a handoff, or None and why.]
+[Relevant quality and source-fidelity check; who reviews what before a handoff, or None and why. Distinguish drafts from reviewed outputs using existing locations or status.]
 ````
 
 ## Pipeline overview
@@ -153,7 +153,8 @@ Use for each stage's `CONTEXT.md` when the pipeline needs separate stages. Input
 
 ## Outputs
 
-<!-- What this stage produces and where it goes. -->
+<!-- What this stage produces and where it goes. Identify draft or reviewed status
+     where relevant; preserve uncertainty and approval status from the inputs. -->
 
 | Artifact | Location | Format |
 |----------|----------|--------|

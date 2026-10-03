@@ -14,9 +14,9 @@ Assess each check below for applicability. Record findings without treating not-
 
 4. **Conditional section validity.** Every `{{?SECTION}}...{{/SECTION}}` block must wrap a complete section (a heading and all content below it). No inline conditional wrapping. Flag any violations.
 
-5. **Handoffs, when present.** A producer's output location must match its consumer's declared input, whether a stage folder, existing code or deliverable path, or intentional external system. List actual handoffs and flag gaps. For a standalone task, verify its output destination without inventing a downstream stage.
+5. **Handoffs, when present.** A producer's output location must match its consumer's declared input, whether a stage folder, existing code or deliverable path, or intentional external system. List actual handoffs and flag gaps. Distinguish sources, drafts, and reviewed outputs without requiring separate folders. Check that uncertainty and approval status survive the handoff; unconfirmed dates or suggestions must not become commitments. For a standalone task, verify its output destination without inventing a downstream stage.
 
-6. **Concise context and canonical ownership.** Allow short, locally owned guidance in CONTEXT.md. Flag long, shared, or duplicated material that should have a canonical reference. Stage contracts retain Inputs, Process, Outputs, and Checkpoints, with Audit where applicable; simple workspaces need only the guidance their tasks require.
+6. **Concise context and canonical ownership.** Allow short, locally owned guidance in CONTEXT.md. Flag long, shared, or duplicated material that should have a canonical reference. For changing facts and decisions, check dates, superseded active directions, and consequential decision reasons against the available evidence; report unknown currency rather than assuming freshness. Stage contracts retain Inputs, Process, Outputs, and Checkpoints, with Audit where applicable; simple workspaces need only the guidance their tasks require.
 
 7. **Checkpoints in creative stages.** Verify that stages doing creative work (writing, design, ideation) have at least one checkpoint. Verify checkpoint tables reference valid process step numbers. Each checkpoint identifies the reviewer, artifact, review criteria, and decision before continuing. Linear stages (extract, render, validate) may declare None with a reason; this declaration does not add an approval pause.
 
@@ -34,8 +34,18 @@ Assess each check below for applicability. Record findings without treating not-
 
 For a build or authorized repair, fix issues and re-run the failed checks. For an audit, report them without editing.
 
+## Representative task and repair
 
-Finish with the existing representative-task check: start from fresh context and follow its entry, scoped inputs, actual output, relevant human check, and consumer if one exists. For builds or authorized repairs, run one task when feasible before expanding the structure; revise from demonstrated problems, re-run the affected task, and remove instructions that add noise. For read-only audits or unavailable execution, use a static trace and mark behavior unverified. Do not invent a downstream consumer or authorize an external action to complete this check.
+Start from fresh context and follow one task's entry, scoped inputs, actual output, relevant human check, and consumer if one exists. For builds or authorized repairs, run it when feasible before expanding the structure. For read-only audits or unavailable execution, use a static trace and mark behavior unverified. Do not invent a consumer or authorize an external action to complete this check.
+
+When a result fails:
+
+1. Identify one concrete failure and the source, route, or rule that should have prevented it. Fix missing or stale context at its owner before adding a general instruction.
+2. Make one targeted change. Re-run the same request with the same task inputs, except any source correction being tested; state that difference so the comparison stays interpretable.
+3. Compare the new result with the original failure and the relevant source evidence. Keep a change that improves the result, revise an ineffective one, and remove instructions that add noise. A single improved run is evidence for that case, not a reliability guarantee.
+4. Check another relevant example before treating the fix as a reusable rule. If that check cannot be run, leave the broader rule unverified.
+
+See the [fictional follow-up repair](sources/common-mistakes-and-how-to-fix-them.md#a-repair-you-can-test) for preserving an unconfirmed date. Its `Questions` section is an example-specific output choice, not a required format for every task.
 
 ## Safe migration
 

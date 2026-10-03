@@ -8,7 +8,7 @@ metadata:
 
 # ICM Architect
 
-Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For content, consulting, or software workspace examples, read the relevant section through the [example index](references/examples.md). This package contains the core framework and a preserved customization lesson, not the original example repository.
+Read [conventions](references/conventions.md). Use `AGENTS.md` for entry files. For workspace, routing, or repair examples, read the relevant source through the [example index](references/examples.md). This package contains the core framework and preserved methodology lessons, not the original example repository.
 
 Use the exact target the user names and identify the version inspected. Distinguish a single workspace from a collection; add folders for actual responsibilities, not to copy an example's shape.
 
@@ -40,7 +40,7 @@ Select the relevant [templates](references/templates.md) and scale the builder s
 2. Map task routes, canonical owners, and dependencies. For sequential work, define stage contracts and review the actual handoffs with the user.
 3. Scaffold only the entry, local guidance, and folders needed for that task. Use numbered stages where ordering matters; preserve established code and artifact locations. Include domain skills and shared configuration only when needed.
 4. Configure known values directly. If a reusable workspace has unresolved system-level choices, map them to a flat, one-pass questionnaire with placeholders and target files. Collect per-run inputs at task entry. Review derived voice/style rules with the user when applicable.
-5. Validate applicable checks, run the representative task when authorized and feasible, and fix demonstrated problems. Re-run the affected task after a relevant change; remove instructions that add noise. Label a static trace as such and distinguish a reusable template from a configured, ready-to-run workspace.
+5. Validate applicable checks, run the representative task when authorized and feasible, and use the [repair method](references/validation.md#representative-task-and-repair) for demonstrated problems. Remove instructions that add noise. Label a static trace as such and distinguish a reusable template from a configured, ready-to-run workspace.
 
 Use decisions already supplied. Before restructuring, follow [safe migration](references/validation.md#safe-migration): map affected paths and consumers, check conflicts, copy, verify unchanged bytes, then perform only authorized removals and reference updates.
 

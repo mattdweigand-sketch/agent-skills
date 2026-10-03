@@ -1,6 +1,6 @@
 # ICM Conventions
 
-Core specification extracted from Jake Van Clief's user-supplied Interpretable-Context-Methodology-main snapshot on 2026-10-01. Entry files use the requested `AGENTS.md` adaptation. Workspace overviews and explicit human-check declarations incorporate the author walkthroughs. The supplied customization lesson, preserved on 2026-10-02, adds task-sized workspaces and conditional use of the pipeline patterns below. Original repository examples and bundled production tools are omitted; the lesson's three examples are retained through the [example index](examples.md).
+Core specification extracted from Jake Van Clief's user-supplied Interpretable-Context-Methodology-main snapshot on 2026-10-01. Entry files use the requested `AGENTS.md` adaptation. Workspace overviews and explicit human-check declarations incorporate the author walkthroughs. The supplied lessons, preserved on 2026-10-02, add task-sized workspaces, conditional pipeline patterns, and focused maintenance and repair. Original repository examples and bundled production tools are omitted; the supplied lessons and examples are retained through the [example index](examples.md).
 
 ---
 
@@ -8,7 +8,7 @@ Core specification extracted from Jake Van Clief's user-supplied Interpretable-C
 
 Start with one real task and the smallest useful workspace. A workspace groups a responsibility, client, or mode of work; a stage performs one step in a sequential workflow. A collection can route directly from its `AGENTS.md` to each workspace's `CONTEXT.md`. One simple workspace can use `AGENTS.md` and local context without a `stages/` tree or an extra collection router.
 
-The lesson's three-layer view (entry, workspace context, skills/tools) and the core's five-layer view below describe different levels of detail. Use the expanded view for workflows that need stage contracts and separate references. These are routing roles, not a requirement to create five levels of folders. Select patterns only where they apply; retain established source-code and artifact locations.
+The supplied routing lesson explicitly describes map, rooms, and tools (entry, workspace context, skills/tools) as a teaching model distinct from the five-layer numbering below. Use the expanded view for workflows that need stage contracts and separate references. These are routing roles, not a requirement to create five levels of folders. Select patterns only where they apply; retain established source-code and artifact locations.
 
 Agents read down the layers. They stop as soon as they have what they need.
 
@@ -36,7 +36,7 @@ A rendering agent might only need Layers 0 through 2. A script-writing agent rea
 
 Map each task to the relevant files and sections. Verify that the routed guidance was actually read; a `CONTEXT.md` filename does not establish that. Naming a skill in a routing table does not install or activate it. Follow the environment's loading rules and verify availability. Client or workspace folders organize context; name permitted sources and inspect their use. Access isolation depends on tool permissions and the execution environment.
 
-Run one representative task before adding more structure, within the authorized scope. Use its results to revise context, then re-run the affected task to assess the change. Remove instructions that add noise. If execution is unavailable, label the navigation check as a static trace and leave task behavior unverified.
+Run one representative task before adding more structure, within the authorized scope. Use the [representative-task and repair check](validation.md#representative-task-and-repair) to evaluate changes. If execution is unavailable, label the navigation check as a static trace and leave task behavior unverified.
 
 ---
 
@@ -78,6 +78,8 @@ The convention:
 
 This is the handoff. A human can open the output file, edit it, and the next stage picks up the edited version. No state management. No orchestration layer. Just files in predictable places.
 
+Distinguish source material, working drafts, and reviewed outputs through clear locations, filenames, or existing status metadata; separate folders are optional. Preserve source uncertainty and approval status through each transformation. A suggestion or unconfirmed date must not become an approved commitment without supporting evidence. File presence or a `final` filename alone does not establish review.
+
 File naming in output folders: `[topic-slug]-[stage-artifact].md`
 - Example: `hello-world-script.md`, `hello-world-spec.md`
 
@@ -117,6 +119,8 @@ When a full file is needed, write "Full file" in the Section/Scope column.
 Every piece of information has ONE home. Other files point there. They do not duplicate it.
 
 If you need to update a rule, you update it in one place. Every other file has a pointer. If you find the same information in two files, one of them should be replaced with a reference to the other.
+
+When a fact or decision changes, update its canonical source. Date information whose currency matters, remove or clearly retire superseded active directions, and retain the reason for consequential decisions in the existing context or decision record. Preserve historical source captures as evidence and route current tasks to the current guidance; a new tracking system is unnecessary.
 
 Smell test: search the repo for a specific phrase. If it appears in more than one file and both instances are meant to be authoritative, one needs to become a pointer.
 
@@ -325,9 +329,17 @@ Walkthrough evidence is paraphrased from English auto-generated captions retriev
 - [Folder architecture, 1:11](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=71s): entry map; [2:17](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=137s): Input, Do, Output, Human check; [7:51](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=471s): fresh-chat navigation check.
 - [Reviewable stages, 2:34](https://www.youtube.com/watch?v=EhWlGingCl0&t=154s): workspace pipeline table; [4:11](https://www.youtube.com/watch?v=EhWlGingCl0&t=251s): review before downstream production.
 
-Supplementary source: the user-supplied lesson **3.2 Customizing for Your Use Case**, preserved verbatim on 2026-10-02 in [sources/customizing-for-your-use-case.md](sources/customizing-for-your-use-case.md). SHA-256: `ab3f740795797e6972bd75e875b1d0738d393b62b1f003fb57d17433cbb6718e`. This identifies the supplied text, not a verified live course revision. It contains all three example trees, routing tables, explanatory text, and linked references. Original `CLAUDE.md` examples remain unchanged as source evidence; use `AGENTS.md` when applying them here.
+Supplementary sources supplied by the user and stored on 2026-10-02:
 
-Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a representative task run or clearly labeled static trace. The 2026-10-02 update adopts task-sized workspaces, conditional pipeline scaffolding, concise inline context, and revision from task results. These supersede the earlier blanket pipeline and context-purity requirements in this maintained guidance; the supplied sources retain their differing formulations. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
+| Source | Capture | SHA-256 |
+|---|---|---|
+| [3.2 Customizing for Your Use Case](sources/customizing-for-your-use-case.md) | Attachment bytes unchanged, including all three example trees and routing tables | `ab3f740795797e6972bd75e875b1d0738d393b62b1f003fb57d17433cbb6718e` |
+| [The three layer routing system](sources/three-layer-routing-system.md) | Attachment bytes unchanged, including the three-file starter and research qualifications | `ebf671c85c605ca23ca703b69612fa087a3bb95b93c65298eb1ff7e1e37c6509` |
+| [3.3 Common Mistakes and How to Fix Them](sources/common-mistakes-and-how-to-fix-them.md) | Full lesson captured from the user's inline Markdown, including seven mistakes, the fictional repair, and links | `4cf525e376904d55f82b4b5d773398cf72c29be5a2f02127357604df5e468bd5` |
+
+These fingerprints identify local captures, not verified live course revisions. The inline lesson has no separate original attachment for a byte comparison. Research-paper descriptions and cross-tool evidence limits in the routing lesson remain attributed to that supplied text; the paper was not independently checked for this update. Original `CLAUDE.md` wording and sample rules remain source evidence. Use `AGENTS.md` here, and adopt example-specific permissions or output formats only when they fit the user's actual requirements.
+
+Deliberate adaptations: `AGENTS.md` entry files, platform-neutral skill discovery, explicit file-role and human-review declarations, and a representative task run or clearly labeled static trace. The 2026-10-02 updates adopt task-sized workspaces, conditional pipeline scaffolding, concise inline context, canonical maintenance, preservation of uncertainty, and comparable repair runs. These supersede the earlier blanket pipeline and context-purity requirements in this maintained guidance; the supplied sources retain their differing formulations. Safe-migration checks are local safeguards restored from `mattdweigand-sketch/agent-skills` commit `ae2ae17`, not requirements attributed to the videos. Other demonstrated variants do not automatically override these conventions.
 
 ## Upstream notices
 
