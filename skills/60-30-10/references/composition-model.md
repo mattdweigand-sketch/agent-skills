@@ -8,6 +8,8 @@ The buckets, routing sort, counting traps, and healthy or unhealthy shapes that 
 
 **Deterministic code = fixed execution and consequence-worthy checks.** The pipelines, rails, validators, orchestration, gates, scanners, test suites, detectors, alerts, and scripts that fetch the right records and handle machine-checkable rules. A rule that must hold every time belongs outside the nondeterministic model. Code may prevent a failure before action or observe and alert on it afterward; that is a mechanism distinction inside this bucket, not a fourth bucket.
 
+Evals measure behavior; deterministic controls enforce machine-checkable rules. You cannot eval your way to deterministic behavior, and deterministic execution alone does not establish semantic correctness.
+
 **Prompt-model work = prompt and model doing genuine interpretation.** Keep it small, steering-heavy, and concrete-fact-light. This is the perishable layer that needs retuning as models and harnesses change.
 
 The numbers express a preferred direction and relative shape, not a target to optimize mechanically. Do not penalize a project merely because its estimated shape is not 60/30/10. Judge whether each rule is in the right home and whether prompt-model dependence is limited to work that genuinely requires interpretation. A different shape is healthy when the system's needs justify it; a superficially exact ratio is unhealthy when judgment is misrouted.
@@ -33,7 +35,7 @@ For every apparent piece of judgment, ask in sequence:
 1. **Steering or fact?** Output format, reasoning scaffolds, and hypothesis-vs-observed marking are steering. Genuine steering stays in prompt-model work.
 2. **If a fact: chosen or predictive?** A chosen fact is policy set by fiat, such as a banned phrase, boundary, or required field. Chosen facts become owned data. A predictive fact claims a correlation with an outcome and needs an outcome grade before becoming authoritative.
 3. **Machine-checkable, and consequential if wrong once?** Mechanical verifiability makes a code check possible. High-consequence misses get deterministic protection. Low-consequence checkable preferences may remain prompt-model steering without becoming a finding when a code path would cost more than the failure. Choose pre-hoc enforcement when the action must be blocked; choose post-hoc detection or alerting when observation plus recovery is sufficient.
-4. **Who writes it, and is the write checked?** Name the writer for each owned-data store. Where the model writes, require a deterministic check on the way in for authoritative, consequence-bearing values or mark the store as model-authored and ungraded.
+4. **Who writes it, and is the write checked?** Name the writer for each owned-data store. Where the model writes, require a deterministic check before an authoritative, consequence-bearing write or promotion; otherwise mark the value as model-authored and ungraded. A passing check after that authoritative write does not satisfy this requirement.
 5. **Where else does the same chosen policy live?** Inspect directly connected targets that consume, generate, or restate it. If the policy has multiple independent homes, name one owner and make the other surfaces reference or retrieve it.
 
 The unit of the sort is the rule, not the file. One document can split across buckets.
@@ -44,6 +46,8 @@ Preserve source observations separately from model-derived proposals and chosen 
 
 Record passed, failed, skipped, and unverified checks for the property each check actually examines. Wrapper success, file creation, or a required section's presence does not grade its meaning. Name the human decision the workflow supports and the consequence of an incorrect result before recommending additional machinery.
 
+Render `checked` only when a relevant deterministic check has evidence of passing for the named property and scope. The check may run before or after a write. Render a missing, failed, skipped, or unverified check as `unchecked`, and name that state. Observed runs, tests, or logs can supply evidence; identify their scope rather than treating tests as proof that a live write path invokes the check. Writer exposure names the property, evidence, timing, and whether failure blocks the authoritative write or promotion. A passing post-write check can render as `checked` while missing pre-write protection remains a finding under question 4.
+
 The fifth question crosses target boundaries but stays bounded. Search only connected surfaces named by dependencies, generators, workflow routes, deployment config, or user-provided scope. Do not turn a composition audit into an organization-wide architecture review.
 
 ## What Healthy And Unhealthy Look Like
@@ -53,5 +57,7 @@ Healthy: thin prompt-model work for format and genuine interpretation, an owned-
 Unhealthy: prompt-model files are the largest load-bearing surface, policy is duplicated across prose files or connected targets, fixed pipelines are modeled as live decisions, reliability-critical rules are phrased as requests to the model, or the model writes authoritative records without a consequence-appropriate check.
 
 ---
+
+Provenance: the 2026-10-06 source-fidelity, delivery-evidence, and review refinements are local synthesis from the review of Jake Van Clief's [Augmenting Human Intellect](https://jakevanclief.substack.com/p/augmenting-human-intellect), the [ICM paper v2, section 6.1](https://arxiv.org/html/2603.16021v2), and the supplied `workspace-blueprint.zip` and `files.zip` (nested Eduba `vault-toolkit`, client-delivery discovery, review, and handoff contracts). The buckets and directional use of the ratio remain this skill's model; the sources' code/rules/AI heuristic is a different framing.
 
 *Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*

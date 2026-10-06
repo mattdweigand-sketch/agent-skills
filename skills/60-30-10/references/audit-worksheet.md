@@ -18,7 +18,7 @@ Use Notes for observed context delivery, required tool availability, and relevan
 |---|---|---|---|---|---|---|
 |  | owner/location; owned data/code/prompt-model | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; mechanism and result | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
 
-For each load-bearing rule, record its canonical owner in Current home, the observed delivery route in Reason, and the actual enforcement or checking mechanism in Writer and check. State the checked property and whether it passed, failed, was skipped, or remains unverified. Keep the final verdict's existing checked/unchecked writer summary grounded in that evidence. Use the [client follow-up example](worked-example.md#companion-example-client-follow-up) for a compact sort without a numerical estimate.
+For each load-bearing rule, record its canonical owner in Current home, the observed delivery route in Reason, and the actual enforcement or checking mechanism in Writer and check. State the checked property, evidence scope, result, timing before/after the write, and whether failure blocks the authoritative write or promotion. Apply the [composition model's check-status rules](composition-model.md#routing-sort) to the final verdict's checked/unchecked summary. Classify maintained records by their actual use, including records held in Markdown, and keep current placement separate from recommended placement.
 
 ## Connected-target policy check
 

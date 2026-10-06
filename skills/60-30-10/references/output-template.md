@@ -20,7 +20,7 @@ Every 60/30/10 audit renders its verdict in this exact shape. Load when writing 
 
 **Unnecessary live judgment:** [the model decision that should become a fixed pipeline, or `none found`]
 
-**Writer exposure:** [each data store the model writes into and whether a deterministic check sits between the writer and the store; `none` when every store is human- or code-authored]
+**Writer exposure:** [each model-written store; checked/unchecked with property, evidence, result, timing before/after the write, and whether failure blocks the authoritative write or promotion; `none` when every store is human- or code-authored]
 
 **Cross-target duplication:** [duplicated chosen policy, its current homes, and one canonical owner; `none found within [bounded scope]`; or `not assessed—[why no connected target was inspectable]`]
 
@@ -39,16 +39,16 @@ Every 60/30/10 audit renders its verdict in this exact shape. Load when writing 
 |---|---|
 | Verdict | Exactly one of `inverted`, `prose-heavy`, `mid-migration`, `roughly balanced`, or `healthy`, plus one sentence explaining why. |
 | Estimated shape | Three integers summing to approximately 100, formatted `~X/Y/Z (owned data/deterministic code/prompt-model work)`. Anchor them in all load-bearing rules when there are fewer than eight, otherwise the top eight to twelve; include low, medium, or high confidence. |
-| Rule basis | One compact line per audited rule: rule name, current home, correct home or `delete`, and writer/check status. This is the reviewable evidence for the estimate; do not replace it with a hidden worksheet. |
+| Rule basis | One compact line per audited rule: rule name, current home, correct home or `delete`, and writer/check status under the [composition model](composition-model.md#routing-sort). This is the reviewable evidence for the estimate; do not replace it with a hidden worksheet. |
 | Bucket findings | Three bullets in owned-data / deterministic-code / prompt-model order. Each names what is currently held and what belongs there but is missing. The code bullet distinguishes pre-hoc enforcement from post-hoc detection when relevant. |
 | Unnecessary live judgment | Name the highest-leverage model decision that is really a fixed sequence and should be deleted, or write `none found`. |
-| Writer exposure | Each model-written data store, named by path when available, with `checked` or `unchecked`. Write `none` when no store is model-written; never omit the field. |
+| Writer exposure | Each model-written data store, named by path when available, with `checked` or `unchecked` under the composition model's check-status rules. Name the property, evidence, result, timing, and whether failure blocks the authoritative write or promotion. Keep missing required pre-write protection visible as a finding even when a post-write check passed. Write `none` when no store is model-written; never omit the field. |
 | Cross-target duplication | Name a duplicated chosen policy, its homes, and canonical owner. If none was found, state the bounded connected-target scope. If no connected target was inspectable, say `not assessed` and why. |
 | Biggest misallocation | One concrete move, identified by a file path or rule name rather than a broad category. |
-| Punch list | Ordered by leverage and lowest risk first. Each item is `Safe now`, `Gated on evidence`, or `Leave`. Include at least one `Leave` entry so genuine steering is acknowledged. |
+| Punch list | Ordered by leverage and lowest risk first. Each item is `Safe now`, `Gated on evidence`, or `Leave`. Include at least one `Leave` entry so genuine steering is acknowledged. Never frame a punch-list item as moving the ratio toward the numbers. |
 
 Outputs that skip fields, reverse the owned-data / deterministic-code / prompt-model order, invent verdict values, or state a shape without confidence are incomplete. The structural validator applies only when the verdict is saved locally; it cannot validate the audit's placement judgment.
 
 ---
 
-*Owner: Matt Weigand. Last reviewed: 2026-08-04. Re-review when an audit surfaces a rule that does not fit the template.*
+*Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when an audit surfaces a rule that does not fit the template.*
