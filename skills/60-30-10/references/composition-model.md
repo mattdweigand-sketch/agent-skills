@@ -21,6 +21,10 @@ Two counting traps:
 - Owned data often lives off-repo. Database rows, memory stores, retrieved records, and vector stores carry real weight but may have no repo line count.
 - Prompt-model surface is whatever loads into model context per run, not just files named like prompts. Always-on instructions and frequently injected reference documents count toward prompt-model load.
 
+For each load-bearing rule, distinguish its canonical owner and location, its delivery into model context, and its execution or checking mechanism. Human-owned policy stored in Markdown can be durable data while compliance still depends on the model. Count those responsibilities, not the file extension; avoid counting the same policy twice merely because it is loaded.
+
+Verify delivery and required tool availability from observed reads and use. Tie access claims to actual permissions and data-residency claims to actual processing and network flows. A folder label or local storage location alone does not establish either.
+
 ## Routing Sort
 
 For every apparent piece of judgment, ask in sequence:
@@ -36,6 +40,10 @@ The unit of the sort is the rule, not the file. One document can split across bu
 
 The fourth question is a direction constraint, not a placement rule. A human-chosen fact and a model-generated fact can look identical after both land in an owned-data store. The strongest design has the model emit a reference to a governed value rather than author the value itself. Verifiable strings, numbers, and identifiers can carry deterministic checks when their consequence justifies one. Paraphrase, summary, and inference usually cannot, which is a reason to keep them out of load-bearing positions.
 
+Preserve source observations separately from model-derived proposals and chosen policy. Keep units, time periods, and provenance with consequential values. A schema-valid claim remains a proposal until appropriately checked: arithmetic can pass while the selected period is wrong. Code that invokes a learned model does not make its semantic output a deterministic check.
+
+Record passed, failed, skipped, and unverified checks for the property each check actually examines. Wrapper success, file creation, or a required section's presence does not grade its meaning. Name the human decision the workflow supports and the consequence of an incorrect result before recommending additional machinery.
+
 The fifth question crosses target boundaries but stays bounded. Search only connected surfaces named by dependencies, generators, workflow routes, deployment config, or user-provided scope. Do not turn a composition audit into an organization-wide architecture review.
 
 ## What Healthy And Unhealthy Look Like
@@ -46,4 +54,4 @@ Unhealthy: prompt-model files are the largest load-bearing surface, policy is du
 
 ---
 
-*Owner: Matt Weigand. Last reviewed: 2026-08-04. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*
+*Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*

@@ -18,6 +18,8 @@ The lessons' map, rooms, and tools model is a teaching simplification. The expan
 
 References constrain the work; task artifacts are what the agent transforms. Keep short local rules in context and extract long, shared, or duplicated guidance. Read only the layers and sections the task needs. Preserve established code and artifact locations.
 
+Determine an input's role from its use and authority for the current consumer, not its folder or layer label. Keep the original request distinct from a proposed interpretation; preserve observations, derived claims, assumptions, and chosen scope without turning one into another.
+
 ## Loading and access
 
 `AGENTS.md` is the template convention. Connect entry guidance through the active agent's supported instruction mechanism, or provide it explicitly. Preserve established entry-point ownership instead of creating competing instruction files.
@@ -36,6 +38,8 @@ For file-based pipelines, a stage's `output/` folder is the default handoff: Sta
 
 Distinguish sources, drafts, and reviewed outputs through locations, filenames, or existing status metadata. Keep uncertainty and approval status intact: an unconfirmed date or suggestion must not become a commitment. File presence or a `final` filename alone does not establish review.
 
+For alternate versions or repeated runs, identify the exact artifact selected for the consumer and what review applies to it. When a load-bearing input changes, reconsider the affected output and downstream readiness before reuse. Check the handoff in the consumer's actual receiving surface. Existing filenames or status metadata are sufficient when unambiguous.
+
 ## Pattern 3: One-way dependencies
 
 Keep execution dependencies acyclic. A stage can consume an earlier stage's output or shared reference; that producer must not depend on its consumer to perform its own work. Check the dependency graph when adding a handoff. Navigational backlinks are not execution dependencies.
@@ -51,11 +55,13 @@ Name the needed files and sections, plus concrete exclusions where they help pre
 
 Compare required inputs with actual reads. Report unreadable, omitted, or partially read files and sections and the resulting output limits. Use manageable input groups when needed; file count alone does not establish that the material fits.
 
-For extracted decisions, commitments, or consequential factual claims, retain a source identifier and short supporting passage or precise location, beside the item or in review notes. Distinguish suggestions, decisions, actions, and contradictions where relevant. This requirement applies to source-derived work, not every line of a creative or code artifact.
+For extracted decisions, commitments, or consequential factual claims, retain a source identifier and short supporting passage or precise location, beside the item or in review notes, including through summaries. Preserve units and time periods with consequential values. Distinguish suggestions, decisions, actions, and contradictions where relevant. This requirement applies to source-derived work, not every line of a creative or code artifact.
 
 ## Pattern 5: Canonical sources
 
 Give each fact or rule one authoritative home; replace duplicate directions with links. When a fact or decision changes, update its owner, date information whose currency matters, retire superseded directions, and retain consequential decision reasons. Preserve historical evidence separately from active guidance without adding a tracking system by default.
+
+Keep chosen scope in one maintained home, or explicitly select a frozen reviewed copy for a run. A copied scope document does not become a second independently editable authority.
 
 ## Pattern 6: Concise local context
 
@@ -100,13 +106,15 @@ For creative stages, identify a review point after a complete unit of work: who 
 
 Creative and build stages need specific quality checks before an output is treated as ready. Extraction also needs source-fidelity checks when consequential claims are involved. Revise failed work before handing it on. A simple workspace can state the relevant check locally without a separate stage or audit file.
 
+For an actual iterative stage, set an appropriate attempt, time, or cost limit. At that limit, return the best attempt with unresolved failures and its readiness stated. Do not introduce retries into every task.
+
 ## Pattern 13: Value validation
 
 For content work, define what the output should accomplish, such as teaching a concept or enabling a practical action. Reuse one workspace-owned framework if useful; do not introduce a new taxonomy or review gate for a settled task.
 
 ## Pattern 14: Docs over outputs
 
-Canonical guidance defines how to build. Prior outputs do not automatically become authority. Explicitly selected writing samples or approved examples may guide a task; keep their facts scoped to their original context. Promote useful lessons deliberately after checking another relevant case.
+Canonical guidance defines how to build. Prior outputs do not automatically become authority. Explicitly selected writing samples or approved examples may guide a task; keep their facts scoped to their original context. Keep a one-off creative adjustment with its artifact. Promote useful lessons and recurring corrections into their canonical owner after checking another relevant case.
 
 ## Pattern 15: Shared constants
 
@@ -133,7 +141,7 @@ Walkthrough evidence is paraphrased from English auto-generated captions retriev
 - [Folder architecture, 1:11](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=71s): entry map; [2:17](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=137s): Input, Do, Output, Human check; [7:51](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=471s): fresh-chat navigation check.
 - [Reviewable stages, 2:34](https://www.youtube.com/watch?v=EhWlGingCl0&t=154s): workspace pipeline table; [4:11](https://www.youtube.com/watch?v=EhWlGingCl0&t=251s): review before downstream production.
 
-Course-derived additions are summarized with links in [lesson notes](sources/lesson-notes.md); full course text is not distributed in this package. The [example index](examples.md) contains compact authored adaptations.
+Course-derived additions and the 2026-10-06 source review are summarized with links in [lesson notes](sources/lesson-notes.md); full source text is not distributed in this package. The [example index](examples.md) contains compact authored adaptations.
 
 Deliberate adaptations include task-sized workspaces, optional pipelines, concise local context, source coverage, explicit review roles, and comparable repair runs. These supersede earlier blanket pipeline and context-purity requirements. Safe-migration checks came from `mattdweigand-sketch/agent-skills` commit `ae2ae17`; they are local safeguards, not requirements attributed to the videos.
 

@@ -10,11 +10,15 @@ Use this as an internal worksheet before writing the final verdict. Render a com
 | Deterministic code |  | yes/no | Pipelines, tests, validators, gates, detectors, alerts, typed parsers |
 | Prompt-model work |  | yes/no | System prompts, `SKILL.md` bodies, command wrappers, templates, injected references |
 
+Use Notes for observed context delivery, required tool availability, and relevant permissions or processing flows. Mark unobserved behavior unverified; stored files alone do not prove runtime use.
+
 ## Rule Sort
 
 | Rule or apparent judgment | Current home | Correct home or delete | Consequence if wrong once | Writer and check | Reason | Safe move? |
 |---|---|---|---|---|---|---|
-|  | owned data/code/prompt-model | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; checked/unchecked | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
+|  | owner/location; owned data/code/prompt-model | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; mechanism and result | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
+
+For each load-bearing rule, record its canonical owner in Current home, the observed delivery route in Reason, and the actual enforcement or checking mechanism in Writer and check. State the checked property and whether it passed, failed, was skipped, or remains unverified. Keep the final verdict's existing checked/unchecked writer summary grounded in that evidence. Use the [client follow-up example](worked-example.md#companion-example-client-follow-up) for a compact sort without a numerical estimate.
 
 ## Connected-target policy check
 
@@ -52,4 +56,4 @@ Name one highest-leverage move:
 
 ---
 
-*Owner: Matt Weigand. Last reviewed: 2026-08-04. Re-review when the output template, routing sort, or cross-target check changes.*
+*Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when the output template, routing sort, or cross-target check changes.*

@@ -35,15 +35,21 @@ For the operational boundary behind these routes, see [loading and access](conve
 
 ## Repair and source fidelity
 
-Fictional input: `planning-note-01.md`, section Next steps, says: "Iris will prepare a demo. The delivery date is still open."
+Fictional request: "Draft a client follow-up from the planning notes." The chosen scope is a draft for the account owner to review; a proposed interpretation that the client needs a delivery commitment is still an assumption. Keep the request and chosen scope in existing local context rather than adding another scope file.
+
+Fictional input: `inputs/planning-note-01-v1.md`, section Next steps, says: "Iris will prepare a demo. The delivery date is still open."
 
 | Item | Type | Owner | Due date | Evidence |
 |---|---|---|---|---|
-| Prepare the demo | Action | Iris | Unconfirmed | `planning-note-01.md`, Next steps, the two sentences above |
+| Prepare the demo | Action | Iris | Unconfirmed | `inputs/planning-note-01-v1.md`, Next steps, the two sentences above |
+
+A suitable draft says, "Iris will prepare the demo; the delivery date remains open." Acceptance requires the named action and owner, visible date uncertainty, and a source location in review notes. Reject a promised date without supporting evidence. The account owner should be able to find the selected note and draft, understand what remains open, and decide the next step without the workspace builder's explanation.
 
 If a draft promises delivery Tuesday, the date is unsupported. Correct the source interpretation and rerun the same request using the [repair method](validation.md#representative-task-and-repair). Check that the date remains unconfirmed, then try another relevant example before treating the change as a reusable rule.
 
 If a required second note was unreadable, state that limitation; this result cannot establish agreement across both notes. Use an existing Questions section for unresolved details when the output format calls for one, without imposing that format on every task.
+
+Suppose the account owner reviewed `drafts/follow-up-v1.md` against that note. Identify that exact draft and source version in the existing review record. If `inputs/planning-note-01-v2.md` changes the demo owner to Morgan while leaving the date open, reconsider the owner claim and the draft's readiness. Review of v1 does not establish readiness for a revised draft. Check the selected result in the account owner's actual document or message preview; sending is a separate action requiring applicable authorization.
 
 ## Planning handoff
 

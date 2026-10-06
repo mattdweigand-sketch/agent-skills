@@ -57,3 +57,25 @@ No unnecessary live decision was found in this snapshot; the model performs inte
 2. Safe now: add a deterministic required-field check before `close-stage-flip.ts` flips the stage.
 3. Gated on evidence: keep loss patterns and ICP trigger weights non-authoritative until the outcome loop can grade them.
 4. Leave: output format, hypothesis marking, and deal-genome reasoning scaffolds. They are genuine steering.
+
+## Companion example: client follow-up
+
+Authored on 2026-10-06. This fictional routing exercise complements the dated audit above; it is not another recorded run or a measured composition estimate.
+
+Request: "Draft a client follow-up from the planning notes." Chosen scope: produce a draft for the account owner to review. A model's proposed interpretation that the client needs a delivery commitment remains an assumption. The human decision is what to communicate next; an unsupported promise could mislead the client.
+
+Source observation: `inputs/planning-note-01-v1.md`, Next steps, says, "Iris will prepare a demo. The delivery date is still open." A suitable draft says, "Iris will prepare the demo; the delivery date remains open." Keep that source location in review notes. The filenames below are illustrative, not bundled fixtures.
+
+| Load-bearing item | Owner and delivery | Mechanism and limit |
+|---|---|---|
+| Chosen draft scope | Account owner; existing local context is the maintained home and the task route delivers it | Human-owned policy is data; applying it from prose remains model-dependent. A source note cannot authorize sending. |
+| Action, owner, and open date | Original note is evidence; the task route names the exact input and the draft retains its source location | Model extracts a proposal. Review checks it against the passage; field presence or a schema check cannot establish faithful meaning. |
+| Format and source selection | Existing context defines the required fields and selected input | If a miss has sufficient consequence, code can check field presence or exact source-version equality. Without an implemented and observed check, enforcement remains model-dependent and unverified. |
+| Client-ready wording | Model drafts; account owner reviews the selected `drafts/follow-up-v1.md` in the actual receiving preview | Acceptance includes the action and owner, visible date uncertainty, and usable next steps. Reject an invented Tuesday commitment. Code calling a model judge still supplies a learned judgment. |
+| Changed evidence | Selected `inputs/planning-note-01-v2.md` changes the owner to Morgan; the date stays open | Reconsider the owner claim and affected draft readiness. Review of v1 does not establish readiness for a revised draft. |
+
+Use the existing review record to identify the exact source and reviewed output. Observe the required reads and tool use in a real run before calling the route verified. Keep one scope owner; select a frozen copy explicitly if a run needs one. A wrapper that completes while a source check is skipped cannot claim that check passed.
+
+For this reversible draft, repair the unsupported claim and check another relevant case before adding machinery. A consequential automated action may justify a fixed check before execution, but semantic fidelity still needs appropriate review. The [composition model](composition-model.md) owns these distinctions; the [worksheet](audit-worksheet.md) records the rule-level evidence.
+
+Provenance: local synthesis from the 2026-10-06 review of Jake Van Clief's [Augmenting Human Intellect](https://jakevanclief.substack.com/p/augmenting-human-intellect), the [ICM paper v2, section 6.1](https://arxiv.org/html/2603.16021v2), and the supplied `workspace-blueprint.zip` and `files.zip` (nested Eduba `vault-toolkit`, client-delivery discovery, review, and handoff contracts). The buckets and directional use of the ratio remain this skill's model; the sources' code/rules/AI heuristic is a different framing.

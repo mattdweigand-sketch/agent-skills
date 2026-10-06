@@ -22,13 +22,17 @@ For an audit, report findings without editing. For an authorized repair, fix fai
 
 Follow one task from fresh entry context through scoped inputs, output, relevant review, and an actual consumer if present. For builds or authorized repairs, run it when feasible before expanding. If execution is unavailable or outside the audit's scope, use a static trace and mark behavior unverified. Do not authorize an external action merely to complete the check.
 
+Use populated inputs and task-appropriate acceptance and rejection criteria. Observe required reads, applicable tool use, and output placement. When another person receives the work, check whether they can find the selected current input, understand the result, and make the intended next decision without the builder's explanation. Record confusion and repair its owner before expanding the workspace.
+
+Report passed, failed, skipped, and unverified checks separately. A structural check establishes only the property checked; it does not establish semantic correctness or usefulness to the receiver.
+
 Recheck a representative task after model, tool, or instruction changes before calling the workflow validated under the new conditions. Record the relevant configuration.
 
 For one demonstrated failure:
 
 1. Find the source, route, or rule that should have prevented it. Fix missing or stale context at its owner.
 2. Make one targeted change. Compare the same request and inputs in separate fresh sessions and clean copies, keeping model/tools constant when possible. Exclude earlier drafts and corrections. Declare source or environment differences and any limits on the comparison.
-3. Compare the result with the original failure and source evidence. Keep an improvement, revise an ineffective change, and remove noise.
+3. Compare the result with the original failure and source evidence. Use accepted, usable output, correction effort, and maintenance burden where relevant to the intended improvement. Keep an improvement, revise an ineffective change, and remove noise.
 4. Check another relevant example before generalizing. One successful run is evidence for that case, not a reliability guarantee.
 
 See the [fictional repair example](examples.md#repair-and-source-fidelity).
