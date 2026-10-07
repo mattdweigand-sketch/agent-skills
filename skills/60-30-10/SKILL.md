@@ -38,11 +38,11 @@ This skill produces the verdict and punch list only. It does not execute the mov
 ## Reference Loading
 
 - `references/composition-model.md` — required for step 2. Owns the buckets, routing sort, counting traps, and good or bad shapes.
-- `references/output-template.md` — required for step 6. Owns the verdict template and field specification.
+- `references/output-template.md` — required for step 7. Owns the verdict template and field specification.
 - `references/audit-worksheet.md` — load when the target is large enough that the estimate would otherwise become a vibe.
 - `references/worked-example.md` — load when the target's shape is unfamiliar and you need to calibrate depth. Treat its dated project facts as illustrative, not current.
 - `scripts/validate_composition_audit_report.py` — run only against a saved verdict. Owns the mechanically checkable output contract.
 
 ## Sources
 
-This Codex skill is ported from Matt's Claude `60-30-10` skill. It operationalizes the wiki concepts `judgment-routing`, `prompt-technical-debt`, `storage-vs-enforcement`, and `context-as-moat`. When auditing the wiki repo, read the relevant wiki pages only if needed for the target.
+Ported from Matt Weigand's earlier `60-30-10` skill. It operationalizes the concepts `judgment-routing`, `prompt-technical-debt`, `storage-vs-enforcement`, and `context-as-moat`. The shorthand comes from Matt's audits of roughly a dozen sales-enablement and agent-harness projects through mid-2026. It is a mnemonic for correct routing, not an empirical benchmark.
