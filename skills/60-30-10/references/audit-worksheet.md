@@ -14,11 +14,11 @@ Use Notes for observed context delivery, required tool availability, and relevan
 
 ## Rule Sort
 
-| Rule or apparent judgment | Current home | Correct home or delete | Consequence if wrong once | Writer and check | Reason | Safe move? |
-|---|---|---|---|---|---|---|
-|  | owner/location; owned data/code/prompt-model | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; mechanism and result | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
+| Rule or apparent judgment | Current home | Delivery | Correct home or delete | Consequence if wrong once | Writer and check | Reason | Safe move? |
+|---|---|---|---|---|---|---|---|
+|  | owner/location; owned data/code/prompt-model | observed read/retrieval/injection route; unverified if not observed | owned data/code/prompt-model/delete | low/medium/high; reversible/irreversible | human/code/model; mechanism and result | fixed sequence/steering/chosen fact/predictive/checkable | yes/no/evidence needed |
 
-For each load-bearing rule, record its canonical owner in Current home, the observed delivery route in Reason, and the actual enforcement or checking mechanism in Writer and check. State the checked property, evidence scope, result, timing before/after the write, and whether failure blocks the authoritative write or promotion. Apply the [composition model's check-status rules](composition-model.md#routing-sort) to the final verdict's checked/unchecked summary. Classify maintained records by their actual use, including records held in Markdown, and keep current placement separate from recommended placement.
+For each load-bearing rule, record its canonical owner in Current home, the observed delivery route in Delivery, the classification rationale in Reason, and the actual enforcement or checking mechanism in Writer and check. State the checked property, evidence scope, result, timing before/after the write, and whether failure blocks the authoritative write or promotion. Apply the [composition model's check-status rules](composition-model.md#check-status) to the final verdict's checked/unchecked summary. Classify maintained records by their actual use, including records held in Markdown, and keep current placement separate from recommended placement.
 
 ## Connected-target policy check
 
@@ -30,7 +30,7 @@ Record the bounded connected-target scope inspected:
 
 ## Shape Estimate
 
-Anchor the estimate in the eight to twelve load-bearing rules, not raw line count.
+Anchor the estimate in all load-bearing rules when there are fewer than eight; otherwise use the top eight to twelve. Do not estimate from raw line count.
 
 | Bucket | Estimated share | Evidence |
 |---|---:|---|
@@ -56,4 +56,4 @@ Name one highest-leverage move:
 
 ---
 
-*Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when the output template, routing sort, or cross-target check changes.*
+*Owner: Matt Weigand. Last reviewed: 2026-10-07. Re-review when the output template, routing sort, or cross-target check changes.*

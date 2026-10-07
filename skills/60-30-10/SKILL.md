@@ -45,4 +45,4 @@ This skill produces the verdict and punch list only. It does not execute the mov
 
 ## Sources
 
-Ported from Matt Weigand's earlier `60-30-10` skill. It operationalizes the concepts `judgment-routing`, `prompt-technical-debt`, `storage-vs-enforcement`, and `context-as-moat`. The shorthand comes from Matt's audits of roughly a dozen sales-enablement and agent-harness projects through mid-2026. It is a mnemonic for correct routing, not an empirical benchmark.
+Ported from Matt Weigand's earlier `60-30-10` skill. It operationalizes the concepts `judgment-routing`, `prompt-technical-debt`, `storage-vs-enforcement`, and `context-as-moat`. Matt applied the shorthand in his audits; the course's teaching framings and this skill's operational adaptation are distinguished in [source framings](references/composition-model.md#source-framings). Read [provenance](references/provenance.md) only when checking source history.

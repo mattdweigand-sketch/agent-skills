@@ -27,16 +27,45 @@ REQUIRED_REPORT_SECTIONS = (
 )
 COMPOSITION_BUCKET = r"(?:owned data|deterministic code|prompt-model work)"
 COMPOSITION_HOME = rf"{COMPOSITION_BUCKET}(?:\s*\+\s*{COMPOSITION_BUCKET})*"
+RULE_BASIS_PATTERN = re.compile(
+    rf".+?:\s*current\s+{COMPOSITION_HOME}\s*(?:→|->)\s*correct\s+"
+    rf"(?:{COMPOSITION_HOME}|delete);?\s+writer\s+(?:human|code|model)\s+—\s+"
+    r"(?:checked|unchecked)\.?",
+    re.IGNORECASE,
+)
+
+
+def rule_basis_items(section_body: str) -> list[str]:
+    """Collect top-level `- ` rules, joining wraps but excluding nested detail."""
+    items: list[str] = []
+    current: list[str] = []
+    nested_detail = False
+    for line in section_body.splitlines():
+        if line.startswith("- "):
+            if current:
+                items.append(" ".join(current))
+            current = [line[2:].strip()]
+            nested_detail = False
+        elif current and re.match(r"^[ \t]+(?:[-+*]|\d+[.)])\s+", line):
+            nested_detail = True
+        elif current and line.strip() and not nested_detail:
+            current.append(line.strip())
+    if current:
+        items.append(" ".join(current))
+    return items
 
 
 def report_section_body(report_text: str, heading: str) -> str | None:
     """Return one bold-label section body from a rendered 60-30-10 verdict."""
     pattern = re.compile(
-        rf"^\*\*{re.escape(heading)}:\*\*\s*(.*?)(?=^\*\*[^\n]+:\*\*|\Z)",
+        rf"^\*\*{re.escape(heading)}:\*\*[ \t]*(.*?)(?=^\*\*[^\n]+:\*\*|\Z)",
         re.MULTILINE | re.DOTALL,
     )
     match = pattern.search(report_text)
-    return match.group(1).strip() if match else None
+    if not match:
+        return None
+    body = match.group(1)
+    return body.strip("\r\n") if body.strip() else ""
 
 
 def validate_composition_audit_report(report_text: str) -> list[str]:
@@ -73,16 +102,15 @@ def validate_composition_audit_report(report_text: str) -> list[str]:
             errors.append(f"`{heading}` must be present and non-empty.")
 
     rule_basis = report_section_body(report_text, "Rule basis")
-    if rule_basis and not re.search(
-        rf"^-\s+.+?:\s*current\s+{COMPOSITION_HOME}\s*[→>-]\s*correct\s+"
-        rf"(?:{COMPOSITION_HOME}|delete);?\s+writer\s+(?:human|code|model)\s+—\s+"
-        r"(?:checked|unchecked)\.?$",
-        rule_basis,
-        re.IGNORECASE | re.MULTILINE,
-    ):
-        errors.append(
-            "Rule basis needs a bullet with current home, correct home or delete, "
-            "and writer/check status.")
+    if rule_basis:
+        items = rule_basis_items(rule_basis)
+        if not items:
+            errors.append("Rule basis needs at least one top-level `- ` rule bullet.")
+        for index, item in enumerate(items, start=1):
+            if not RULE_BASIS_PATTERN.fullmatch(item):
+                errors.append(
+                    f"Rule basis bullet {index} needs current home, correct home or "
+                    "delete, a `→` or `->` separator, and writer/check status.")
 
     bucket_findings = report_section_body(report_text, "Bucket findings")
     if bucket_findings:

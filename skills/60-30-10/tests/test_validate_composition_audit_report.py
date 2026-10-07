@@ -42,8 +42,96 @@ VALID_REPORT = """\
 
 
 class ValidateCompositionAuditReportTests(unittest.TestCase):
+    def report_with_rules(self, rules: str) -> str:
+        return VALID_REPORT.replace(
+            "- Pricing policy: current owned data → correct owned data; writer human — checked.",
+            rules,
+        )
+
     def test_valid_report_passes(self) -> None:
         self.assertEqual(VALIDATOR_MODULE.validate_composition_audit_report(VALID_REPORT), [])
+
+    def test_ascii_arrow_passes(self) -> None:
+        report = VALID_REPORT.replace(" → ", " -> ")
+        self.assertEqual(VALIDATOR_MODULE.validate_composition_audit_report(report), [])
+
+    def test_lone_hyphen_and_greater_than_fail(self) -> None:
+        for separator in ("-", ">"):
+            with self.subTest(separator=separator):
+                report = VALID_REPORT.replace(" → ", f" {separator} ")
+                self.assertTrue(VALIDATOR_MODULE.validate_composition_audit_report(report))
+
+    def test_multiple_valid_rules_pass(self) -> None:
+        rules = (
+            "- Pricing policy: current owned data → correct owned data; writer human — checked.\n"
+            "- Stage gate: current prompt-model work -> correct deterministic code; writer model — unchecked.\n"
+            "- Fixed decision: current prompt-model work → correct delete; writer human — unchecked."
+        )
+        self.assertEqual(
+            VALIDATOR_MODULE.validate_composition_audit_report(self.report_with_rules(rules)), []
+        )
+
+    def test_malformed_top_level_rule_fails_in_every_position(self) -> None:
+        valid = "- Policy: current owned data → correct owned data; writer human — checked."
+        for index in range(3):
+            with self.subTest(index=index):
+                rules = [valid, valid, valid]
+                rules[index] = "- garbage"
+                errors = VALIDATOR_MODULE.validate_composition_audit_report(
+                    self.report_with_rules("\n".join(rules))
+                )
+                self.assertEqual(len(errors), 1, errors)
+                self.assertIn(f"bullet {index + 1}", errors[0])
+
+    def test_wrapped_rule_passes(self) -> None:
+        for indent in ("", "  "):
+            with self.subTest(indent=indent):
+                rules = (
+                    "- Pricing policy: current owned data\n"
+                    f"{indent}-> correct owned data;\n"
+                    f"{indent}writer human — checked."
+                )
+                self.assertEqual(
+                    VALIDATOR_MODULE.validate_composition_audit_report(
+                        self.report_with_rules(rules)
+                    ), []
+                )
+
+    def test_nested_supporting_detail_passes(self) -> None:
+        for marker in ("-", "*", "+", "1."):
+            with self.subTest(marker=marker):
+                rules = (
+                    "- Pricing policy: current owned data → correct owned data; writer human — checked.\n"
+                    f"  {marker} Evidence: the record schema passed.\n"
+                    "    This continuation describes the evidence, not another rule.\n"
+                    "- Routing: current prompt-model work → correct prompt-model work; writer human — unchecked."
+                )
+                self.assertEqual(
+                    VALIDATOR_MODULE.validate_composition_audit_report(
+                        self.report_with_rules(rules)
+                    ), []
+                )
+
+    def test_valid_nested_rule_cannot_rescue_invalid_parent(self) -> None:
+        rules = (
+            "- garbage\n"
+            "  - Pricing policy: current owned data → correct owned data; writer human — checked."
+        )
+        self.assertTrue(
+            VALIDATOR_MODULE.validate_composition_audit_report(self.report_with_rules(rules))
+        )
+
+    def test_nested_rule_only_is_not_a_top_level_rule(self) -> None:
+        rules = "  - Pricing policy: current owned data → correct owned data; writer human — checked."
+        self.assertTrue(
+            VALIDATOR_MODULE.validate_composition_audit_report(self.report_with_rules(rules))
+        )
+
+    def test_missing_rule_fields_fail(self) -> None:
+        for fragment in ("current owned data", "correct owned data", "writer human", "checked"):
+            with self.subTest(fragment=fragment):
+                report = VALID_REPORT.replace(fragment, "", 1)
+                self.assertTrue(VALIDATOR_MODULE.validate_composition_audit_report(report))
 
     def test_bad_shape_and_missing_leave_fail(self) -> None:
         report = VALID_REPORT.replace("~40/40/20", "~40/40/10").replace(

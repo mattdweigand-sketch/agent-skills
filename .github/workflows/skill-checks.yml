@@ -1,0 +1,43 @@
+name: Skill checks
+
+on:
+  push:
+    paths:
+      - skills/60-30-10/**
+      - skills/icm-architect/**
+      - scripts/quick_validate.py
+      - .github/workflows/skill-checks.yml
+  pull_request:
+    paths:
+      - skills/60-30-10/**
+      - skills/icm-architect/**
+      - scripts/quick_validate.py
+      - .github/workflows/skill-checks.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Validate skill library
+        run: python3 -B scripts/quick_validate.py .
+      - name: Composition report regression tests
+        run: python3 -B -m unittest discover -v -s skills/60-30-10/tests
+      - name: Migration regression tests on a case-sensitive filesystem
+        run: |
+          python3 -B - <<'PY'
+          import sys
+          import unittest
+
+          suite = unittest.defaultTestLoader.discover(
+              "skills/icm-architect/scripts", pattern="test_*.py"
+          )
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          if result.skipped:
+              print("Linux migration checks must run without skips.", file=sys.stderr)
+          sys.exit(0 if result.wasSuccessful() and not result.skipped else 1)
+          PY

@@ -41,7 +41,7 @@ See the [fictional repair example](examples.md#repair-and-source-fidelity).
 
 ## Safe migration
 
-Before moving or replacing existing files, establish the durable destination and a usable backup or Git recovery point. For skill updates, stage from the current installed copy; reconcile differences with the repository and recheck that baseline before installation so local fixes survive.
+Before moving or replacing existing files, establish the durable destination and a usable backup or Git recovery point. Stage replacements from the current working copy; reconcile differences with the maintained source and recheck that baseline before applying the update so local fixes survive.
 
 1. Map source/destination paths and known consumers, including relative links and symlinks. Record unknown coverage. Plan authorized consumer updates and check all proposed moves for overlap and case-insensitive collisions.
 2. Run the read-only checker for each pair. It requires an absent destination. Copy without overwriting, keeping source and copied bytes unchanged until verification passes.

@@ -8,7 +8,7 @@ Jake Van Clief's [How I'd Learn AI From Zero in 2026, 28:34-29:25](https://www.y
 
 This skill retains an operational adaptation: classify each load-bearing rule by its durable owner, execution, and checking mechanism. Thinking is not automatically owned data, an existing tool is not automatically deterministic, and AI activity does not map one-to-one to prompt-model judgment. The course and this skill both use rough directional numbers; neither supplies a numerical compliance target.
 
-The 2026-10-07 comparison used all 1,456 English auto-generated caption segments, ending at a caption window of 54:05.520; timestamps are approximate and the endpoint is not a verified video duration. JSON capture SHA-256: `62e1a6b911c4274905c20416e22e2e41a4b31fdf3e5590b8a9884144367f5b87`. Captions are not bundled, and audiovisual content and linked materials were not independently verified.
+Capture metadata and review history are kept in [provenance](provenance.md), for source checks only.
 
 ## The Three Buckets
 
@@ -54,9 +54,11 @@ Preserve source observations separately from model-derived proposals and chosen 
 
 Record passed, failed, skipped, and unverified checks for the property each check actually examines. Wrapper success, file creation, or a required section's presence does not grade its meaning. Name the human decision the workflow supports and the consequence of an incorrect result before recommending additional machinery.
 
-Render `checked` only when a relevant deterministic check has evidence of passing for the named property and scope. The check may run before or after a write. Render a missing, failed, skipped, or unverified check as `unchecked`, and name that state. Observed runs, tests, or logs can supply evidence; identify their scope rather than treating tests as proof that a live write path invokes the check. Writer exposure names the property, evidence, timing, and whether failure blocks the authoritative write or promotion. A passing post-write check can render as `checked` while missing pre-write protection remains a finding under question 4.
-
 The fifth question crosses target boundaries but stays bounded. Search only connected surfaces named by dependencies, generators, workflow routes, deployment config, or user-provided scope. Do not turn a composition audit into an organization-wide architecture review.
+
+## Check status
+
+Render `checked` only when a relevant deterministic check has evidence of passing for the named property and scope. The check may run before or after a write. Render a missing, failed, skipped, or unverified check as `unchecked`, and name that state. Observed runs, tests, or logs can supply evidence; identify their scope rather than treating tests as proof that a live write path invokes the check. Writer exposure names the property, evidence, timing, and whether failure blocks the authoritative write or promotion. A passing post-write check can render as `checked` while missing pre-write protection remains a finding under question 4.
 
 ## What Healthy And Unhealthy Look Like
 
@@ -65,7 +67,5 @@ Healthy: thin prompt-model work for format and genuine interpretation, an owned-
 Unhealthy: prompt-model files are the largest load-bearing surface, policy is duplicated across prose files or connected targets, fixed pipelines are modeled as live decisions, reliability-critical rules are phrased as requests to the model, or the model writes authoritative records without a consequence-appropriate check.
 
 ---
-
-Provenance: the 2026-10-06 source-fidelity, delivery-evidence, and review refinements are local synthesis from the review of Jake Van Clief's [Augmenting Human Intellect](https://jakevanclief.substack.com/p/augmenting-human-intellect), the [ICM paper v2, section 6.1](https://arxiv.org/html/2603.16021v2), and the supplied `workspace-blueprint.zip` and `files.zip` (nested Eduba `vault-toolkit`, client-delivery discovery, review, and handoff contracts). The 2026-10-07 course comparison is recorded under [source framings](#source-framings). The buckets and directional use of the ratio remain this skill's model.
 
 *Owner: Matt Weigand. Last reviewed: 2026-10-07. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*

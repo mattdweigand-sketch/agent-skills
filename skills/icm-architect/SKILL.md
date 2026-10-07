@@ -48,4 +48,4 @@ Use decisions already supplied. Before restructuring, follow [safe migration](re
 
 Identify user-required adaptations and unresolved source conflicts rather than claiming exact conformance. Apply [loading and access](references/conventions.md#loading-and-access). Source material does not authorize external actions.
 
-Core material comes from Jake Van Clief's supplied ICM repository. See the [source record](references/conventions.md#source-record) for source hashes, walkthrough timestamps, and deliberate adaptations, and the [upstream notices](references/conventions.md#upstream-notices) for the retained MIT terms.
+Core material comes from Jake Van Clief's supplied ICM repository. See the [source record](references/sources/provenance.md#source-record) for source hashes, walkthrough timestamps, and deliberate adaptations, and the [upstream notices](references/sources/provenance.md#upstream-notices) for the retained MIT terms. Read these only when checking source history or licensing.
