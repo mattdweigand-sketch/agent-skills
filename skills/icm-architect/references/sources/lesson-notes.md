@@ -32,4 +32,17 @@ Archive SHA-256 identities: `workspace-blueprint.zip` = `bb7003146b12924d981bbb5
 
 Bounded critique/retry advice in the reviewed community material includes contributions from Bas; it is not attributed solely to Jake. The client follow-up example is a fictional local adaptation, not a recorded workflow run. Source instructions do not authorize actions in a user's workspace.
 
+## Additional source review: 2026-10-07
+
+Source: [How I'd Learn AI From Zero in 2026 (the full free course)](https://www.youtube.com/watch?v=6AzLk2-kWyY), channel Jake Van Clief. The full English auto-generated transcript was reviewed: 1,456 overlapping caption segments, with the final caption window ending at 54:05.520. This is a caption endpoint, not a verified video duration. JSON capture SHA-256: `62e1a6b911c4274905c20416e22e2e41a4b31fdf3e5590b8a9884144367f5b87`.
+
+| Caption window | Summary and local application |
+|---|---|
+| [28:34-29:25](https://www.youtube.com/watch?v=6AzLk2-kWyY&t=1714s) | Revised 60/30/10: data, questions, and thinking / existing tools / AI. This teaching heuristic differs from the local composition skill's owned-data / deterministic-code / prompt-model buckets. |
+| [37:44-40:24](https://www.youtube.com/watch?v=6AzLk2-kWyY&t=2264s) | Several roles can use one model with different instructions and tools. Helpers can earn their cost through independent parallel work, context separation, or continuous work. Local conventions retain authorization and runtime requirements. |
+| [45:22-49:21](https://www.youtube.com/watch?v=6AzLk2-kWyY&t=2722s) | Reuse tools and automate predictable steps incrementally, with clear inputs and outputs, a routed command, and comparison against a known manual result. Interpretation remains with the model and person; repeatability alone does not establish correctness. |
+| [50:52-52:43](https://www.youtube.com/watch?v=6AzLk2-kWyY&t=3052s) | Check fresh-session orientation and whether a person can navigate and continue the work without AI. Local validation tests the intended human action and permits explicit limits when the task requires AI. |
+
+These are short paraphrases and authored adaptations. Captions may contain recognition errors and timestamps are approximate. Audiovisual content, linked materials, historical claims, and productivity anecdotes were not independently verified. Full captions are retained in the wiki's raw evidence, not bundled here.
+
 See the maintained [conventions](../conventions.md), [templates](../templates.md), [validation](../validation.md), and [examples](../examples.md) for application. Course examples do not authorize access or publication.

@@ -1,6 +1,14 @@
 # Composition Model
 
-The buckets, routing sort, counting traps, and healthy or unhealthy shapes that back the 60/30/10 audit. In this skill the order is always **owned data / deterministic code / prompt-model work**; code/rules/AI is a different heuristic. Load this when running an audit; `SKILL.md` keeps only the invocation boundary, thesis, and procedure.
+The buckets, routing sort, counting traps, and healthy or unhealthy shapes that back the 60/30/10 audit. In this skill the order is always **owned data / deterministic code / prompt-model work**. Load this when running an audit; `SKILL.md` keeps only the invocation boundary, thesis, and procedure.
+
+## Source framings
+
+Jake Van Clief's [How I'd Learn AI From Zero in 2026, 28:34-29:25](https://www.youtube.com/watch?v=6AzLk2-kWyY&t=1714s) revises the teaching heuristic to 60% data, questions, and thinking / 30% existing tools / 10% AI, and describes his older version as code, routing, and AI calls. The code/rules/AI heuristic previously cited by this package is also a separate framing.
+
+This skill retains an operational adaptation: classify each load-bearing rule by its durable owner, execution, and checking mechanism. Thinking is not automatically owned data, an existing tool is not automatically deterministic, and AI activity does not map one-to-one to prompt-model judgment. The course and this skill both use rough directional numbers; neither supplies a numerical compliance target.
+
+The 2026-10-07 comparison used all 1,456 English auto-generated caption segments, ending at a caption window of 54:05.520; timestamps are approximate and the endpoint is not a verified video duration. JSON capture SHA-256: `62e1a6b911c4274905c20416e22e2e41a4b31fdf3e5590b8a9884144367f5b87`. Captions are not bundled, and audiovisual content and linked materials were not independently verified.
 
 ## The Three Buckets
 
@@ -58,6 +66,6 @@ Unhealthy: prompt-model files are the largest load-bearing surface, policy is du
 
 ---
 
-Provenance: the 2026-10-06 source-fidelity, delivery-evidence, and review refinements are local synthesis from the review of Jake Van Clief's [Augmenting Human Intellect](https://jakevanclief.substack.com/p/augmenting-human-intellect), the [ICM paper v2, section 6.1](https://arxiv.org/html/2603.16021v2), and the supplied `workspace-blueprint.zip` and `files.zip` (nested Eduba `vault-toolkit`, client-delivery discovery, review, and handoff contracts). The buckets and directional use of the ratio remain this skill's model; the sources' code/rules/AI heuristic is a different framing.
+Provenance: the 2026-10-06 source-fidelity, delivery-evidence, and review refinements are local synthesis from the review of Jake Van Clief's [Augmenting Human Intellect](https://jakevanclief.substack.com/p/augmenting-human-intellect), the [ICM paper v2, section 6.1](https://arxiv.org/html/2603.16021v2), and the supplied `workspace-blueprint.zip` and `files.zip` (nested Eduba `vault-toolkit`, client-delivery discovery, review, and handoff contracts). The 2026-10-07 course comparison is recorded under [source framings](#source-framings). The buckets and directional use of the ratio remain this skill's model.
 
-*Owner: Matt Weigand. Last reviewed: 2026-10-06. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*
+*Owner: Matt Weigand. Last reviewed: 2026-10-07. Re-review when the routing sort, consequence model, cross-target boundary, or writer-exposure model changes materially.*

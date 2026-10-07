@@ -20,6 +20,10 @@ References constrain the work; task artifacts are what the agent transforms. Kee
 
 Determine an input's role from its use and authority for the current consumer, not its folder or layer label. Keep the original request distinct from a proposed interpretation; preserve observations, derived claims, assumptions, and chosen scope without turning one into another.
 
+## Roles and separate agents
+
+Start with one agent following task-specific instructions and tools. A role, folder, or stage does not require a separate agent. When delegation is authorized and supported, add a helper for independent work that benefits from parallel execution, a task whose context would overwhelm the main session, or continuous work that needs a separate supported runtime. Name the bounded job, inputs, output, and handoff; weigh the benefit against token use, waiting, and coordination costs. A monitoring role alone does not authorize scheduling or persistent execution.
+
 ## Loading and access
 
 `AGENTS.md` is the template convention. Connect entry guidance through the active agent's supported instruction mechanism, or provide it explicitly. Preserve established entry-point ownership instead of creating competing instruction files.
@@ -70,6 +74,12 @@ Keep chosen scope in one maintained home, or explicitly select a frozen reviewed
 ## Pattern 7: Tool prerequisites
 
 Name required tools and check their availability. For missing setup knowledge, link a guide describing installation, verification, and how the workspace uses the tool. Keep a guide with its stage or in shared references when several stages use it. Bundled scripts can still require external runtimes or dependencies; inspect them rather than assuming the bundle is self-sufficient.
+
+## Execution allocation
+
+For each task step, identify what existing tools or code can execute, what needs model interpretation, and what requires human judgment. Reuse available tools first. Prefer a supported export or API to repeated interface clicks when it fits the task and permissions. A repeatedly predictable step with fixed rules is a candidate for a narrow script; keep work requiring interpretation with the model and responsible person.
+
+Give new automation clear inputs and outputs, preserve established code locations, and add its command and use condition to the task route. Compare it with a known manual result using representative inputs and task-appropriate failure cases before relying on it. Automate one demonstrated step at a time. Repeatable execution does not establish semantic correctness, and code invoking a learned model still needs its output checked. A scripts folder and a separate composition audit are optional, not prerequisites.
 
 ## Trigger keywords
 
@@ -141,7 +151,7 @@ Walkthrough evidence is paraphrased from English auto-generated captions retriev
 - [Folder architecture, 1:11](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=71s): entry map; [2:17](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=137s): Input, Do, Output, Human check; [7:51](https://www.youtube.com/watch?v=n1qE6NU7K_4&t=471s): fresh-chat navigation check.
 - [Reviewable stages, 2:34](https://www.youtube.com/watch?v=EhWlGingCl0&t=154s): workspace pipeline table; [4:11](https://www.youtube.com/watch?v=EhWlGingCl0&t=251s): review before downstream production.
 
-Course-derived additions and the 2026-10-06 source review are summarized with links in [lesson notes](sources/lesson-notes.md); full source text is not distributed in this package. The [example index](examples.md) contains compact authored adaptations.
+Course-derived additions and the 2026-10-06 and 2026-10-07 source reviews are summarized with links in [lesson notes](sources/lesson-notes.md); full source text is not distributed in this package. The [example index](examples.md) contains compact authored adaptations.
 
 Deliberate adaptations include task-sized workspaces, optional pipelines, concise local context, source coverage, explicit review roles, and comparable repair runs. These supersede earlier blanket pipeline and context-purity requirements. Safe-migration checks came from `mattdweigand-sketch/agent-skills` commit `ae2ae17`; they are local safeguards, not requirements attributed to the videos.
 

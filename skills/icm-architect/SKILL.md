@@ -3,7 +3,7 @@ name: icm-architect
 description: "Audit, build, or restructure a repository using the Interpretable Context Methodology framework."
 metadata:
   adaptation: 'Agent-neutral ICM with task-sized workspaces and optional staged pipelines'
-  last_reviewed: '2026-10-02'
+  last_reviewed: '2026-10-07'
 ---
 
 # ICM Architect
@@ -37,7 +37,7 @@ Respect the active sandbox and tool permissions; task approval does not expand t
 Select the relevant [templates](references/templates.md) and scale the builder sequence to the task:
 
 1. Identify the next deliverable, intended audience and use, workspace boundaries, eligible inputs, output location, quality criteria, review points, and needed tools or domain skills. Include reusable configuration and optional stages only where applicable. Present the proposed map for review, using decisions already supplied.
-2. Map task routes, canonical owners, and dependencies. For sequential work, define stage contracts and review the actual handoffs with the user.
+2. Map task routes, canonical owners, and dependencies. Assign [roles and agents](references/conventions.md#roles-and-separate-agents) and [execution responsibilities](references/conventions.md#execution-allocation) to the work. For sequential work, define stage contracts and review the actual handoffs with the user.
 3. Scaffold only the entry, local guidance, and folders needed for that task. Use numbered stages where ordering matters; preserve established code and artifact locations. Include domain skills and shared configuration only when needed.
 4. Configure known values directly. If a reusable workspace has unresolved system-level choices, map them to a flat, one-pass questionnaire with placeholders and target files. Collect per-run inputs at task entry. Review derived voice/style rules with the user when applicable.
 5. Validate applicable checks, run the representative task when authorized and feasible, and use the [repair method](references/validation.md#representative-task-and-repair) for demonstrated problems. Remove instructions that add noise. Label a static trace as such and distinguish a reusable template from a configured, ready-to-run workspace.

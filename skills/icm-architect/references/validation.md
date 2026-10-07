@@ -14,7 +14,7 @@ Inspect the exact target and version. Use the [conventions](conventions.md) and 
 8. **Quality and evidence.** Assess observable acceptance criteria. For source-derived items, inspect supporting references and certainty under [selective routing](conventions.md#pattern-4-selective-section-routing); report contradictions. Keep workspace checks proportional to the task.
 9. **Specifications.** Match outcome and acceptance criteria to the consumer. The video-production WHAT/WHEN versus HOW split is not a universal rule for software architecture.
 10. **Size and naming.** Apply the conventions' review signals and naming rules. Do not split sources automatically or scaffold unused empty folders.
-11. **Prerequisites and formatting.** Verify required tools or report the unverified prerequisite. Check authored Markdown, local references, and unclear terminology.
+11. **Prerequisites and execution.** Verify required tools or report the unverified prerequisite. Check added helpers against [agent criteria](conventions.md#roles-and-separate-agents) and automation against [execution allocation](conventions.md#execution-allocation), including comparison with a known manual result. Check authored Markdown, local references, and unclear terminology.
 
 For an audit, report findings without editing. For an authorized repair, fix failed checks and rerun them.
 
@@ -23,6 +23,8 @@ For an audit, report findings without editing. For an authorized repair, fix fai
 Follow one task from fresh entry context through scoped inputs, output, relevant review, and an actual consumer if present. For builds or authorized repairs, run it when feasible before expanding. If execution is unavailable or outside the audit's scope, use a static trace and mark behavior unverified. Do not authorize an external action merely to complete the check.
 
 Use populated inputs and task-appropriate acceptance and rejection criteria. Observe required reads, applicable tool use, and output placement. When another person receives the work, check whether they can find the selected current input, understand the result, and make the intended next decision without the builder's explanation. Record confusion and repair its owner before expanding the workspace.
+
+For fresh-session orientation, ask what the workspace is, what is in progress, and what comes next; compare the answers with the selected current artifacts and review status. Unknown status should remain unknown. For a human handoff, also check whether the receiver can follow the map, locate inputs and tools, and carry out the intended work or next decision without AI assistance. A static inspection or builder walkthrough leaves independent human usability unverified. If the task itself requires AI, test the human's navigation and next decision rather than requiring replacement of that capability.
 
 Report passed, failed, skipped, and unverified checks separately. A structural check establishes only the property checked; it does not establish semantic correctness or usefulness to the receiver.
 

@@ -54,3 +54,9 @@ Suppose the account owner reviewed `drafts/follow-up-v1.md` against that note. I
 ## Planning handoff
 
 Use the [optional decision brief](templates.md#decision-brief-optional) when another step needs the chosen approach and its reasons. An existing brief carrying those facts is sufficient.
+
+## Roles and stable steps
+
+Fictional weekly client report: an existing export and spreadsheet tool produce totals, one model interprets the changes and drafts commentary, and the account owner reviews the result before any authorized sending. These are separate responsibilities in one task route, not three required agents.
+
+Once the export-to-table rules are stable, a narrow command can accept one export and write one table in the existing artifact location. Compare it with a previously checked manual table, including a relevant missing-field case, before adding the command to the route. Keep interpretation with the model. Independent company research may justify a bounded helper when delegation is authorized and its benefit warrants the coordination cost. For handoff, the account owner should be able to locate the export, selected table, and review decision by following the map without AI assistance. This is an authored example, not a tested workflow.

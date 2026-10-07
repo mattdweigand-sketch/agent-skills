@@ -11,7 +11,7 @@ Run this workflow only when the user directly invokes `$60-30-10` or `/60-30-10`
 
 Evaluate whether a project puts each kind of judgment in its most durable home: facts and chosen policy in owned data, consequence-worthy checks and fixed execution in deterministic code, and only genuine interpretation and steering in prompt-model work.
 
-In this skill, `60/30/10` always means **owned data / deterministic code / prompt-model work**. It does not mean the separate public or source heuristic of 60% traditional code / 30% rule-based logic / 10% AI calls.
+In this skill, `60/30/10` always means **owned data / deterministic code / prompt-model work**. These are local operational buckets; see [source framings](references/composition-model.md#source-framings) for the course's revised data-and-thinking / existing-tools / AI framing and older code/rules/AI heuristics.
 
 The principle this enforces: every necessary piece of judgment has a right home, and the default home, prose in a prompt, is usually the wrong one. `60/30/10` is a memorable directional guideline for that principle, not a quota, score, compliance threshold, codebase-composition claim, or required numerical result. A healthy system routes each piece to the bucket that fits; its actual ratio may differ substantially for good domain-specific reasons. The failure mode is not missing an exact percentage. It is manufacturing live decisions for fixed sequences or trapping durable and consequence-worthy judgment in perishable model context.
 
