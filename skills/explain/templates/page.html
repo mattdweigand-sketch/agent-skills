@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="[Topic title]. [One plain answer line.]">
+<meta name="color-scheme" content="dark light"><title>[Topic title]</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="./assets/base.css"><link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/lesson.css">
+<script src="./assets/app.js" defer></script>
+<noscript><style>.switch,.theme{display:none}</style></noscript>
+</head>
+<body>
+<!-- Layout skeleton only. Replace every [bracket] with lesson content. Follow the page structure in references/visual-direction.md. -->
+<div data-ste="proc"><a class="skip" href="#main">Skip to lesson</a></div>
+<header class="masthead wrap" data-ste="ui"><a class="wordmark" href="#main">[Short lesson label]</a><button class="theme" id="theme" aria-pressed="false" data-ste="proc">Use light theme</button></header>
+<main id="main">
+
+<!-- 1. Title names the topic. One plain answer line below it. -->
+<section class="hero wrap">
+<h1 data-ste="ui">[Topic title, first part] <br><span>[second part.]</span></h1>
+<div class="hero-bottom"><p class="lead" data-ste="desc">[One plain sentence that answers the question.]</p></div>
+</section>
+
+<!-- 2. Story. One fresh example that fits the topic. Define each technical term in one plain sentence at first use. -->
+<section id="story" class="lesson wrap story">
+<h2 data-ste="ui">[Story heading]</h2>
+<p data-ste="desc">[Who the person is and what they need.]</p>
+<p data-ste="desc">[Bring in the technology with its real name and a plain definition.]</p>
+<p data-ste="desc">[What happens next, one step at a time.] <a class="cite" href="[source URL]" target="_blank" rel="noopener noreferrer">([Source name])</a></p>
+</section>
+
+<!-- 3. One interactive part next to the story it shows. Label illustrative results as made up. -->
+<section id="try" class="lesson wrap story">
+<h2 data-ste="ui">[Interactive heading]</h2>
+<div class="experiment">
+<p data-ste="proc">[Choose an option.]</p>
+<div class="switch" role="group" aria-label="[Option group name]"><button data-group="choice" data-target="choice-a" aria-controls="choice-a" aria-pressed="true" data-ste="proc">[Option A]</button><button data-group="choice" data-target="choice-b" aria-controls="choice-b" aria-pressed="false" data-ste="proc">[Option B]</button><button data-group="choice" data-target="choice-c" aria-controls="choice-c" aria-pressed="false" data-ste="proc">[Option C]</button></div>
+<div class="match-region" aria-live="polite" aria-atomic="true">
+<div id="choice-a" data-panel="choice"><p class="document-label" data-ste="ui">[Input label]</p><blockquote class="search-question" data-ste="quote">[Input A]</blockquote><p class="document-label" data-ste="ui">[Result label]</p><h3 class="match-name" data-ste="quote">[Result A]</h3></div>
+<div id="choice-b" data-panel="choice" hidden><p class="document-label" data-ste="ui">[Input label]</p><blockquote class="search-question" data-ste="quote">[Input B]</blockquote><p class="document-label" data-ste="ui">[Result label]</p><h3 class="match-name" data-ste="quote">[Result B]</h3></div>
+<div id="choice-c" data-panel="choice" hidden><p class="document-label" data-ste="ui">[Input label]</p><blockquote class="search-question" data-ste="quote">[Input C]</blockquote><p class="document-label" data-ste="ui">[Result label]</p><h3 class="match-name" data-ste="quote">[Result C]</h3></div>
+</div>
+<p class="small muted" data-ste="desc">[These results are made up. This page makes no live calls.]</p>
+</div>
+<p data-ste="desc">[What the result means and its limit.]</p>
+</section>
+
+<!-- 4. Short closing that restates the main idea. -->
+<section class="closing wrap"><h2 data-ste="ui">[Main idea as a heading.]</h2><p data-ste="desc">[Two short sentences that restate it.]</p></section>
+
+<!-- 5. More detail. Collapsed sections for technical facts such as fields, code, limits, models, and pricing. -->
+<section class="lesson wrap" aria-labelledby="details-heading">
+<h2 id="details-heading" data-ste="ui">More detail</h2>
+<details><summary data-ste="proc">[Read about one technical topic]</summary><div class="detail-body">
+<p data-ste="desc">[Technical facts with citations.] <a class="cite" href="[source URL]" target="_blank" rel="noopener noreferrer">([Source name])</a></p>
+</div></details>
+</section>
+</main>
+<footer class="wrap"><div class="footer-line" data-ste="ui"><span>[TOPIC / LESSON 01]</span><span>Sources reviewed [date]</span></div>
+<details class="source-details"><summary data-ste="proc">Open source addresses</summary><p class="small" data-ste="proc">If your preview blocks new tabs, select an address.</p><ol class="source-list" data-ste="quote">
+<li><a target="_blank" rel="noopener noreferrer" href="[source URL]">[source URL]</a></li>
+</ol></details></footer>
+</body>
+</html>

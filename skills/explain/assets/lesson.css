@@ -1,0 +1,13 @@
+.hero-bottom .lead{grid-column:1/-1;max-width:60ch}
+.story h2{margin-bottom:var(--s8)}
+.story>p{max-width:65ch;margin-block:var(--s5)}
+.story .experiment{margin-block:var(--s8)}
+.experiment>p{max-width:65ch;margin-bottom:var(--s5)}
+.match-region{min-height:240px;padding-block:var(--s8)}
+.search-question{font-size:clamp(1.125rem,1rem + .5vw,1.5rem);margin-block:var(--s4) var(--s8)}
+.match-name{font-size:var(--h2);font-weight:400;color:var(--accent);margin-top:var(--s4)}
+.experiment .cite,.experiment button[aria-pressed=false]:hover{color:var(--selection)}
+button:active,a:active{opacity:1}
+button:active{border-color:var(--selection)}
+a:active{text-decoration:underline}
+@media(max-width:760px){.match-region{min-height:290px}}

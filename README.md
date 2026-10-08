@@ -14,6 +14,7 @@ Each skill keeps its full workflow in `skills/<skill-name>/SKILL.md`.
 |---|---|
 | `60-30-10` | Evaluate whether load-bearing judgment is routed to owned data, deterministic code, or prompt-model work. |
 | `build` | Interviews the user to define the result, builds it, and checks it against the agreed requirements. Covers tools, documents, spreadsheets, skills, workflows, and prototypes. |
+| `explain` | Creates responsive HTML lessons when explicitly invoked, with a focused teaching approach and selected ASD-STE100 writing methods. |
 | `icm-architect` | Designs processes and knowledge as walkable folder-based workspaces, or restructures existing folders to follow ICM conventions. |
 | `karpathy-guidelines` | Keeps coding work simple, scoped, and easy to verify. |
 | `skill-tune` | Audit or refactor a skill or prompt artifact for prompt technical debt. |
